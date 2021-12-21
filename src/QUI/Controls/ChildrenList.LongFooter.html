@@ -53,7 +53,7 @@
             <div class="qui-control-childrenlist-longFooter-entry-image grid-40 grid-container">
                 <a href="{url site=$Child}">
                     {image src=$Child->getAttribute('image_site') width="500" type="resize"
-                    title="{$Child->getAttribute('title')|escape:"html"}"}
+                    title="{$Child->getAttribute('title')|escape:'html'}"}
                 </a>
             </div>
             {/if}
