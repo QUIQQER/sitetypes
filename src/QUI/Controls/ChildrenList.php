@@ -283,6 +283,11 @@ class ChildrenList extends QUI\Control
                 $css      = \dirname(__FILE__).'/ChildrenList.Gallery.css';
                 $template = \dirname(__FILE__).'/ChildrenList.Gallery.html';
                 break;
+
+            case 'bigBanner':
+                $css      = \dirname(__FILE__).'/ChildrenList.BigBanner.css';
+                $template = \dirname(__FILE__).'/ChildrenList.BigBanner.html';
+                break;
         }
 
         $this->addCSSFile($css);
