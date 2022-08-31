@@ -135,9 +135,9 @@
         </locale>
 
         <locale name="list.more">
-            <de><![CDATA[mehr]]></de>
-            <en><![CDATA[more]]></en>
-            <pl><![CDATA[więcej]]></pl>
+            <de><![CDATA[Mehr]]></de>
+            <en><![CDATA[More]]></en>
+            <pl><![CDATA[Więcej]]></pl>
         </locale>
         <locale name="list.icons.more">
             <de><![CDATA[Weiter]]></de>

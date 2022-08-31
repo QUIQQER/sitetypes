@@ -53,7 +53,8 @@ class ChildrenList extends QUI\Control
             // list of sites to display,
             'children'                   => false,
             // load all children of list site if the 'children' attribute is empty
-            'loadAllChildrenOnEmptyList' => true
+            'loadAllChildrenOnEmptyList' => true,
+            'fontColor'                  => '#fff' // relevant for some templates (e.g. bigBanner)
         ]);
 
         parent::__construct($attributes);
@@ -282,6 +283,11 @@ class ChildrenList extends QUI\Control
             case 'gallery':
                 $css      = \dirname(__FILE__).'/ChildrenList.Gallery.css';
                 $template = \dirname(__FILE__).'/ChildrenList.Gallery.html';
+                break;
+
+            case 'bigBanner':
+                $css      = \dirname(__FILE__).'/ChildrenList.BigBanner.css';
+                $template = \dirname(__FILE__).'/ChildrenList.BigBanner.html';
                 break;
         }
 
