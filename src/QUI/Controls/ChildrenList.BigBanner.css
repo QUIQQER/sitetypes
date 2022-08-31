@@ -1,17 +1,19 @@
 @CHARSET "UTF-8";
 .qui-control-childrenlist-bigBanner-entry {
-    background-color: #eee;
     position: sticky;
     top: 0;
 }
 
 .qui-control-childrenlist-bigBanner-entry-image {
+    background-image: linear-gradient(0deg, #282726, #1d1b1a);
+    min-height: 500px;
     position: relative;
 }
 
 .qui-control-childrenlist-bigBanner-entry-image img {
     display: block;
     max-height: 100vh;
+    min-height: 500px;
     object-fit: cover;
     object-position: center;
     width: 100%;
@@ -19,6 +21,7 @@
 
 .qui-control-childrenlist-bigBanner-entry-content {
     bottom: 0;
+    color: var(--qui-childrenList-bigBanner-fontColor);
     height: 100%;
     left: 0;
     position: absolute;
@@ -27,25 +30,43 @@
     width: 100%;
 }
 
-.qui-control-childrenlist-bigBanner-entry-content .grid-container {
+.qui-control-childrenlist-bigBanner-entry-content > .grid-container {
     align-items: center;
     display: flex;
     height: 100%;
 }
 
-.qui-control-childrenlist-bigBanner-entry-content .grid-container .grid-100 {
-    color: #fff;
+.qui-control-childrenlist-bigBanner-entry-content > .grid-container > .grid-100 {
     max-width: 80ch;
 }
 
 .qui-control-childrenlist-bigBanner-entry-content-title {
-    font-size: clamp(var(--qui-fs-2xl, 2rem), 4vw, var(--qui-fs-4xl, 4rem));
+    font-size: clamp(var(--qui-fs-2xl, 2rem), 5vw, var(--qui-fs-4xl, 4rem));
 }
 
 .qui-control-childrenlist-bigBanner-entry-content-meta {
+    font-size: var(--qui-fs-sm, 0.875rem);
+    margin-bottom: 1rem;
+}
 
+.qui-control-childrenlist-bigBanner-entry-content-meta-entry {
+    margin-right: 1rem;
+    opacity: 0.75;
+}
+
+.qui-control-childrenlist-bigBanner-entry-content-meta-entry .fa {
+    margin-right: 0.25rem;
+}
+
+.qui-control-childrenlist-bigBanner-entry-content-title ~ .qui-control-childrenlist-bigBanner-entry-content-meta {
+    margin-top: -1rem;
 }
 
 .qui-control-childrenlist-bigBanner-entry-content-short {
     font-size: clamp(var(--qui-fs-md, 1.25rem), 2vw, var(--qui-fs-lg, 1.75rem));
+    margin-bottom: 1rem;
+}
+
+.qui-control-childrenlist-bigBanner-entry-content-link {
+    margin-top: 1rem;
 }

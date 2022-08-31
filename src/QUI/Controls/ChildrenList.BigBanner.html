@@ -15,7 +15,9 @@
 <section itemscope itemtype="{$this->getAttribute('itemtype')}">
     <link property="mainEntityOfPage" href="{url site=$Site}">
 
-    <div class="qui-control-childrenlist-bigBanner control-template">
+    <div class="qui-control-childrenlist-bigBanner control-template" style="
+    {if $this->getAttribute('fontColor')}--qui-childrenList-bigBanner-fontColor: {$this->getAttribute('fontColor')};{/if}
+    ">
         {assign var=counter value=1}
 
         {foreach from=$children item=Child}
@@ -41,27 +43,32 @@
             {assign var=noImage value="qui-control-childrenlist-bigBanner-entry-content__noImage"}
             {/if}
 
-            {if $this->getAttribute('showImages')}
-            <div class="qui-control-childrenlist-bigBanner-entry-image">
-                {image src=$Child->getAttribute('image_site') type="resize"
-                    title="{$Child->getAttribute('title')}"}
-            </div>
+            {assign var=showMeta value=false}
+            {if $this->getAttribute('showCreator') || $this->getAttribute('showDate') ||$this->getAttribute('showTime')}
+                {assign var=showMeta value=true}
             {/if}
+
+
+            <div class="qui-control-childrenlist-bigBanner-entry-image">
+                {if $this->getAttribute('showImages')}
+                    {image src=$Child->getAttribute('image_site') type="resize"}
+                {/if}
+            </div>
 
             <!-- entry content -->
             <div class="qui-control-childrenlist-bigBanner-entry-content {$noImage}">
                 <div class="grid-container">
                     <div class="grid-100">
                         {if $this->getAttribute('showHeader')}
-                        <h2 class="qui-control-childrenlist-bigBanner-entry-content-title">
+                        <h2 class="qui-control-childrenlist-bigBanner-entry-content-title {if $showMeta}mb-0{/if}">
                             {$Child->getAttribute('title')}
                         </h2>
                         {/if}
 
-                        {if $this->getAttribute('showCreator') || $this->getAttribute('showDate') ||$this->getAttribute('showTime')}
+                        {if $showMeta}
                         <div class="qui-control-childrenlist-bigBanner-entry-content-meta">
                             {if $this->getAttribute('showCreator')}
-                                <span class="qui-control-childrenlist-bigBanner-entry-content-meta-author">
+                                <span class="qui-control-childrenlist-bigBanner-entry-content-meta-entry qui-control-childrenlist-bigBanner-entry-content-meta-entry__author">
                                     {user id=$Child->getAttribute('c_user') var=User}
                                     <span class="fa fa-user"></span>
                                     {if $User->getId() && $User->getAttribute('firstname')}
@@ -73,7 +80,7 @@
                             {/if}
 
                             {if $this->getAttribute('showDate')}
-                                <span class="qui-control-childrenlist-bigBanner-entry-content-meta-date">
+                                <span class="qui-control-childrenlist-bigBanner-entry-content-meta-entry qui-control-childrenlist-bigBanner-entry-content-meta-entry__date">
                                     <span class="fa fa-calendar"></span>
                                     {if $Child->getAttribute('release_from') && $Child->getAttribute('release_from') != '0000-00-00 00:00:00'}
                                         <time datetime="{$Child->getAttribute('release_from')|date_format:'c'}">
@@ -88,7 +95,7 @@
                             {/if}
 
                             {if $this->getAttribute('showTime')}
-                                <span class="qui-control-childrenlist-bigBanner-entry-content-meta-time">
+                                <span class="qui-control-childrenlist-bigBanner-entry-content-meta-entry qui-control-childrenlist-bigBanner-entry-content-meta-entry__time">
                                     <span class="fa fa-clock-o"></span>
                                     {$Child->getAttribute('release_from')|date_format:"%H:%M"}
                                 </span>
