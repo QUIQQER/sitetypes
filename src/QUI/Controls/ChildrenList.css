@@ -111,6 +111,7 @@
     border-radius: 0;
     border: none;
     position: relative;
+    line-height: inherit;
 }
 
 
