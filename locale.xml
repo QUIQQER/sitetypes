@@ -10,9 +10,9 @@
             <en><![CDATA[The SiteTypes package extends QUIQQER with some standard page types. With these side types, websites can be quickly created. The plugin offers all the important page styles for a website / homepage.]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/contact.description">
-            <de><![CDATA[Mit dem Kontaktformular bieten Sie Ihren Nutzern an, Sie schnell und einfach zu Kontaktieren.
+            <de><![CDATA[Mit dem Kontaktformular bieten Sie Ihren Nutzern an, Sie schnell und einfach zu kontaktieren.
 Dazu legen Sie diesen Seitentyp in Ihrem Projekt an und lassen diese Seite entweder in der Navigation anzeigen, sodass Sie oben im Menü zu sehen ist,
-oder verlinken beispielsweise im Footer auf die Seite. In den Einstellungen des Kontaktformulars legen Sie noch eine Support Email-Adresse fest, an welche die Anfragen gesendet werden sollen.]]></de>
+oder verlinken beispielsweise im Footer auf die Seite. In den Einstellungen des Kontaktformulars legen Sie noch eine Support E-Mail-Adresse fest, an welche die Anfragen gesendet werden sollen.]]></de>
             <en><![CDATA[]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/forwarding.title">
@@ -21,7 +21,7 @@ oder verlinken beispielsweise im Footer auf die Seite. In den Einstellungen des 
         </locale>
         <locale name="quiqqer/sitetypes:types/forwarding.description">
             <de><![CDATA[Nutzen Sie die Weiterleitung, um Nutzer bei einem Klick auf diese Seite zu einer anderen umzuleiten.
-Haben Sie z.B Ihre Community auf einer externen Webseite, leiten Sie den Nutzer von Ihrer Weiterleitungs-Seite "Community" auf die externe Seite um.]]></de>
+Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer von Ihrer Weiterleitungs-Seite "Community" auf die externe Seite um.]]></de>
             <en><![CDATA[]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/list.title">
@@ -92,7 +92,7 @@ Haben Sie z.B Ihre Community auf einer externen Webseite, leiten Sie den Nutzer 
             ]]></de>
             <en><![CDATA[
             This page type provides the user with conditions of use, which the user has to confirm when signing up.
-            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place
+            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place
             ]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/privacypolicy.title">
@@ -106,7 +106,7 @@ Haben Sie z.B Ihre Community auf einer externen Webseite, leiten Sie den Nutzer 
             ]]></de>
             <en><![CDATA[
             This page type provides the users with data protection regulations, which must be confirmed by the user when signing up.
-             The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place.
+            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place.
             ]]></en>
         </locale>
     </groups>
