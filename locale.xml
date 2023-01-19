@@ -102,7 +102,7 @@
             ]]></de>
             <en><![CDATA[
             This page type provides the user with conditions of use, which the user has to confirm when signing up.
-            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place
+            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place
             ]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/privacypolicy.title">
@@ -116,7 +116,7 @@
             ]]></de>
             <en><![CDATA[
             This page type provides the users with data protection regulations, which must be confirmed by the user when signing up.
-             The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place.
+            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place.
             ]]></en>
         </locale>
     </groups>
