@@ -36,7 +36,7 @@
         </locale>
         <locale name="quiqqer/sitetypes:types/list.title">
             <de><![CDATA[Standard-Liste]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard-Liste]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/list.description">
             <de><![CDATA[Mit der Standard-Liste werden alle darunter angelegten Seiten aufgelistet.]]></de>
