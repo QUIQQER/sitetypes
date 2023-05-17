@@ -61,7 +61,7 @@
                 <span class="qui-control-childrenlist-authorTop-entry-date-author">
                     {if $User->getId() && $User->getAttribute('firstname')}
                         {$User->getAttribute('firstname')}
-                    {else if $User->getId()}
+                    {elseif  $User->getId()}
                         {$User->getName()}
                     {/if}
                 </span>

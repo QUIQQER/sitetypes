@@ -51,7 +51,7 @@
                 <span class="fa fa-user"></span>
                 {if $User->getId() && $User->getAttribute('firstname')}
                     <span>{$User->getAttribute('firstname')}</span>
-                {else if $User->getId()}
+                {elseif  $User->getId()}
                     <span>{$User->getName()}</span>
                 {/if}
             </span>
