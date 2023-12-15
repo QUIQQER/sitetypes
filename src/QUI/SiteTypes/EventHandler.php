@@ -32,10 +32,11 @@ class EventHandler
             if (QUI\Projects\Site\Utils::isSiteLink($siteUrl)) {
                 // check if the site link is not itself
                 try {
-                    $Wanted        = QUI\Projects\Site\Utils::getSiteByLink($siteUrl);
+                    $Wanted = QUI\Projects\Site\Utils::getSiteByLink($siteUrl);
                     $WantedProject = $Wanted->getProject();
 
-                    if ($Wanted->getId() == $Site->getId() &&
+                    if (
+                        $Wanted->getId() == $Site->getId() &&
                         $WantedProject->getName() == $Project->getName() &&
                         $WantedProject->getLang() == $Project->getLang()
                     ) {
@@ -93,7 +94,7 @@ class EventHandler
         }
 
         $header = '<script type="text/javascript">';
-        $header .= 'var QUIQQER_PRIVACY_POLICY_URL = "'.$privacyPolicyUrl.'";';
+        $header .= 'var QUIQQER_PRIVACY_POLICY_URL = "' . $privacyPolicyUrl . '";';
         $header .= '</script>';
 
         $TemplateManager->extendHeader($header);
