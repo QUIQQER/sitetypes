@@ -26,8 +26,8 @@ $ChildrenList = new QUI\Controls\ChildrenList([
     'showHeader' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showHeader'),
     'showShort' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showShort'),
     'showContent' => false,
-    'itemtype' => 'http://schema.org/ItemList',
-    'child-itemtype' => 'http://schema.org/ListItem',
+    'itemtype' => 'https://schema.org/ItemList',
+    'child-itemtype' => 'https://schema.org/ListItem',
     'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template')
 ]);
 

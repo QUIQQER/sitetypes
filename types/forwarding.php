@@ -1,5 +1,6 @@
 <?php
 
+use QUI\Projects\Site\Utils;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -8,7 +9,7 @@ $siteUrl = $Site->getAttribute('quiqqer.settings.sitetypes.forwarding');
 
 try {
     if (QUI\Projects\Site\Utils::isSiteLink($siteUrl)) {
-        $Wanted = \QUI\Projects\Site\Utils::getSiteByLink($siteUrl);
+        $Wanted = Utils::getSiteByLink($siteUrl);
 
         // so, we get the site with vhosts, and url dir
         $Output = new QUI\Output();
@@ -23,7 +24,7 @@ try {
             $siteUrl = HOST . $siteUrl;
         }
 
-        if (!isset($parts['scheme']) && strpos($siteUrl, '//') !== 0) {
+        if (!isset($parts['scheme']) && !str_starts_with($siteUrl, '//')) {
             $siteUrl = '//' . $siteUrl;
         }
 
@@ -33,7 +34,7 @@ try {
 } catch (QUI\Exception $Exception) {
 }
 
-if (strpos($siteUrl, '#') !== false) {
+if (str_contains($siteUrl, '#')) {
     $urlParts = explode('#', $siteUrl);
     $anchor = $urlParts[1];
     $url = $urlParts[0] . '#' . $anchor;

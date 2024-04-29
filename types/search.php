@@ -4,6 +4,7 @@
  * 404 Error Site
  */
 
+use QUI\Projects\Site;
 use QUI\Utils\Security\Orthos;
 
 if (
@@ -17,7 +18,7 @@ if (
 if (QUI::getRewrite()->getHeaderCode() === 404) {
     if (isset($_REQUEST['_url'])) {
         $requestUrl = $_REQUEST['_url'];
-        $path = \pathinfo($requestUrl);
+        $path = pathinfo($requestUrl);
 
         if (isset($path['dirname'])) {
             $_REQUEST['search'] = $path['dirname'] . ' ' . $path['filename'];
@@ -49,7 +50,7 @@ if (isset($_REQUEST['sheet'])) {
 
 if (isset($_REQUEST['search'])) {
     if (is_array($_REQUEST['search'])) {
-        $searchValue = \implode(' ', $_REQUEST['search']);
+        $searchValue = implode(' ', $_REQUEST['search']);
     } else {
         $searchValue = $_REQUEST['search'];
     }
@@ -109,7 +110,7 @@ $Pagination->loadFromRequest();
 $Pagination->setGetParams('search', $searchValue);
 
 $children = array_filter($children, function ($Child) {
-    /* @var $Child \QUI\Projects\Site */
+    /* @var $Child Site */
 
     if (!$Child->getAttribute('active')) {
         return false;
@@ -118,7 +119,7 @@ $children = array_filter($children, function ($Child) {
     // url check
     try {
         $Child->getUrlRewritten();
-    } catch (QUI\Exception $Exception) {
+    } catch (QUI\Exception) {
         return false;
     }
 
@@ -137,8 +138,8 @@ $ChildrenList = new QUI\Controls\ChildrenList([
     'showShort' => true,
     'showHeader' => true,
     'showContent' => false,
-    'itemtype' => 'http://schema.org/ItemList',
-    'child-itemtype' => 'http://schema.org/ListItem',
+    'itemtype' => 'https://schema.org/ItemList',
+    'child-itemtype' => 'https://schema.org/ListItem',
     'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template'),
     'children' => $children,
 ]);
