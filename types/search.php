@@ -1,8 +1,14 @@
 <?php
 
 /**
- * 404 Error Site
- */
+ * This file contains the search site type
+ *
+ * @var QUI\Projects\Project $Project
+ * @var QUI\Projects\Site $Site
+ * @var QUI\Interfaces\Template\EngineInterface $Engine
+ * @var QUI\Template $Template
+ **/
+
 
 use QUI\Projects\Site;
 use QUI\Utils\Security\Orthos;
