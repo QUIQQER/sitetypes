@@ -1,13 +1,13 @@
 {
-    "name": "quiqqer\/sitetypes",
+    "name": "quiqqer/sitetypes",
     "type": "quiqqer-module",
-    "description": "The SiteTypes package extends QUIQQER with some standard page types. With these side types, websites can be quickly created. The plugin offers all the important page styles for a website \/ homepage.",
+    "description": "The SiteTypes package extends QUIQQER with some standard page types. With these side types, websites can be quickly created. The plugin offers all the important page styles for a website / homepage.",
     "license": "GPL-3.0+",
     "authors": [
         {
             "name": "Henning Leutz",
             "email": "support@pcsg.de",
-            "homepage": "http:\/\/www.pcsg.de",
+            "homepage": "https://www.pcsg.de",
             "role": "Developer"
         }
     ],
@@ -15,13 +15,13 @@
         "email": "support@pcsg.de"
     },
     "require": {
-        "quiqqer\/quiqqer": "*@dev",
-        "quiqqer\/bricks": ">=1.1|dev-master|dev-dev"
+        "quiqqer/core": "^2",
+        "quiqqer/bricks": "^2"
     },
     "autoload": {
         "psr-4": {
-            "QUI\\SiteTypes\\": "src\/QUI\/SiteTypes",
-            "QUI\\Controls\\": "src\/QUI\/Controls"
+            "QUI\\SiteTypes\\": "src/QUI/SiteTypes",
+            "QUI\\Controls\\": "src/QUI/Controls"
         }
     }
 }
