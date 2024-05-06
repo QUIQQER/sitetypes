@@ -18,9 +18,9 @@ class EventHandler
     /**
      * event : on site save
      *
-     * @param QUI\Projects\Site $Site
+     * @param QUI\Interfaces\Projects\Site $Site
      */
-    public static function onSiteSaveBefore($Site)
+    public static function onSiteSaveBefore(QUI\Interfaces\Projects\Site $Site): void
     {
         $type = $Site->getAttribute('type');
 
@@ -49,7 +49,7 @@ class EventHandler
 
                         $Site->setAttribute('quiqqer.settings.sitetypes.forwarding', '');
                     }
-                } catch (QUI\Exception $Exception) {
+                } catch (QUI\Exception) {
                 }
             }
         }
@@ -60,7 +60,7 @@ class EventHandler
      *
      * @param QUI\Projects\Site $Site
      */
-    public static function onSiteInit($Site)
+    public static function onSiteInit(QUI\Interfaces\Projects\Site $Site): void
     {
         if ($Site->getAttribute('type') == 'quiqqer/sitetypes:types/forwarding') {
             $Site->setAttribute('nocache', 1);
@@ -72,7 +72,7 @@ class EventHandler
      *
      * @param QUI\Template $TemplateManager
      */
-    public static function onTemplateGetHeader(QUI\Template $TemplateManager)
+    public static function onTemplateGetHeader(QUI\Template $TemplateManager): void
     {
         $privacyPolicyUrl = '';
 
@@ -90,7 +90,7 @@ class EventHandler
             if (isset($sites[0])) {
                 $privacyPolicyUrl = $sites[0]->getUrlRewritten();
             }
-        } catch (QUI\Exception $Exception) {
+        } catch (QUI\Exception) {
         }
 
         $header = '<script type="text/javascript">';

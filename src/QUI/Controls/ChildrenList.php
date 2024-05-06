@@ -6,6 +6,7 @@
 
 namespace QUI\Controls;
 
+use Exception;
 use QUI;
 use QUI\Projects\Site\Utils;
 
@@ -27,7 +28,7 @@ class ChildrenList extends QUI\Control
      *
      * @param array $attributes
      */
-    public function __construct($attributes = [])
+    public function __construct(array $attributes = [])
     {
         // default options
         $this->setAttributes([
@@ -46,7 +47,7 @@ class ChildrenList extends QUI\Control
             // if true returns all sites of certain type
             'byType' => false,
             'where' => false,
-            'itemtype' => 'http://schema.org/ItemList',
+            'itemtype' => 'https://schema.org/ItemList',
             'child-itemtype' => 'https://schema.org/ListItem',
             'child-itemprop' => 'itemListElement',
             // layout / design
@@ -75,17 +76,11 @@ class ChildrenList extends QUI\Control
      * @return String
      *
      * @throws QUI\Exception
+     * @throws Exception
      */
-    public function getBody()
+    public function getBody(): string
     {
-        try {
-            $Engine = QUI::getTemplateManager()->getEngine();
-        } catch (QUI\Exception $Exception) {
-            QUI\System\Log::writeException($Exception);
-
-            return '';
-        }
-
+        $Engine = QUI::getTemplateManager()->getEngine();
         $Site = $this->getSite();
 
         if (!$Site && !$this->getAttribute('parentInputList')) {
@@ -309,14 +304,9 @@ class ChildrenList extends QUI\Control
      *
      * @throws QUI\Exception
      */
-    public function checkLimit()
+    public function checkLimit(): void
     {
         $Site = $this->getSite();
-
-        if (!$Site) {
-            return;
-        }
-
         $sheet = 1;
         $limit = $this->getAttribute('limit');
 
@@ -342,9 +332,10 @@ class ChildrenList extends QUI\Control
     }
 
     /**
-     * @return mixed|QUI\Projects\Site
+     * @return QUI\Interfaces\Projects\Site
+     * @throws QUI\Exception
      */
-    protected function getSite()
+    protected function getSite(): QUI\Interfaces\Projects\Site
     {
         if ($this->getAttribute('Site')) {
             return $this->getAttribute('Site');
