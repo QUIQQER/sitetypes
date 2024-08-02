@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: src/QUI/Controls/ChildrenList.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: src/QUI/Controls/ChildrenList.php
