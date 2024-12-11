@@ -1,5 +1,5 @@
 .qui-control-childrenlist-galleryOverlay {
-    --_bgColor: var(--bg-color, rgb(0 0 0 / 75%));
+    --_bg-color: var(--bg-color, rgb(0 0 0 / 75%));
     --_color: var(--color, #fff);
     --_padding: var(--padding, 1rem);
     --_gap: var(--gap, 0);
@@ -12,8 +12,8 @@
     --_effect-border-innerSpacing: var(--effect-border-innerSpacing, var(--_padding));
     --_effect-border-thickness: var(--effect-border-thickness, 1px);
     --_effect-border-color: var(--effect-border-color, #ffffff88);
-    --_effect-border-width: 0;
-    --_effect-border-width--hover: calc(100% - 2rem);
+    --_effect-border-width: var(--effect-border-width, 0);
+    --_effect-border-width--hover: var(--effect-border-width--hover, calc(100% - var(--_padding) * 2));
 
     display: grid;
     grid-template-columns: var(--_grid-cols--desktop);
@@ -68,7 +68,7 @@
 .qui-control-childrenlist-galleryOverlay :where(.overlay-body) {
     grid-area: 1 / 1 / 2 / 2;
     color: var(--_color);
-    background-color: var(--_bgColor);
+    background-color: var(--_bg-color);
     display: grid;
     place-content: center;
     text-align: center;
@@ -157,7 +157,6 @@
     height: var(--_effect-border-thickness);
     width: var(--_effect-border-width);
 }
-
 
 .qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):before {
     inset: var(--_effect-border-innerSpacing) auto auto var(--_effect-border-innerSpacing);
