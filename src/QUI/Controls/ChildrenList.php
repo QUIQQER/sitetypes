@@ -288,6 +288,11 @@ class ChildrenList extends QUI\Control
                 $template = dirname(__FILE__) . '/ChildrenList.Gallery.html';
                 break;
 
+            case 'galleryOverlay':
+                $css = dirname(__FILE__) . '/ChildrenList.GalleryOverlay.css';
+                $template = dirname(__FILE__) . '/ChildrenList.GalleryOverlay.html';
+                break;
+
             case 'bigBanner':
                 $css = dirname(__FILE__) . '/ChildrenList.BigBanner.css';
                 $template = dirname(__FILE__) . '/ChildrenList.BigBanner.html';
