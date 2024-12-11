@@ -334,6 +334,12 @@
                             <option value="3er">
                                 <locale group="quiqqer/sitetypes" var="list.template.3er"/>
                             </option>
+                            <option value="gallery">
+                                <locale group="quiqqer/bricks" var="brick.listTemplate.gallery"/>
+                            </option>
+                            <option value="galleryOverlay">
+                                <locale group="quiqqer/bricks" var="brick.listTemplate.galleryOverlay"/>
+                            </option>
                         </select>
 
                         <input conf="quiqqer.settings.sitetypes.list.max" type="number">

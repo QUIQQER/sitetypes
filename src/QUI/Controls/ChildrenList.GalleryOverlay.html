@@ -1,0 +1,125 @@
+{assign var=Placeholder value=$Project->getMedia()->getPlaceholderImage()}
+
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+<header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
+
+<section itemscope itemtype="{$this->getAttribute('itemtype')}">
+    <link property="mainEntityOfPage" href="{url site=$Site}">
+
+    <div class="qui-control-childrenlist-galleryOverlay control-template ">
+        {assign var=counter value=1}
+        {foreach from=$children item=Child}
+            {assign var=_Child value=$Child->load()}
+            <article itemscope
+                     itemprop="{$this->getAttribute('child-itemprop')}"
+                     itemtype="{$this->getAttribute('child-itemtype')}"
+                     class="qui-control-childrenlist-galleryOverlay__entry"
+            >
+                {$tmp = $MetaList->clear()}
+                {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
+                {$MetaList->create()}
+
+                <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
+                <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
+                <meta itemprop="position" content="{$counter}"/>
+                {assign var=counter value=$counter+1}
+
+                <a href="{url site=$Child}"
+                   title="{$Child->getAttribute('title')}"
+                   class="overlay-link"
+                >
+                    <span style="opacity: 0;">{$Child->getAttribute('title')}</span>
+                </a>
+
+                <div class="overlay-wrapper">
+                    {if $this->getAttribute('showImages')}
+                        <div class="overlay-image">
+                            {image src=$Child->getAttribute('image_site') width="1000" type="resize"
+                            title="{$Child->getAttribute('title')}"}
+                        </div>
+                    {/if}
+
+                    <div class="overlay-body">
+                        <div class="overlay-body__inner">
+                            <header class="overlay-title">
+                                <div class="overlay-title__text">
+                                    {$Child->getAttribute('title')}
+                                </div>
+
+                            </header>
+                            <div class="overlay-content">
+                                {* info *}
+                                {if $this->getAttribute('showCreator') ||
+                                    $this->getAttribute('showDate') ||
+                                    $this->getAttribute('showTime')}
+                                <div class="overlay-title__info">
+                                    {* user *}
+                                    {if $this->getAttribute('showCreator')}
+                                        {user id=$Child->getAttribute('c_user') var=User}
+
+                                        <span class="overlay-title__info-entry author">
+                                            <span class="fa fa-user"></span>
+
+                                            {if $User->getId() && $User->getAttribute('firstname')}
+                                                {$User->getAttribute('firstname')}
+                                            {elseif  $User->getId()}
+                                                {$User->getName()}
+                                            {/if}
+                                        </span>
+                                    {/if}
+
+                                    {* date *}
+                                    {if $this->getAttribute('showDate')}
+                                        <span class="overlay-title__info-entry date">
+                                            <span class="fa fa-calendar"></span>
+
+                                            {if $Child->getAttribute('release_from') &&
+                                            $Child->getAttribute('release_from') != '0000-00-00 00:00:00'}
+                                                <time datetime="{$Child->getAttribute('release_from')|date_format:'c'}">
+                                                    {locale_date date=$Child->getAttribute('release_from')}
+                                                </time>
+                                            {else}
+                                                <time datetime="{$Child->getAttribute('c_date')|date_format:'c'}">
+                                                    {locale_date date=$Child->getAttribute('c_date')}
+                                                </time>
+                                            {/if}
+                                         </span>
+                                    {/if}
+
+                                    {* time *}
+                                    {if $this->getAttribute('showTime')}
+                                        <span class="overlay-title__info-entry time">
+                                            <span class="fa fa-clock-o"></span>
+                                            {$Child->getAttribute('release_from')|date_format:"%H:%M"}
+                                        </span>
+                                    {/if}
+                                </div>
+                                {/if}
+
+                                {* text *}
+                                {if $this->getAttribute('showShort')}
+                                    <div class="overlay-text">
+                                        {$Child->getAttribute('short')|nl2br}
+                                    </div>
+                                {/if}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        {/foreach}
+    </div>
+</section>
+
+{if $this->getAttribute('showSheets') && $sheets > 1}
+    {$Pagination->create()}
+{/if}
