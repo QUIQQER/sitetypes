@@ -83,10 +83,6 @@ class ChildrenList extends QUI\Control
         $Engine = QUI::getTemplateManager()->getEngine();
         $Site = $this->getSite();
 
-        if (!$Site && !$this->getAttribute('parentInputList')) {
-            return '';
-        }
-
         $Pagination = new QUI\Controls\Navigating\Pagination();
         $Pagination->loadFromRequest();
         $Pagination->setAttribute('Site', $Site);
@@ -342,7 +338,10 @@ class ChildrenList extends QUI\Control
      */
     protected function getSite(): QUI\Interfaces\Projects\Site
     {
-        if ($this->getAttribute('Site')) {
+        if (
+            $this->getAttribute('Site')
+            && $this->getAttribute('Site') instanceof QUI\Interfaces\Projects\Site
+        ) {
             return $this->getAttribute('Site');
         }
 
