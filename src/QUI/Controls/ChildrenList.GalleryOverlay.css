@@ -1,0 +1,196 @@
+.qui-control-childrenlist-galleryOverlay {
+    --_bg-color: var(--bg-color, rgb(0 0 0 / 75%));
+    --_color: var(--color, #fff);
+    --_padding: var(--padding, 1rem);
+    --_gap: var(--gap, 0);
+    --_grid-cols--desktop: var(--grid-cols--desktop, 1fr 1fr 1fr);
+    --_grid-cols--mobile: var(--grid-cols--mobile, repeat(auto-fill, minmax(min(100%, 300px), 1fr)));
+    --_max-text-width: var(--max-text-width, 45ch);
+
+    --_effect-transition-easing: var(--effect-transition-easing, ease);
+    --_effect-transition-duration: var(--effect-transition-duration, 0.3s);
+    --_effect-border-innerSpacing: var(--effect-border-innerSpacing, var(--_padding));
+    --_effect-border-thickness: var(--effect-border-thickness, 1px);
+    --_effect-border-color: var(--effect-border-color, #ffffff88);
+    --_effect-border-width: var(--effect-border-width, 0);
+    --_effect-border-width--hover: var(--effect-border-width--hover, calc(100% - var(--_padding) * 2));
+
+    display: grid;
+    grid-template-columns: var(--_grid-cols--desktop);
+    position: relative;
+    gap: var(--_gap);
+}
+
+@media screen and (max-width: 767px) {
+    .qui-control-childrenlist-galleryOverlay {
+        grid-template-columns: var(--_grid-cols--mobile);
+    }
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-link) {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 2;
+}
+
+.qui-control-childrenlist-galleryOverlay__entry {
+    position: relative;
+    overflow: hidden;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-wrapper) {
+    display: grid;
+    position: relative;
+    height: 100%;
+    grid-template-rows: 100%;
+    z-index: 1;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-image) {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-image img) {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--_effect-transition-duration) var(--_effect-transition-easing);
+}
+
+.qui-control-childrenlist-galleryOverlay .overlay-link:is(:focus, :active) + :where(.overlay-wrapper) :where(.overlay-image img),
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-image img) {
+    transform: scale(1.1);
+    filter: blur(5px);
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-body) {
+    grid-area: 1 / 1 / 2 / 2;
+    color: var(--_color);
+    background-color: var(--_bg-color);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    padding: calc(4 * var(--_padding)) calc(2 * var(--_padding));
+    position: relative;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-title) {
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-title__text) {
+    line-height: 1.4;
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-title__info-entry) {
+    font-size: 0.75em;
+    margin-right: 0.5em;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-title__info-entry:not(:last-child)):after {
+    content: "\2022";
+    margin-left: 0.5em;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-title__info-entry .fa) {
+    margin-right: 0.5em;
+}
+
+/* effect: text */
+.qui-control-childrenlist-galleryOverlay :where(.overlay-body__inner) {
+    transition: var(--_effect-transition-duration) var(--_effect-transition-easing);
+    transform: translateY(50%);
+    max-width: var(--_max-text-width);
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-title) {
+    transition: var(--_effect-transition-duration) var(--_effect-transition-easing);
+    transform: translateY(-50%);
+}
+
+.qui-control-childrenlist-galleryOverlay .overlay-link:is(:focus, :active) + :where(.overlay-wrapper) :where(.overlay-body__inner),
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-body__inner) {
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.qui-control-childrenlist-galleryOverlay .overlay-link:is(:focus, :active) + :where(.overlay-wrapper) :where(.overlay-title),
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-title) {
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.qui-control-childrenlist-galleryOverlay :where(.overlay-content) {
+    transition: var(--_effect-transition-duration) var(--_effect-transition-easing);
+    transform: translateY(5px);
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.qui-control-childrenlist-galleryOverlay .overlay-link:is(:focus, :active) + :where(.overlay-wrapper) :where(.overlay-content),
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-content) {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.4s;
+}
+
+/* effect: border */
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):before,
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):after,
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-body):before,
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-body):after {
+    content: '';
+    background: var(--_effect-border-color);
+    transition: var(--_effect-transition-duration) var(--_effect-transition-easing);
+    position: absolute;
+    z-index: 1;
+}
+
+/* border on the top and bottom */
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):before,
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):after {
+    height: var(--_effect-border-thickness);
+    width: var(--_effect-border-width);
+}
+
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):before {
+    inset: var(--_effect-border-innerSpacing) auto auto var(--_effect-border-innerSpacing);
+}
+
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-wrapper):after {
+    inset: auto var(--_effect-border-innerSpacing) var(--_effect-border-innerSpacing) auto;
+}
+
+/* border on the left and right */
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-body):before,
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-body):after {
+    height: var(--_effect-border-width);
+    width: var(--_effect-border-thickness);
+}
+
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-body):before {
+    inset: var(--_effect-border-innerSpacing) auto auto var(--_effect-border-innerSpacing);
+}
+
+.qui-control-childrenlist-galleryOverlay__entry :where(.overlay-body):after {
+    inset: auto var(--_effect-border-innerSpacing) var(--_effect-border-innerSpacing) auto;
+}
+
+.overlay-link:focus + :where(.overlay-wrapper):before,
+.overlay-link:focus + :where(.overlay-wrapper):after,
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-wrapper):before,
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-wrapper):after {
+    width: var(--_effect-border-width--hover);
+}
+
+.overlay-link:focus + :where(.overlay-wrapper) :where(.overlay-body):before,
+.overlay-link:focus + :where(.overlay-wrapper) :where(.overlay-body):after,
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-body):before,
+.qui-control-childrenlist-galleryOverlay__entry:hover :where(.overlay-body):after {
+    height: var(--_effect-border-width--hover);
+}

@@ -83,10 +83,6 @@ class ChildrenList extends QUI\Control
         $Engine = QUI::getTemplateManager()->getEngine();
         $Site = $this->getSite();
 
-        if (!$Site && !$this->getAttribute('parentInputList')) {
-            return '';
-        }
-
         $Pagination = new QUI\Controls\Navigating\Pagination();
         $Pagination->loadFromRequest();
         $Pagination->setAttribute('Site', $Site);
@@ -288,6 +284,11 @@ class ChildrenList extends QUI\Control
                 $template = dirname(__FILE__) . '/ChildrenList.Gallery.html';
                 break;
 
+            case 'galleryOverlay':
+                $css = dirname(__FILE__) . '/ChildrenList.GalleryOverlay.css';
+                $template = dirname(__FILE__) . '/ChildrenList.GalleryOverlay.html';
+                break;
+
             case 'bigBanner':
                 $css = dirname(__FILE__) . '/ChildrenList.BigBanner.css';
                 $template = dirname(__FILE__) . '/ChildrenList.BigBanner.html';
@@ -337,7 +338,10 @@ class ChildrenList extends QUI\Control
      */
     protected function getSite(): QUI\Interfaces\Projects\Site
     {
-        if ($this->getAttribute('Site')) {
+        if (
+            $this->getAttribute('Site')
+            && $this->getAttribute('Site') instanceof QUI\Interfaces\Projects\Site
+        ) {
             return $this->getAttribute('Site');
         }
 
