@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file contains QUI\Controls\InlineFrame
+ * This file contains QUI\Controls\ExternalContent
  */
 
 namespace QUI\Controls;
@@ -17,11 +17,11 @@ use function file_exists;
 use function is_array;
 
 /**
- * Class InlineFrame
+ * Class ExternalContent
  *
  * @package quiqqer/sitetypes
  */
-class InlineFrame extends QUI\Control
+class ExternalContent extends QUI\Control
 {
     /**
      * constructor
@@ -32,8 +32,10 @@ class InlineFrame extends QUI\Control
     {
         // default options
         $this->setAttributes([
-            'class' => 'quiqqer-sitetypes-controls-inlineframe',
-            'url' => '',
+            'class' => 'quiqqer-sitetypes-controls-externalContent',
+            'externalContentType' => 'text', // 'text' or 'iframe'
+            'externalContentText' => '', // it may by script tag and / or HTML Node <div>
+            'iframeUrl' => '',
             'iFrameHeightDesktop' => 400,
             'iFrameHeightMobile' => '',
             'iFrameWidth' => '100%'
@@ -41,7 +43,7 @@ class InlineFrame extends QUI\Control
 
         parent::__construct($attributes);
 
-        $this->addCSSFile(dirname(__FILE__) . '/InlineFrame.css');
+        $this->addCSSFile(dirname(__FILE__) . '/ExternalContent.css');
 
         $this->setAttribute('cacheable', 0);
     }
@@ -59,7 +61,13 @@ class InlineFrame extends QUI\Control
     {
         $Engine = QUI::getTemplateManager()->getEngine();
 
-        if (!$this->getAttribute('url')) {
+        $type = $this->getAttribute('externalContentType');
+        $externalContentText = $this->getAttribute('externalContentText');
+        $iframeUrl = $this->getAttribute('iframeUrl');
+
+        if (!$externalContentText && !$iframeUrl) {
+            QUI\System\Log::addWarning('QUI\Controls\ExternalContent: nor externalContentText or iframeUrl found.');
+
             return '';
         }
 
@@ -71,13 +79,16 @@ class InlineFrame extends QUI\Control
             $heightMobile = $heightDesktop;
         }
 
-        $this->setCustomVariable('height--desktop', $this->getValue($heightDesktop));
-        $this->setCustomVariable('height--mobile', $this->getValue($heightMobile));
-        $this->setCustomVariable('width', $this->getValue($width));
+        $this->setCustomVariable('iframe-height--desktop', $this->getValue($heightDesktop));
+        $this->setCustomVariable('iframe-height--mobile', $this->getValue($heightMobile));
+        $this->setCustomVariable('iframe-width', $this->getValue($width));
+        $this->setCustomVariable('iframe-width', $this->getValue($width));
 
         $Engine->assign([
             'this' => $this,
-            'url' => $this->getAttribute('url')
+            'type' => $type,
+            'externalContentText' => $externalContentText,
+            'iframeUrl' => $iframeUrl
         ]);
 
         return $Engine->fetch($this->getTemplateFile());
@@ -104,10 +115,10 @@ class InlineFrame extends QUI\Control
 
     /**
      * Set custom css variable to the control as inline style
-     *   --_qui-sitetypes-controls-inlineFrame-$name: var(--qui-sitetypes-controls-inlineFrame-$name, $value);
+     *   --_qui-sitetypes-controls-externalContent-$name: var(--qui-sitetypes-controls-externalContent-$name, $value);
      *
      * Example:
-     *   --_qui-sitetypes-controls-inlineFrame-iFrameHeight--desktop: var(--qui-sitetypes-controls-inlineFrame-iFrameHeight--desktop, '50vh');
+     *   --_qui-sitetypes-controls-externalContent-iFrameHeight--desktop: var(--qui-sitetypes-controls-externalContent-iFrameHeight--desktop, '50vh');
      *
      * @param string $name
      * @param string $value
@@ -121,8 +132,8 @@ class InlineFrame extends QUI\Control
         }
 
         $this->setStyle(
-            '--_qui-sitetypes-controls-inlineFrame-' . $name,
-            'var(--qui-sitetypes-controls-inlineFrame-' . $name . ', ' . $value . ')'
+            '--_qui-sitetypes-controls-externalContent-' . $name,
+            'var(--qui-sitetypes-controls-externalContent-' . $name . ', ' . $value . ')'
         );
     }
 }

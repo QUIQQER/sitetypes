@@ -1,0 +1,21 @@
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+    <header class="control-header">
+        <h1>{$this->getAttribute('frontendTitle')}</h1>
+    </header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+    <div class="control-content">
+        {$this->getAttribute('content')}
+    </div>
+{/if}
+
+<div class="control-template quiqqer-sitetypes-controls-externalContent-controlWrapper">
+    {if $type === 'text' && $externalContentText}
+        <div class="quiqqer-sitetypes-controls-externalContent__contentText">
+            {$externalContentText}
+        </div>
+    {elseif $iframeUrl}
+        <iframe src="{$iframeUrl}" class="quiqqer-sitetypes-externalContent__iframe"></iframe>
+    {/if}
+</div>

@@ -24,13 +24,13 @@ oder verlinken beispielsweise im Footer auf die Seite. In den Einstellungen des 
 Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer von Ihrer Weiterleitungs-Seite "Community" auf die externe Seite um.]]></de>
             <en><![CDATA[]]></en>
         </locale>
-        <locale name="admin.types.iframe">
-            <de><![CDATA[iFrame]]></de>
-            <en><![CDATA[iFrame]]></en>
+        <locale name="admin.types.externalContent">
+            <de><![CDATA[Externer Inhalt]]></de>
+            <en><![CDATA[External content]]></en>
         </locale>
-        <locale name="admin.types.iframe.description">
-            <de><![CDATA[Ein iFrame-Seitentyp ermöglicht es, eine externe Webseite oder ein anderes HTML-Dokument innerhalb einer eigenen Webseite zu laden und anzuzeigen.]]></de>
-            <en><![CDATA[A page type of iFrame allows you to load and display an external website or another HTML document within your own website.]]></en>
+        <locale name="admin.types.externalContent.description">
+            <de><![CDATA[Der Seitentyp ermöglicht es, eine externe Webseite oder ein anderes HTML-Dokument innerhalb einer eigenen Webseite zu laden und anzuzeigen.]]></de>
+            <en><![CDATA[This site type allows you to load and display an external website or another HTML document within your own website.]]></en>
         </locale>
         <locale name="quiqqer/sitetypes:types/list.title">
             <de><![CDATA[Standard-Liste]]></de>
@@ -116,6 +116,47 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             This page type provides the users with data protection regulations, which must be confirmed by the user when signing up.
             The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place.
             ]]></en>
+        </locale>
+
+        <locale name="sitetypes.externalContent.settings.title">
+            <de><![CDATA[Externer Inhalt]]></de>
+            <en><![CDATA[External content]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.type.title">
+            <de><![CDATA[Externer Inhalt Typ]]></de>
+            <en><![CDATA[External content type]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.type.option.text">
+            <de><![CDATA[Text Eingabe]]></de>
+            <en><![CDATA[Text input]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.type.option.iframe">
+            <de><![CDATA[iFrame]]></de>
+            <en><![CDATA[iFrame]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.text.title">
+            <de><![CDATA[Externer Inhalt]]></de>
+            <en><![CDATA[External content]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.url.title">
+            <de><![CDATA[Link]]></de>
+            <en><![CDATA[Url]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.heightDesktop.title">
+            <de><![CDATA[Höhe des iFrames]]></de>
+            <en><![CDATA[Height of iFrame]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.heightDesktop.desc">
+            <de><![CDATA[Erlaubt sind alle valide CSS Werte, z.B. 250px, 100%, 50vh, etc. Wert ohne Einheit wird als Pixel interpretiert.]]></de>
+            <en><![CDATA[Allowed are all valid CSS values, e.g. 250px, 100%, 50vh, etc. Values without a unit are interpreted as pixels.]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.heightMobile.title">
+            <de><![CDATA[Höhe des iFrames (auf mobilen Geräten)]]></de>
+            <en><![CDATA[Height of iFrame (on mobile devices)]]></en>
+        </locale>
+        <locale name="sitetypes.externalContent.settings.heightMobile.desc">
+            <de><![CDATA[Erlaubt sind alle valide CSS Werte, z.B. 250px, 100%, 50vh, etc. Wert ohne Einheit wird als Pixel interpretiert.<br>Diese Einstellung ist optional. Wird kein Wert eingetragen, wird die Desktop-Einstellung verwendet.]]></de>
+            <en><![CDATA[Allowed are all valid CSS values, e.g. 250px, 100%, 50vh, etc. Values without a unit are interpreted as pixels.<br>This setting is optional. If no value is entered, the desktop setting is used.]]></en>
         </locale>
     </groups>
     <groups name="quiqqer/sitetypes" datatype="php">
@@ -380,32 +421,6 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
         <locale name="quiqqer.sitetypes.contact.settings.forwarding">
             <de><![CDATA[Zielseite]]></de>
             <en><![CDATA[Target page]]></en>
-        </locale>
-
-
-        <locale name="sitetypes.iframe.settings.title">
-            <de><![CDATA[iFrame]]></de>
-            <en><![CDATA[iFrame]]></en>
-        </locale>
-        <locale name="sitetypes.iframe.settings.url">
-            <de><![CDATA[Link]]></de>
-            <en><![CDATA[Url]]></en>
-        </locale>
-        <locale name="sitetypes.iframe.settings.height.desktop">
-            <de><![CDATA[Höhe des iFrames]]></de>
-            <en><![CDATA[Height of iFrame]]></en>
-        </locale>
-        <locale name="sitetypes.iframe.settings.height.desktop.desc">
-            <de><![CDATA[Erlaubt sind alle valide CSS Werte, z.B. 250px, 100%, 50vh, etc. Wert ohne Einheit wird als Pixel interpretiert.]]></de>
-            <en><![CDATA[Allowed are all valid CSS values, e.g. 250px, 100%, 50vh, etc. Values without a unit are interpreted as pixels.]]></en>
-        </locale>
-        <locale name="sitetypes.iframe.settings.height.mobile">
-            <de><![CDATA[Höhe des iFrames (auf mobilen Geräten)]]></de>
-            <en><![CDATA[Height of iFrame (on mobile devices)]]></en>
-        </locale>
-        <locale name="sitetypes.iframe.settings.height.mobile.desc">
-            <de><![CDATA[Erlaubt sind alle valide CSS Werte, z.B. 250px, 100%, 50vh, etc. Wert ohne Einheit wird als Pixel interpretiert.<br>Diese Einstellung ist optional. Wird kein Wert eingetragen, wird die Desktop-Einstellung verwendet.]]></de>
-            <en><![CDATA[Allowed are all valid CSS values, e.g. 250px, 100%, 50vh, etc. Values without a unit are interpreted as pixels.<br>This setting is optional. If no value is entered, the desktop setting is used.]]></en>
         </locale>
 
         <locale name="tpl.search.no.results">
