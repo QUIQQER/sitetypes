@@ -262,6 +262,38 @@
             </settings>
         </type>
 
+        <!-- externalContent (ifrmae) -->
+        <type type="types/externalContent" icon="fa-solid fa-laptop-code">
+            <locale group="quiqqer/sitetypes" var="admin.types.externalContent"/>
+            <desc>
+                <locale group="quiqqer/sitetypes" var="admin.types.externalContent.desc"/>
+            </desc>
+
+            <attributes>
+                <attribute>quiqqer.settings.sitetypes.externalContent.settings</attribute>
+            </attributes>
+
+            <settings>
+                <category name="sitetypes-externalContent-settings">
+                    <settings>
+                        <title>
+                            <locale group="quiqqer/sitetypes"
+                                    var="sitetypes.externalContent.settings.title"
+                            />
+                        </title>
+
+                        <input conf="quiqqer.settings.sitetypes.externalContent.settings" type="hidden"
+                               data-qui="package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent"
+                        >
+
+                        </input>
+
+                    </settings>
+                </category>
+            </settings>
+        </type>
+
+
         <!-- Liste -->
         <type type="types/list" icon="fa fa-list">
             <locale group="quiqqer/sitetypes" var="admin.types.list"/>

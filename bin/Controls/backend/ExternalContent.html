@@ -1,0 +1,71 @@
+<table class="data-table data-table-flexbox" style="margin-bottom: 0; border: none;">
+    <tbody>
+    <tr>
+        <td style="padding-inline: 0;">
+            <label class="field-container">
+                <span class="field-container-item">
+                    {{typeTitle}}
+                </span>
+                <select name="externalContent-type" style="width: 100%;" data-ref="select">
+                    <option value="text">{{typeOptionText}}</option>
+                    <option value="iframe">{{typeOptionIFrame}}</option>
+                </select>
+            </label>
+        </td>
+    </tr>
+
+    <tr data-ref="variable-option" data-type="text">
+        <td style="padding-inline: 0;">
+            <label class="field-container">
+                <span class="field-container-item">
+                    {{textTitle}}
+                </span>
+                <textarea name="externalContent-text" class="field-container-field field-description"
+                          rows="12"></textarea>
+            </label>
+        </td>
+    </tr>
+
+    <tr data-ref="variable-option" data-type="iframe">
+        <td style="padding-inline: 0;">
+            <label class="field-container">
+                <span class="field-container-item">
+                    {{urlTitle}}
+                </span>
+                <input name="externalContent-url" class="field-container-field field-title"/>
+            </label>
+        </td>
+    </tr>
+    <tr data-ref="variable-option" data-type="iframe">
+        <td style="padding-inline: 0;">
+            <label class="field-container">
+                <span class="field-container-item">
+                    {{heightDesktopTitle}}
+                </span>
+                <input name="externalContent-height_desktop" class="field-container-field field-text"/>
+            </label>
+        </td>
+    </tr>
+    <tr data-ref="variable-option" data-type="iframe">
+        <td style="padding-top: 0; padding-inline: 0">
+            <div class="description"> {{{heightDesktopDesc}}}</div>
+        </td>
+    </tr>
+    <tr data-ref="variable-option" data-type="iframe">
+        <td style="padding-inline: 0;">
+            <label class="field-container">
+                <div class="field-container-item">
+                    {{heightMobileTitle}}
+
+                </div>
+                <input name="externalContent-height_mobile" class="field-container-field field-text"/>
+            </label>
+        </td>
+    </tr>
+    <tr data-ref="variable-option" data-type="iframe">
+        <td style="padding-top: 0; padding-inline: 0">
+            <div class="description"> {{{heightMobileDesc}}}</div>
+        </td>
+    </tr>
+    </tbody>
+</table>
