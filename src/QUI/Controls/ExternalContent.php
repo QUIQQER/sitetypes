@@ -91,7 +91,7 @@ class ExternalContent extends QUI\Control
             'iframeUrl' => $iframeUrl
         ]);
 
-        return $Engine->fetch($this->getTemplateFile());
+        return $Engine->fetch($dirname(__FILE__) . '/ExternalContent.html');
     }
 
     /**
