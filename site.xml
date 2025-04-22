@@ -260,59 +260,32 @@
             </settings>
         </type>
 
-        <!-- iframe -->
-        <type type="types/iframe" icon="fa-solid fa-laptop-code">
-            <locale group="quiqqer/sitetypes" var="admin.types.iframe"/>
+        <!-- externalContent (ifrmae) -->
+        <type type="types/externalContent" icon="fa-solid fa-laptop-code">
+            <locale group="quiqqer/sitetypes" var="admin.types.externalContent"/>
             <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.iframe.desc"/>
+                <locale group="quiqqer/sitetypes" var="admin.types.externalContent.desc"/>
             </desc>
 
             <attributes>
-                <attribute>quiqqer.settings.sitetypes.iframe.url</attribute>
-                <attribute>quiqqer.settings.sitetypes.iframe.height.desktop</attribute>
-                <attribute>quiqqer.settings.sitetypes.iframe.height.mobile</attribute>
+                <attribute>quiqqer.settings.sitetypes.externalContent.settings</attribute>
             </attributes>
 
             <settings>
-                <category name="sitetypes-iframe-settings">
+                <category name="sitetypes-externalContent-settings">
                     <settings>
                         <title>
                             <locale group="quiqqer/sitetypes"
-                                    var="sitetypes.iframe.settings.title"
+                                    var="sitetypes.externalContent.settings.title"
                             />
                         </title>
 
-                        <input conf="quiqqer.settings.sitetypes.iframe.url">
-                            <text>
-                                <locale group="quiqqer/sitetypes"
-                                        var="sitetypes.iframe.settings.url"
-                                />
-                            </text>
+                        <input conf="quiqqer.settings.sitetypes.externalContent.settings" type="hidden"
+                                 data-qui="package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent"
+                        >
+
                         </input>
-                        <input conf="quiqqer.settings.sitetypes.iframe.height.desktop">
-                            <text>
-                                <locale group="quiqqer/sitetypes"
-                                        var="sitetypes.iframe.settings.height.desktop"
-                                />
-                            </text>
-                            <description>
-                                <locale group="quiqqer/sitetypes"
-                                        var="sitetypes.iframe.settings.height.desktop.desc"
-                                />
-                            </description>
-                        </input>
-                        <input conf="quiqqer.settings.sitetypes.iframe.height.mobile">
-                            <text>
-                                <locale group="quiqqer/sitetypes"
-                                        var="sitetypes.iframe.settings.height.mobile"
-                                />
-                            </text>
-                            <description>
-                                <locale group="quiqqer/sitetypes"
-                                        var="sitetypes.iframe.settings.height.mobile.desc"
-                                />
-                            </description>
-                        </input>
+
                     </settings>
                 </category>
             </settings>
