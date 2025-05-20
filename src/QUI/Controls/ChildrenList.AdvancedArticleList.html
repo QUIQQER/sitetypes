@@ -52,14 +52,14 @@
 
             <div href="{url site=$Child}" class="mainFontColor qui-control-childrenlist-advancedArticleList-link">
                 <header class="qui-control-childrenlist-advancedArticleList-header">
-                    <h1>
+                    <h2>
                         <a href="{url site=$Child}"
                            title="{$Child->getAttribute('title')|escape:'html'}"
                            class="qui-control-childrenlist-advancedArticleList-header-link"
                         >
                             {$Child->getAttribute('title')}
                         </a>
-                    </h1>
+                    </h2>
                 </header>
                 {if $this->getAttribute('showCreator')}
                 <span class="qui-control-childrenlist-advancedArticleList-author">
