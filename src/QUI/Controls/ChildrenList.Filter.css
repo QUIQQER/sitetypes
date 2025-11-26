@@ -1,0 +1,64 @@
+.qui-control-childrenlist__filter {
+    --_tags-align: var(--tags-align, center);
+    --_tags-align--mobile: var(--tags-align, center);
+    --_textSearch-iconSize: var(--textSearch-iconSize, 1.5rem);
+    --_textSearch-iconInlineSpace: var(--textSearch-iconInlineSpace, 1rem);
+    margin-bottom: 2rem;
+}
+
+/**
+ *  Input
+ */
+.qui-control-childrenlist__textSearch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.qui-control-childrenlist__textSearch-wrapper {
+    position: relative;
+    width: min(100%, 30rem);
+}
+
+.qui-control-childrenlist__textSearch .icon {
+    width: var(--_textSearch-iconSize);
+    position: absolute;
+    left: var(--_textSearch-iconInlineSpace);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--qui-colors-muted, #999);
+    opacity: 0.5;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.qui-control-childrenlist__textSearch input {
+    padding-left: calc(var(--_textSearch-iconSize) + (var(--_textSearch-iconInlineSpace) * 2));
+    width: 100%;
+}
+
+.qui-control-childrenlist__textSearch input:is(:hover, :focus) + .icon {
+    opacity: 1;
+}
+
+/**
+ * Tags
+ */
+.qui-control-childrenlist__tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: var(--_tags-align);
+}
+
+button.qui-control-childrenlist__tag {
+    padding-block: 0.25rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+}
+
+.qui-control-childrenlist__tag:not(.active, :hover, :focus) {
+    background-color: transparent;
+    color: var(--qui-colors-body, inherit);
+    border-color: currentColor;
+}

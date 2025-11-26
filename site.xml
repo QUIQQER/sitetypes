@@ -312,6 +312,8 @@
                 <attribute default="1">quiqqer.settings.sitetypes.list.showHeader</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showShort</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showSheets</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.filter</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.tags</attribute>
             </attributes>
 
             <!-- list settings -->
@@ -426,6 +428,38 @@
                                         var="quiqqer.sitetypes.list.settings.showSheets"
                                 />
                             </text>
+                        </input>
+
+                        <select conf="quiqqer.settings.sitetypes.list.filter">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter"/>
+                            </text>
+                            <option value="disable">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.disable"/>
+                            </option>
+                            <option value="input">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.input"/>
+                            </option>
+                            <option value="tags">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.tags"/>
+                            </option>
+                            <option value="all">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.all"/>
+                            </option>
+
+                        </select>
+
+                        <input conf="quiqqer.settings.sitetypes.list.tags" data-qui="package/quiqqer/tags/bin/tags/Select">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tags"
+                                />
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tags.desc"
+                                />
+                            </description>
                         </input>
                     </settings>
                 </category>
