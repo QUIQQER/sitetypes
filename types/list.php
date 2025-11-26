@@ -28,7 +28,8 @@ $ChildrenList = new QUI\Controls\ChildrenList([
     'showContent' => false,
     'itemtype' => 'http://schema.org/ItemList',
     'child-itemtype' => 'http://schema.org/ListItem',
-    'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template')
+    'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template'),
+    'tags' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tags')
 ]);
 
 try {
