@@ -61,7 +61,11 @@ class ChildrenList extends QUI\Control
             'children' => false,
             // load all children of list site if the 'children' attribute is empty
             'loadAllChildrenOnEmptyList' => true,
-            'fontColor' => '#fff' // relevant for some templates (e.g. bigBanner)
+            'fontColor' => '#fff', // relevant for some templates (e.g. bigBanner)
+
+            // tags
+            'tags' => [],
+            'filter' => 'disabled' // 'all' / 'input' / 'tags' / 'disabled'
         ]);
 
         parent::__construct($attributes);
@@ -183,6 +187,29 @@ class ChildrenList extends QUI\Control
             }
         }
 
+        $showFilter = match($this->getAttribute('filter')) {
+            'all', 'input', 'tags' => true,
+            default => false
+        };
+
+        $tags = [];
+        $itemsData = [];
+
+        if ($showFilter) {
+            $tags = $this->getTags();
+            $this->addCSSFile(dirname(__FILE__) . '/ChildrenList.Filter.css');
+
+            foreach ($children as $Child) {
+                $_Child = $Child->load();
+                $itemsData[] = [
+                    'id'          => $_Child->getId(),
+                    'title'       => $_Child->getAttribute('title'),
+                    'description' => $_Child->getAttribute('short'),
+                    'tags'        => $_Child->getAttribute('quiqqer.tags.tagList'),
+                ];
+            }
+        }
+
         $Pagination->setAttribute('limit', $limit);
         $Pagination->setAttribute('sheets', $sheets);
 
@@ -194,8 +221,14 @@ class ChildrenList extends QUI\Control
             'children' => $children,
             'Pagination' => $Pagination,
             'MetaList' => new QUI\Controls\Utils\MetaList(),
-            'Events' => $this->Events
+            'Events' => $this->Events,
+            'showFilter' => $showFilter,
+            'tags' => $tags,
+            'itemsData' => json_encode($itemsData, JSON_UNESCAPED_UNICODE)
         ]);
+
+        $filterHtml = $Engine->fetch(dirname(__FILE__).'/ChildrenList.Filter.html');
+        $Engine->assign(['filterHtml' => $filterHtml]);
 
         // load custom template (if set)
         if (
@@ -350,5 +383,34 @@ class ChildrenList extends QUI\Control
         $this->setAttribute('Site', $Site);
 
         return $Site;
+    }
+
+    protected function getTags (): array
+    {
+        $tags = $this->getAttribute('tags');
+
+        if (is_string($tags)) {
+            $tags = array_map('trim', explode(',', $tags));
+        }
+
+        $tagTitles = [];
+        $tagsData = [];
+        $Project = $this->getProject();
+
+        if (!empty($tags)) {
+            $TagManager = new QUI\Tags\Manager($Project);
+
+            foreach ($tags as $tag) {
+                try {
+                    $tagData = $TagManager->get($tag);
+                    $tagsData[] = $TagManager->get($tag);
+                    $tagTitles[] = $tagData['title'];
+                } catch (\Exception $e) {
+                    // Fehlerbehandlung, falls Tag nicht gefunden
+                }
+            }
+        }
+
+        return $tagsData;
     }
 }
