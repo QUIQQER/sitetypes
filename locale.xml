@@ -270,6 +270,47 @@
             <de><![CDATA[Blätterfunktion anzeigen]]></de>
             <en><![CDATA[Show sheets]]></en>
         </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter">
+            <de><![CDATA[Filter]]></de>
+            <en><![CDATA[Filter]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter.desc">
+            <de><![CDATA[Achtung! Nicht jede Vorlage (Layout) unterstützt die Option.]]></de>
+            <en><![CDATA[Note: Not every template (layout) supports this option.]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter.disabled">
+            <de><![CDATA[Deaktiviert]]></de>
+            <en><![CDATA[Disabled]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter.input">
+            <de><![CDATA[Freitext Suche]]></de>
+            <en><![CDATA[Text search]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter.tags">
+            <de><![CDATA[Tags]]></de>
+            <en><![CDATA[Tags]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter.all">
+            <de><![CDATA[Freitext Suche und Tags]]></de>
+            <en><![CDATA[Text search and tags]]></en>
+        </locale>
+
+        <locale name="quiqqer.sitetypes.list.settings.tags">
+            <de><![CDATA[Tags]]></de>
+            <en><![CDATA[Tags]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.tags.desc">
+            <de><![CDATA[Diese Tags dienen als Filter auf der Seite, wenn die Filterfunktion aktiviert ist.]]></de>
+            <en><![CDATA[These tags serve as a filter on the page, if the filter function is enabled.]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.frontend.filter.textSearch.placeholder">
+            <de><![CDATA[Nach Titel oder Stichwort suchen...]]></de>
+            <en><![CDATA[Search for title or keyword...]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.frontend.filter.tags.btn.all">
+            <de><![CDATA[Alle]]></de>
+            <en><![CDATA[All]]></en>
+        </locale>
 
         <!-- list template -->
         <locale name="list.template">

@@ -15,6 +15,10 @@
 <section itemscope itemtype="{$this->getAttribute('itemtype')}">
     <link property="mainEntityOfPage" href="{url site=$Site}">
 
+    {if $showFilter}
+        {$filterHtml}
+    {/if}
+
     <div class="qui-control-childrenlist-gallery control-template">
         {assign var=counter value=1}
 
@@ -23,6 +27,8 @@
         <article itemscope
                  itemprop="{$this->getAttribute('child-itemprop')}"
                  itemtype="{$this->getAttribute('child-itemtype')}"
+                 data-id="{$Child->getId()}"
+                 data-name="item"
                  class="qui-control-childrenlist-gallery-entry"
         >
             {$tmp = $MetaList->clear()}

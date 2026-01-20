@@ -309,6 +309,8 @@
                 <attribute default="1">quiqqer.settings.sitetypes.list.showHeader</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showShort</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showSheets</attribute>
+                <attribute default="disabled">quiqqer.settings.sitetypes.list.filter</attribute>
+                <attribute>quiqqer.settings.sitetypes.list.tags</attribute>
             </attributes>
 
             <!-- list settings -->
@@ -324,9 +326,6 @@
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.template"/>
                             </text>
-                            <option value="gallery">
-                                <locale group="quiqqer/sitetypes" var="list.template.gallery"/>
-                            </option>
                             <option value="cardRows">
                                 <locale group="quiqqer/sitetypes" var="list.template.cardRows"/>
                             </option>
@@ -364,7 +363,7 @@
                                 <locale group="quiqqer/sitetypes" var="list.template.3er"/>
                             </option>
                             <option value="gallery">
-                                <locale group="quiqqer/bricks" var="brick.listTemplate.gallery"/>
+                                <locale group="quiqqer/sitetypes" var="list.template.gallery"/>
                             </option>
                             <option value="galleryOverlay">
                                 <locale group="quiqqer/bricks" var="brick.listTemplate.galleryOverlay"/>
@@ -429,6 +428,41 @@
                                         var="quiqqer.sitetypes.list.settings.showSheets"
                                 />
                             </text>
+                        </input>
+
+                        <select conf="quiqqer.settings.sitetypes.list.filter">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter"/>
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.desc"/>
+                            </description>
+                            <option value="disabled">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.disabled"/>
+                            </option>
+                            <option value="input">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.input"/>
+                            </option>
+                            <option value="tags">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.tags"/>
+                            </option>
+                            <option value="all">
+                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.all"/>
+                            </option>
+
+                        </select>
+
+                        <input conf="quiqqer.settings.sitetypes.list.tags" data-qui="package/quiqqer/tags/bin/tags/Select">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tags"
+                                />
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tags.desc"
+                                />
+                            </description>
                         </input>
                     </settings>
                 </category>

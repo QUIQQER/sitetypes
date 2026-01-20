@@ -1,0 +1,29 @@
+<div class="qui-control-childrenlist__filter"
+     data-qui="package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListFilter"
+     data-itemsData="{$itemsData|escape:"html"}"
+>
+    {if ($this->getAttribute('filter') == 'input' || $this->getAttribute('filter') === 'all')}
+        <div class="qui-control-childrenlist__textSearch">
+            <div class="qui-control-childrenlist__textSearch-wrapper">
+                <input type="text"
+                       placeholder="{locale group='quiqqer/sitetypes' value='quiqqer.sitetypes.list.frontend.filter.textSearch.placeholder'}"
+                       autocomplete="off"
+                       data-name="textSearch"
+                >
+                <span class="fa fa-search icon"></span>
+            </div>
+        </div>
+    {/if}
+    {if ($this->getAttribute('filter') == 'tags' || $this->getAttribute('filter') === 'all') && $this->getAttribute('tags')}
+        <div class="qui-control-childrenlist__tags" data-name="tags">
+            <button class="btn qui-control-childrenlist__tag active">
+                {locale group="quiqqer/sitetypes" value="quiqqer.sitetypes.list.frontend.filter.tags.btn.all"}
+            </button>
+            {foreach from=$tags item=tag}
+                <button class="btn qui-control-childrenlist__tag" data-name="{$tag.tag}">
+                    {$tag.title}
+                </button>
+            {/foreach}
+        </div>
+    {/if}
+</div>
