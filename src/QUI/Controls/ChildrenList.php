@@ -387,6 +387,10 @@ class ChildrenList extends QUI\Control
 
     protected function getTags (): array
     {
+        if (!QUI::getPackageManager()->isInstalled('quiqqer/tags')) {
+            return [];
+        }
+
         $tags = $this->getAttribute('tags');
 
         if (is_string($tags)) {
