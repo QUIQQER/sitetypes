@@ -387,7 +387,7 @@ class ChildrenList extends QUI\Control
 
     protected function getTags(): array
     {
-        if (!QUI::getPackageManager()->isInstalled('quiqqer/tags')) {
+        if (!class_exists('QUI\Tags\Manager')) {
             return [];
         }
 
@@ -397,7 +397,6 @@ class ChildrenList extends QUI\Control
             $tags = array_map('trim', explode(',', $tags));
         }
 
-        $tagTitles = [];
         $tagsData = [];
         $Project = $this->getProject();
 
@@ -406,10 +405,8 @@ class ChildrenList extends QUI\Control
 
             foreach ($tags as $tag) {
                 try {
-                    $tagData = $TagManager->get($tag);
                     $tagsData[] = $TagManager->get($tag);
-                    $tagTitles[] = $tagData['title'];
-                } catch (\Exception $e) {
+                } catch (\Exception) {
                     // Fehlerbehandlung, falls Tag nicht gefunden
                 }
             }
