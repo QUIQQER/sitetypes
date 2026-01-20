@@ -187,7 +187,7 @@ class ChildrenList extends QUI\Control
             }
         }
 
-        $showFilter = match($this->getAttribute('filter')) {
+        $showFilter = match ($this->getAttribute('filter')) {
             'all', 'input', 'tags' => true,
             default => false
         };
@@ -202,10 +202,10 @@ class ChildrenList extends QUI\Control
             foreach ($children as $Child) {
                 $_Child = $Child->load();
                 $itemsData[] = [
-                    'id'          => $_Child->getId(),
-                    'title'       => $_Child->getAttribute('title'),
+                    'id' => $_Child->getId(),
+                    'title' => $_Child->getAttribute('title'),
                     'description' => $_Child->getAttribute('short'),
-                    'tags'        => $_Child->getAttribute('quiqqer.tags.tagList'),
+                    'tags' => $_Child->getAttribute('quiqqer.tags.tagList')
                 ];
             }
         }
@@ -227,7 +227,7 @@ class ChildrenList extends QUI\Control
             'itemsData' => json_encode($itemsData, JSON_UNESCAPED_UNICODE)
         ]);
 
-        $filterHtml = $Engine->fetch(dirname(__FILE__).'/ChildrenList.Filter.html');
+        $filterHtml = $Engine->fetch(dirname(__FILE__) . '/ChildrenList.Filter.html');
         $Engine->assign(['filterHtml' => $filterHtml]);
 
         // load custom template (if set)
@@ -385,7 +385,7 @@ class ChildrenList extends QUI\Control
         return $Site;
     }
 
-    protected function getTags (): array
+    protected function getTags(): array
     {
         if (!QUI::getPackageManager()->isInstalled('quiqqer/tags')) {
             return [];
