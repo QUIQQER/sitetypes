@@ -12,10 +12,16 @@
 </div>
 {/if}
 <div class="qui-control-childrenlist-imageTopBorder-border">
+    {if $showFilter}
+        {$filterHtml}
+    {/if}
+
     {foreach from=$children item=Child}
     <article itemscope
              itemprop="{$this->getAttribute('child-itemprop')}"
              itemtype="{$this->getAttribute('child-itemtype')}"
+             data-id="{$Child->getId()}"
+             data-name="item"
              class="qui-control-childrenlist-imageTopBorder"
     >
         {$tmp = $MetaList->clear()}

@@ -22,7 +22,7 @@ if (
 /**
  * Site list
  */
-
+$a = $Site->getAttribute('quiqqer.tags.tagList');
 $ChildrenList = new QUI\Controls\ChildrenList([
     'showTitle' => false,
     'Site' => $Site,
@@ -37,7 +37,9 @@ $ChildrenList = new QUI\Controls\ChildrenList([
     'showContent' => false,
     'itemtype' => 'https://schema.org/ItemList',
     'child-itemtype' => 'https://schema.org/ListItem',
-    'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template')
+    'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template'),
+    'filter' => $Site->getAttribute('quiqqer.settings.sitetypes.list.filter'),
+    'tags' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tags')
 ]);
 
 try {

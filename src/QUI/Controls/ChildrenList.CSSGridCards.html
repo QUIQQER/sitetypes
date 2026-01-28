@@ -20,6 +20,11 @@
     <link>
     musst be outside of the CSS-Grid container *}
     <link property="mainEntityOfPage" href="{url site=$Site}">
+
+    {if $showFilter}
+        {$filterHtml}
+    {/if}
+
     <div class="childrenlist-cardsCssGrid">
 
         {assign var=counter value=1}
@@ -29,6 +34,8 @@
         <article itemscope
                  itemprop="{$this->getAttribute('child-itemprop')}"
                  itemtype="{$this->getAttribute('child-itemtype')}"
+                 data-id="{$Child->getId()}"
+                 data-name="item"
                  class="childrenlist-cardsCssGrid-entry"
         >
             {$tmp = $MetaList->clear()}
