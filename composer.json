@@ -16,7 +16,8 @@
     },
     "require": {
         "quiqqer/core": "^2",
-        "quiqqer/bricks": "^2.2.0"
+        "quiqqer/bricks": "^2.2.0",
+        "quiqqer/tags": "^2"
     },
     "autoload": {
         "psr-4": {
