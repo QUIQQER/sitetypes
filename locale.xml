@@ -237,6 +237,25 @@
             <de><![CDATA[Standard Kategorie-Sitemap]]></de>
             <en><![CDATA[Standard sitemap - Categories]]></en>
         </locale>
+        <locale name="admin.types.standalone">
+            <de><![CDATA[Templatefreie Seite (Standalone)]]></de>
+            <en><![CDATA[Template-free page (Standalone)]]></en>
+        </locale>
+        <locale name="admin.types.standalone.description">
+            <de><![CDATA[
+            Dieser Seitentyp wird ohne Template/Layout ausgeliefert. Es werden kein Header, Footer oder globale
+            Template-Struktur eingebunden. Die Seite kann vollständig mit eigenem HTML,
+            CSS und JavaScript definiert werden und eignet sich für technische Spezialseiten oder individuelle Landingpages.
+            ]]></de>
+            <en><![CDATA[
+            This page type is delivered without any template or layout. No header, footer, or global template structure will be included.
+            The page can be fully defined using custom HTML, CSS, and JavaScript and is ideal for special landing pages or technical standalone pages.
+            ]]></en>
+        </locale>
+        <locale name="admin.types.standalone.category">
+            <de><![CDATA[Standalone Inhalt]]></de>
+            <en><![CDATA[Standalone Content]]></en>
+        </locale>
 
         <locale name="tpl.search.button">
             <de><![CDATA[Suche starten]]></de>
