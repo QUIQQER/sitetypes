@@ -32,6 +32,37 @@
             </desc>
         </type>
 
+        <!-- Standalone -->
+        <type type="types/standalone" icon="fa fa-solid fa-file-code" content="0">
+            <locale group="quiqqer/sitetypes" var="admin.types.standalone"/>
+            <desc>
+                <locale group="quiqqer/sitetypes" var="admin.types.standalone.desc"/>
+            </desc>
+
+            <tab name="standalone-content">
+                <text>
+                    <locale group="quiqqer/sitetypes" var="admin.types.standalone.category"/>
+                </text>
+                <image>fa fa-solid fa-file-code</image>
+
+                <categories>
+                    <category name="standalone-content">
+                        <settings>
+                            <title>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.standalone.settings.title"
+                                />
+                            </title>
+                            <input type="hidden"
+                                   conf="content"
+                                   data-qui="package/quiqqer/sitetypes/bin/Controls/backend/StandaloneContent"
+                            />
+                        </settings>
+                    </category>
+                </categories>
+            </tab>
+        </type>
+
         <!-- Datenschutzerklärung -->
         <type type="types/privacypolicy" icon="fa fa-legal">
             <locale group="quiqqer/sitetypes" var="admin.types.privacypolicy"/>
@@ -54,7 +85,8 @@
                             />
                         </title>
 
-                        <input conf="quiqqer.settings.sitetypes.privacypolicy.gdpr.showRevokeCookiesButton" type="checkbox">
+                        <input conf="quiqqer.settings.sitetypes.privacypolicy.gdpr.showRevokeCookiesButton"
+                               type="checkbox">
                             <text>
                                 <locale group="quiqqer/sitetypes"
                                         var="quiqqer.settings.privacypolicy.gdpr.showRevokeCookiesButton"
@@ -281,7 +313,7 @@
                         </title>
 
                         <input conf="quiqqer.settings.sitetypes.externalContent.settings" type="hidden"
-                                 data-qui="package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent"
+                               data-qui="package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent"
                         >
 
                         </input>
@@ -394,7 +426,7 @@
                         <input conf="quiqqer.settings.sitetypes.list.showTime" type="checkbox">
                             <text>
                                 <locale group="quiqqer/sitetypes"
-                                        var="quiqqer.sitetypes.list.settings.showTime" />
+                                        var="quiqqer.sitetypes.list.settings.showTime"/>
                             </text>
                         </input>
 
@@ -438,7 +470,8 @@
                                 <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.desc"/>
                             </description>
                             <option value="disabled">
-                                <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.disabled"/>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.filter.disabled"/>
                             </option>
                             <option value="input">
                                 <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.filter.input"/>
@@ -452,7 +485,8 @@
 
                         </select>
 
-                        <input conf="quiqqer.settings.sitetypes.list.tags" data-qui="package/quiqqer/tags/bin/tags/Select">
+                        <input conf="quiqqer.settings.sitetypes.list.tags"
+                               data-qui="package/quiqqer/tags/bin/tags/Select">
                             <text>
                                 <locale group="quiqqer/sitetypes"
                                         var="quiqqer.sitetypes.list.settings.tags"
