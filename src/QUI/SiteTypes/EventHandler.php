@@ -54,7 +54,7 @@ class EventHandler
     }
 
     /**
-     * event : on site init
+     * event: on site init
      *
      * @param QUI\Projects\Site $Site
      */

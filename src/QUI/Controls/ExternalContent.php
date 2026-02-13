@@ -8,13 +8,8 @@ namespace QUI\Controls;
 
 use Exception;
 use QUI;
-use QUI\Projects\Site\Utils;
 
-use function ceil;
-use function count;
 use function dirname;
-use function file_exists;
-use function is_array;
 
 /**
  * Class ExternalContent
@@ -32,7 +27,7 @@ class ExternalContent extends QUI\Control
         $this->setAttributes([
             'class' => 'quiqqer-sitetypes-controls-externalContent',
             'externalContentType' => 'text', // 'text' or 'iframe'
-            'externalContentText' => '', // it may by script tag and / or HTML Node <div>
+            'externalContentText' => '', // it could be a script tag and / or HTML Node <div>
             'iframeUrl' => '',
             'iFrameHeightDesktop' => 400,
             'iFrameHeightMobile' => '',
@@ -50,9 +45,8 @@ class ExternalContent extends QUI\Control
      * Return the inner body of the element
      * Can be overwritten
      *
-     * @return String
+     * @return string
      *
-     * @throws QUI\Exception
      * @throws Exception
      */
     public function getBody(): string

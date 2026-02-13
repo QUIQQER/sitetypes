@@ -15,7 +15,7 @@ define('package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListFilter', [
         Type   : 'package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListFilter',
 
         options: {
-            itemsData: '' // json data for search
+            itemsData: '' // JSON data for search
         },
 
         Binds: [
@@ -37,7 +37,7 @@ define('package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListFilter', [
         },
 
         /**
-         * event : on import
+         * event: on import
          */
         $onImport: function () {
             const Elm = this.getElm();
