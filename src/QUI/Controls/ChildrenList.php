@@ -18,8 +18,6 @@ use function is_array;
 
 /**
  * Class ChildrenList
- *
- * @package quiqqer/sitetypes
  */
 class ChildrenList extends QUI\Control
 {

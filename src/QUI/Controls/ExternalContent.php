@@ -18,8 +18,6 @@ use function is_array;
 
 /**
  * Class ExternalContent
- *
- * @package quiqqer/sitetypes
  */
 class ExternalContent extends QUI\Control
 {

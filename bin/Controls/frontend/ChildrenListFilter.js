@@ -1,7 +1,5 @@
 /**
  * QUIQQER ChildrenListFilter Control
- *
- * @author www.pcsg.de (Michael Danielczok)
  */
 define('package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListFilter', [
 
