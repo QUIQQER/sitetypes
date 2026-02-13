@@ -1,10 +1,3 @@
-/**
- *
- * @module package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent
- * @author Michael Danielczok
- *
- */
-
 define('package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent', [
 
     'qui/controls/Control',
