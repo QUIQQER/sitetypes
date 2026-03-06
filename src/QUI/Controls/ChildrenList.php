@@ -18,15 +18,13 @@ use function is_array;
 
 /**
  * Class ChildrenList
- *
- * @package quiqqer/sitetypes
  */
 class ChildrenList extends QUI\Control
 {
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -44,7 +42,7 @@ class ChildrenList extends QUI\Control
             'showCreator' => false,
             'Site' => false,
             'parentInputList' => false,
-            // if true returns all sites of certain type
+            // if true, returns all sites of a certain type
             'byType' => false,
             'where' => false,
             'itemtype' => 'https://schema.org/ItemList',
@@ -52,9 +50,9 @@ class ChildrenList extends QUI\Control
             'child-itemprop' => 'itemListElement',
             // layout / design
             'display' => 'childrenlist',
-            // Custom children template (path to html file); overwrites "display"
+            // Custom children template (path to an HTML file); overwrites "display"
             'displayTemplate' => false,
-            // Custom children template css (path to css file); overwrites "display"
+            // Custom children template CSS (path to CSS file); overwrites "display"
             'displayCss' => false,
             'nodeName' => 'section',
             // list of sites to display,
@@ -380,11 +378,18 @@ class ChildrenList extends QUI\Control
 
         $Site = QUI::getRewrite()->getSite();
 
+        if (!$Site instanceof QUI\Interfaces\Projects\Site) {
+            throw new QUI\Exception('Site not found');
+        }
+
         $this->setAttribute('Site', $Site);
 
         return $Site;
     }
 
+    /**
+     * @return array<int, mixed>
+     */
     protected function getTags(): array
     {
         if (!class_exists('QUI\Tags\Manager')) {
@@ -398,7 +403,12 @@ class ChildrenList extends QUI\Control
         }
 
         $tagsData = [];
-        $Project = $this->getProject();
+
+        try {
+            $Project = $this->getProject();
+        } catch (Exception) {
+            return [];
+        }
 
         if (!empty($tags)) {
             $TagManager = new QUI\Tags\Manager($Project);
@@ -406,8 +416,8 @@ class ChildrenList extends QUI\Control
             foreach ($tags as $tag) {
                 try {
                     $tagsData[] = $TagManager->get($tag);
-                } catch (\Exception) {
-                    // Fehlerbehandlung, falls Tag nicht gefunden
+                } catch (Exception) {
+                    // Error handling if tag not found
                 }
             }
         }

@@ -8,25 +8,18 @@ namespace QUI\Controls;
 
 use Exception;
 use QUI;
-use QUI\Projects\Site\Utils;
 
-use function ceil;
-use function count;
 use function dirname;
-use function file_exists;
-use function is_array;
 
 /**
  * Class ExternalContent
- *
- * @package quiqqer/sitetypes
  */
 class ExternalContent extends QUI\Control
 {
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -34,7 +27,7 @@ class ExternalContent extends QUI\Control
         $this->setAttributes([
             'class' => 'quiqqer-sitetypes-controls-externalContent',
             'externalContentType' => 'text', // 'text' or 'iframe'
-            'externalContentText' => '', // it may by script tag and / or HTML Node <div>
+            'externalContentText' => '', // it could be a script tag and / or HTML Node <div>
             'iframeUrl' => '',
             'iFrameHeightDesktop' => 400,
             'iFrameHeightMobile' => '',
@@ -52,9 +45,8 @@ class ExternalContent extends QUI\Control
      * Return the inner body of the element
      * Can be overwritten
      *
-     * @return String
+     * @return string
      *
-     * @throws QUI\Exception
      * @throws Exception
      */
     public function getBody(): string
@@ -91,16 +83,24 @@ class ExternalContent extends QUI\Control
             'iframeUrl' => $iframeUrl
         ]);
 
-        return $Engine->fetch($this->getTemplateFile());
+        $template = $this->getTemplateFile();
+
+        if (!is_string($template) || $template === '') {
+            QUI\System\Log::addWarning('QUI\\Controls\\ExternalContent: no valid template file found.');
+
+            return '';
+        }
+
+        return $Engine->fetch($template);
     }
 
     /**
      * Check if $value has a unit, if not add px
      *
-     * @param $value
+     * @param mixed $value
      * @return string
      */
-    protected function getValue($value): string
+    protected function getValue(mixed $value): string
     {
         if (
             is_int($value) ||
@@ -110,7 +110,7 @@ class ExternalContent extends QUI\Control
             $value = $value . 'px';
         }
 
-        return $value;
+        return (string)$value;
     }
 
     /**
