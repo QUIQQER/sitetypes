@@ -24,7 +24,7 @@ class ChildrenList extends QUI\Control
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -378,11 +378,18 @@ class ChildrenList extends QUI\Control
 
         $Site = QUI::getRewrite()->getSite();
 
+        if (!$Site instanceof QUI\Interfaces\Projects\Site) {
+            throw new QUI\Exception('Site not found');
+        }
+
         $this->setAttribute('Site', $Site);
 
         return $Site;
     }
 
+    /**
+     * @return array<int, mixed>
+     */
     protected function getTags(): array
     {
         if (!class_exists('QUI\Tags\Manager')) {

@@ -19,7 +19,7 @@ class ExternalContent extends QUI\Control
     /**
      * constructor
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      */
     public function __construct(array $attributes = [])
     {
@@ -83,16 +83,24 @@ class ExternalContent extends QUI\Control
             'iframeUrl' => $iframeUrl
         ]);
 
-        return $Engine->fetch($this->getTemplateFile());
+        $template = $this->getTemplateFile();
+
+        if (!is_string($template) || $template === '') {
+            QUI\System\Log::addWarning('QUI\\Controls\\ExternalContent: no valid template file found.');
+
+            return '';
+        }
+
+        return $Engine->fetch($template);
     }
 
     /**
      * Check if $value has a unit, if not add px
      *
-     * @param $value
+     * @param mixed $value
      * @return string
      */
-    protected function getValue($value): string
+    protected function getValue(mixed $value): string
     {
         if (
             is_int($value) ||
@@ -102,7 +110,7 @@ class ExternalContent extends QUI\Control
             $value = $value . 'px';
         }
 
-        return $value;
+        return (string)$value;
     }
 
     /**

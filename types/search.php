@@ -61,9 +61,9 @@ if (isset($_REQUEST['search'])) {
         $searchValue = $_REQUEST['search'];
     }
 
-    $searchValue = preg_replace("/[^a-zA-Z0-9äöüß]/", " ", $searchValue);
+    $searchValue = (string)preg_replace("/[^a-zA-Z0-9äöüß]/", " ", $searchValue);
     $searchValue = Orthos::clear($searchValue);
-    $searchValue = preg_replace('#([ ]){2,}#', "$1", $searchValue);
+    $searchValue = (string)preg_replace('#([ ]){2,}#', "$1", $searchValue);
     $searchValue = trim($searchValue);
 }
 
@@ -114,6 +114,10 @@ $Pagination = new QUI\Controls\Navigating\Pagination([
 
 $Pagination->loadFromRequest();
 $Pagination->setGetParams('search', $searchValue);
+
+if (!is_array($children)) {
+    $children = [];
+}
 
 $children = array_filter($children, function ($Child) {
     /* @var $Child Site */
