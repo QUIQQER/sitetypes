@@ -246,6 +246,30 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <de><![CDATA[Standalone Inhalt]]></de>
             <en><![CDATA[Standalone Content]]></en>
         </locale>
+        <locale name="quiqqer.standalone.settings.title">
+            <de><![CDATA[Standalone Einstellungen]]></de>
+            <en><![CDATA[Standalone settings]]></en>
+        </locale>
+        <locale name="quiqqer.standalone.settings.outputType">
+            <de><![CDATA[Ausgabe-/Header-Typ]]></de>
+            <en><![CDATA[Output/Header type]]></en>
+        </locale>
+        <locale name="quiqqer.standalone.settings.outputType.textHtml">
+            <de><![CDATA[HTML (text/html)]]></de>
+            <en><![CDATA[HTML (text/html)]]></en>
+        </locale>
+        <locale name="quiqqer.standalone.settings.outputType.textPlain">
+            <de><![CDATA[Plain Text (text/plain)]]></de>
+            <en><![CDATA[Plain Text (text/plain)]]></en>
+        </locale>
+        <locale name="quiqqer.standalone.settings.outputType.applicationJson">
+            <de><![CDATA[JSON (application/json)]]></de>
+            <en><![CDATA[JSON (application/json)]]></en>
+        </locale>
+        <locale name="quiqqer.standalone.settings.outputType.applicationXml">
+            <de><![CDATA[XML (application/xml)]]></de>
+            <en><![CDATA[XML (application/xml)]]></en>
+        </locale>
 
         <locale name="tpl.search.button">
             <de><![CDATA[Suche starten]]></de>
