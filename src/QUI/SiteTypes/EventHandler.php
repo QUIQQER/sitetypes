@@ -10,13 +10,11 @@ use QUI;
 
 /**
  * Class Events
- *
- * @package quiqqer/sitetypes
  */
 class EventHandler
 {
     /**
-     * event : on site save
+     * event: on site save
      *
      * @param QUI\Interfaces\Projects\Site $Site
      */
@@ -56,7 +54,7 @@ class EventHandler
     }
 
     /**
-     * event : on site init
+     * event: on site init
      *
      * @param QUI\Projects\Site $Site
      */

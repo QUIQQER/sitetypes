@@ -10,10 +10,28 @@
  **/
 
 $engine = QUI::getTemplateManager()->getEngine();
+$response = QUI::getGlobalResponse();
+
+$outputType = $Site->getAttribute('quiqqer.settings.sitetypes.standalone.outputType');
+$allowedOutputTypes = [
+    'text/html',
+    'text/plain',
+    'application/json',
+    'application/xml'
+];
+
+if (!in_array($outputType, $allowedOutputTypes, true)) {
+    $outputType = 'text/html';
+}
 
 $engine->assign([
     'Site' => $Site
 ]);
 
-echo $engine->fetch(dirname(__FILE__) . '/standalone.html');
+$response->headers->set('Content-Type', $outputType . '; charset=UTF-8');
+$response->setContent(
+    $engine->fetch(dirname(__FILE__) . '/standalone.html')
+);
+$response->send();
+
 exit;

@@ -39,6 +39,10 @@
                 <locale group="quiqqer/sitetypes" var="admin.types.standalone.desc"/>
             </desc>
 
+            <attributes>
+                <attribute default="text/html">quiqqer.settings.sitetypes.standalone.outputType</attribute>
+            </attributes>
+
             <tab name="standalone-content">
                 <text>
                     <locale group="quiqqer/sitetypes" var="admin.types.standalone.category"/>
@@ -49,9 +53,7 @@
                     <category name="standalone-content">
                         <settings>
                             <title>
-                                <locale group="quiqqer/sitetypes"
-                                        var="quiqqer.standalone.settings.title"
-                                />
+                                <locale group="quiqqer/sitetypes" var="admin.types.standalone.category"/>
                             </title>
                             <input type="hidden"
                                    conf="content"
@@ -61,6 +63,47 @@
                     </category>
                 </categories>
             </tab>
+
+            <settings>
+                <category name="sitetypes-standalone-settings">
+                    <settings>
+                        <title>
+                            <locale group="quiqqer/sitetypes"
+                                    var="quiqqer.standalone.settings.title"
+                            />
+                        </title>
+
+                        <select conf="quiqqer.settings.sitetypes.standalone.outputType">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.standalone.settings.outputType"
+                                />
+                            </text>
+
+                            <option value="text/html">
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.standalone.settings.outputType.textHtml"
+                                />
+                            </option>
+                            <option value="text/plain">
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.standalone.settings.outputType.textPlain"
+                                />
+                            </option>
+                            <option value="application/json">
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.standalone.settings.outputType.applicationJson"
+                                />
+                            </option>
+                            <option value="application/xml">
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.standalone.settings.outputType.applicationXml"
+                                />
+                            </option>
+                        </select>
+                    </settings>
+                </category>
+            </settings>
         </type>
 
         <!-- Datenschutzerklärung -->

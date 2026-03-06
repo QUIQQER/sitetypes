@@ -109,7 +109,7 @@ define('package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent', [
         },
 
         /**
-         * Sets the values of the input fields, selects and textareas based on the current data.
+         * Sets the values of the input fields, select and textarea based on the current data.
          */
         $setValuesToInputs: function () {
             const inputs = this.$Elm.getElements('input, select, textarea');
@@ -145,7 +145,7 @@ define('package/quiqqer/sitetypes/bin/Controls/backend/ExternalContent', [
         },
 
         /**
-         * Handles the blur event of input fields, selects and textareas.
+         * Handles the blur event of input fields, select, and textarea.
          * Updates the data object with the new value and sets the hidden input field.
          *
          * @param {Event} event - The blur event object.
