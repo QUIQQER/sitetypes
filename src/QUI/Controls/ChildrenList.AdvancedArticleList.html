@@ -40,10 +40,10 @@
             >
                 {if $this->getAttribute('showDate')}
                 <span class="qui-control-childrenlist-advancedArticleList-day">
-                {$Child->getAttribute('release_from')|date_format:"%d"}
+                {$Child->getAttribute('release_from')|date_format:"d"}
             </span>
                 <span class="qui-control-childrenlist-advancedArticleList-month">
-                {$Child->getAttribute('release_from')|date_format:"%b"}
+                {$Child->getAttribute('release_from')|date_format:"M"}
             </span>
                 {else}
                 <br/>
