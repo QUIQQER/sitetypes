@@ -115,7 +115,7 @@
                     {if $this->getAttribute('showTime')}
                     <span class="childrenlist-cardsCssGrid-entry-content-info-time">
                         <span class="fa fa-clock-o"></span>
-                        {$Child->getAttribute('release_from')|date_format:"%H:%M"}
+                        {$Child->getAttribute('release_from')|date_format:"H:i"}
                     </span>
                     {/if}
                 </div>
