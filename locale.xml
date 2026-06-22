@@ -352,12 +352,12 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <pl><![CDATA[Layout]]></pl>
         </locale>
         <locale name="list.template.cardRows">
-            <de><![CDATA[Cards]]></de>
+            <de><![CDATA[Breitere Karten mit Bild links untereinander]]></de>
             <en><![CDATA[Cards]]></en>
             <pl><![CDATA[Cards]]></pl>
         </locale>
         <locale name="list.template.featuredCards">
-            <de><![CDATA[Featured + Cards]]></de>
+            <de><![CDATA[Hervorgehobener Beitrag + Karten]]></de>
             <en><![CDATA[Featured + Cards]]></en>
         </locale>
         <locale name="list.template.gallery">
