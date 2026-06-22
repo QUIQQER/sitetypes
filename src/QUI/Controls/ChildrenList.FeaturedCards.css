@@ -1,0 +1,188 @@
+@CHARSET "UTF-8";
+
+.qui-control-childrenlist-featuredCards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Entry (base = card in the 3-column grid)
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-featuredCards-entry {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--qui-colors-surface-card);
+    border: var(--qui-border-width) var(--qui-border-style) var(--qui-border-color);
+    border-radius: var(--qui-radius-card);
+    box-shadow: var(--qui-shadow-card);
+}
+
+/* keyboard focus: highlight the whole card when the inner link is focused */
+.qui-control-childrenlist-featuredCards-entry:focus-within {
+    outline: 2px solid var(--qui-colors-link);
+    outline-offset: 2px;
+}
+
+/* The first entry of every page spans the whole row */
+.qui-control-childrenlist-featuredCards-entry.is-featured {
+    grid-column: 1 / -1;
+}
+
+/* stretched link: the title link covers the whole card, making it clickable
+   without extra JS and without redundant links on image/button */
+.qui-control-childrenlist-featuredCards-entry-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Image
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-featuredCards-entry-image {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+}
+
+.qui-control-childrenlist-featuredCards-entry-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* scale the image when hovering anywhere on the card */
+.qui-control-childrenlist-featuredCards-entry:hover img {
+    transform: scale(1.04);
+}
+
+/* ---------------------------------------------------------------------------
+   Content
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-featuredCards-entry-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.5rem;
+}
+
+.qui-control-childrenlist-featuredCards-entry-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--qui-colors-text-muted);
+    font-size: 0.85rem;
+}
+
+.qui-control-childrenlist-featuredCards-entry-tag {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.qui-control-childrenlist-featuredCards-entry-time {
+    margin-left: 0.5em;
+}
+
+.qui-control-childrenlist-featuredCards-entry-title {
+    margin: 0;
+    /* fixed-ish size: the template has no container queries yet, so a
+       viewport-fluid heading size would blow up inside the narrow cards */
+    font-size: clamp(1.1875rem, 1.16rem + 0.125vw, 1.27rem);
+    line-height: var(--qui-line-height-xs);
+}
+
+.qui-control-childrenlist-featuredCards-entry-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* byline: author and date on one muted line below the title */
+.qui-control-childrenlist-featuredCards-entry-byline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    color: var(--qui-colors-text-muted);
+    font-size: 0.75em;
+    line-height: 1;
+}
+
+.qui-control-childrenlist-featuredCards-entry-author .fa {
+    margin-right: 0.35em;
+}
+
+/* separator between author and date when both are shown */
+.qui-control-childrenlist-featuredCards-entry-author
++ .qui-control-childrenlist-featuredCards-entry-date::before {
+    content: "·";
+    margin-right: 0.5em;
+}
+
+.qui-control-childrenlist-featuredCards-entry-short {
+    margin: 0;
+    color: var(--qui-colors-text);
+}
+
+/* visual styling comes from the .btn-link component; only layout here */
+.qui-control-childrenlist-featuredCards-entry-more {
+    align-self: flex-start;
+    margin-top: auto;
+    /* neutralise the component's horizontal padding so the link sits flush
+       with the card text */
+    --padding-inline: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Featured layout: image and content side by side on wider screens
+--------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
+    .qui-control-childrenlist-featuredCards-entry.is-featured {
+        flex-direction: row;
+    }
+
+    .is-featured > .qui-control-childrenlist-featuredCards-entry-image {
+        flex: 1 1 55%;
+        aspect-ratio: auto;
+        min-height: 340px;
+    }
+
+    .is-featured > .qui-control-childrenlist-featuredCards-entry-content {
+        flex: 1 1 45%;
+        justify-content: center;
+        gap: 1rem;
+        padding: 2.5rem;
+    }
+
+    .is-featured .qui-control-childrenlist-featuredCards-entry-title {
+        /* featured spans the full row, so a slightly larger size is fine */
+        font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.8125rem);
+    }
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive grid
+--------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+    .qui-control-childrenlist-featuredCards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .qui-control-childrenlist-featuredCards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .qui-control-childrenlist-featuredCards-entry-content {
+        padding: 1.25rem;
+    }
+}
