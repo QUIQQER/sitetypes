@@ -107,7 +107,7 @@ define('package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListFilter', [
                     Tag.classList.add('active');
 
                     this.activeTag = Tag.getAttribute('data-name');
-                    this.filterEntries(this.activeTag, this.Input.value);
+                    this.filterEntries(this.activeTag, this.Input ? this.Input.value : '');
 
                 });
             });
