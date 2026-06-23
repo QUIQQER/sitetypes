@@ -21,7 +21,7 @@
         />
     </form>
 
-    <section class="content-template grid-100 mobile-grid-100 grid-parent qui-search-result-list">
+    <section class="content-template qui-search-result-list">
     {if !empty($children)}
         {$Pagination->create()}
     {/if}
@@ -38,56 +38,7 @@
         {$ChildrenList->create()}
 
         {$Pagination->create()}
-
-        {*foreach from=$children item=Child}
-        {assign var=Child value=$Child->load()}
-
-            <article class="qui-search-result-list-entry">
-
-                <h2>
-                    <a href="{url site=$Child}"
-                       title="{$Child->getAttribute('title')|escape:"html"}"
-                    >
-                        <span>{$Child->getAttribute('title')}</span>
-                    </a>
-                </h2>
-
-                <div class="qui-search-result-list-entry-content grid-100 mobile-grid-100 grid-parent">
-
-                    {assign var=bg value=""}
-
-                    {if $Child->getAttribute('image_site')}
-                        {image src=$Child->getAttribute('image_site') width="300" type="resize" onlysrc=1 assign=bg}
-                    {elseif $Placeholder}
-                        {image image=$Placeholder
-                            width="300"
-                            type="resize"
-                            onlysrc=1
-                            assign=bg
-                        }
-                    {/if}
-
-                    <a href="{url site=$Child}"
-                       title="{$Child->getAttribute('title')|escape:"html"}"
-                       class="qui-search-result-list-entry-imagelink grid-25 hide-on-mobile content-image-placeholder"
-                       {if $bg}style="background-image: url({$bg})"{/if}
-                    >
-                        <span>{$Child->getAttribute('title')}</span>
-                    </a>
-
-                    <div class="qui-search-result-list-entry-short grid-75 mobile-grid-100">
-                        {$Child->getAttribute('short')|nl2br}
-                        <a href="{url site=$Child}">
-                            {locale group="quiqqer/sitetypes" value="tpl.search.list.more"}
-                        </a>
-                    </div>
-
-                </div>
-            </article>
-        {/foreach*}
-
     {/if}
 
     </section>
-
 </div>
