@@ -10,6 +10,7 @@ use Exception;
 use QUI;
 use QUI\Projects\Site\Utils;
 
+use function array_slice;
 use function ceil;
 use function count;
 use function dirname;
@@ -63,7 +64,10 @@ class ChildrenList extends QUI\Control
 
             // tags
             'tags' => [],
-            'filter' => 'disabled' // 'all' / 'input' / 'tags' / 'disabled'
+            'filter' => 'disabled', // 'all' / 'input' / 'tags' / 'disabled'
+            // Name of the site attribute used to mark pinned entries; false disables pin sorting
+            'pinnedAttribute' => false,
+            'pinnedOrder' => 'release_from DESC'
         ]);
 
         parent::__construct($attributes);
@@ -140,8 +144,6 @@ class ChildrenList extends QUI\Control
             $count_children = count($count_children);
         }
 
-        // sheets
-        $sheets = ceil($count_children / $limit);
         $loadAllChildrenOnEmptyList = $this->getAttribute('loadAllChildrenOnEmptyList');
         $where = $this->getAttribute('where');
 
@@ -151,7 +153,10 @@ class ChildrenList extends QUI\Control
 
         $where['active'] = 1;
 
-        if ($this->getAttribute('parentInputList')) {
+        if ($this->supportsPinnedSorting()) {
+            $children = $this->getPinnedChildren($Site, $where, $start, $limit);
+            $count_children = $this->getPinnedChildrenCount($Site, $where);
+        } elseif ($this->getAttribute('parentInputList')) {
             // for bricks
             $children = Utils::getSitesByInputList($Project, $parents, [
                 'where' => $where,
@@ -184,6 +189,9 @@ class ChildrenList extends QUI\Control
                 ]);
             }
         }
+
+        // sheets
+        $sheets = ceil($count_children / $limit);
 
         $showFilter = match ($this->getAttribute('filter')) {
             'all', 'input', 'tags' => true,
@@ -334,6 +342,178 @@ class ChildrenList extends QUI\Control
         $this->addCSSFile($css);
 
         return $Engine->fetch($template);
+    }
+
+    /**
+     * Pin sorting is intentionally limited to direct child lists and byType
+     * lists for now. Other ChildrenList sources such as parentInputList or
+     * externally provided children use different loading semantics and are
+     * not covered by the current implementation.
+     */
+    protected function supportsPinnedSorting(): bool
+    {
+        return (bool)$this->getAttribute('pinnedAttribute')
+            && !$this->getAttribute('parentInputList')
+            && !$this->getAttribute('children')
+            && $this->getAttribute('loadAllChildrenOnEmptyList');
+    }
+
+    /**
+     * @param array<string, mixed> $where
+     * @return array<int, QUI\Projects\Site>
+     * @throws QUI\Exception
+     */
+    protected function getPinnedChildren(
+        QUI\Interfaces\Projects\Site $Site,
+        array $where,
+        int $start,
+        int $limit
+    ): array {
+        if ($this->getAttribute('byType')) {
+            $children = $this->getPinnedByTypeChildren();
+        } else {
+            $children = $Site->getChildren([
+                'where' => $where
+            ]);
+
+            if (!is_array($children)) {
+                $children = [];
+            }
+        }
+
+        $children = $this->sortPinnedChildren($children);
+
+        return array_slice($children, $start, $limit);
+    }
+
+    /**
+     * @param array<string, mixed> $where
+     * @throws QUI\Exception
+     */
+    protected function getPinnedChildrenCount(
+        QUI\Interfaces\Projects\Site $Site,
+        array $where
+    ): int {
+        if ($this->getAttribute('byType')) {
+            return count($this->getPinnedByTypeChildren());
+        }
+
+        $children = $Site->getChildren([
+            'where' => $where
+        ]);
+
+        if (is_array($children)) {
+            return count($children);
+        }
+
+        return (int)$children;
+    }
+
+    /**
+     * @return array<int, QUI\Projects\Site>
+     * @throws QUI\Exception
+     */
+    protected function getPinnedByTypeChildren(): array
+    {
+        $Project = $this->getProject();
+        $where = [
+            'active' => 1,
+            'type' => $this->getAttribute('byType')
+        ];
+
+        $configuredWhere = $this->getAttribute('where');
+
+        if (is_array($configuredWhere)) {
+            $where = array_merge($configuredWhere, $where);
+        }
+
+        $childIds = $Project->getSitesIds([
+            'where' => $where,
+            'order' => 'release_from DESC'
+        ]);
+
+        $children = [];
+
+        foreach ($childIds as $id) {
+            $children[] = $Project->get($id['id']);
+        }
+
+        return $children;
+    }
+
+    /**
+     * @param array<int, QUI\Projects\Site> $children
+     * @return array<int, QUI\Projects\Site>
+     */
+    protected function sortPinnedChildren(array $children): array
+    {
+        $pinnedAttribute = (string)$this->getAttribute('pinnedAttribute');
+        $pinned = [];
+        $normal = [];
+
+        foreach ($children as $Child) {
+            if ($Child->getAttribute($pinnedAttribute)) {
+                $pinned[] = $Child;
+                continue;
+            }
+
+            $normal[] = $Child;
+        }
+
+        $sortBy = $this->getPinOrderField();
+        $sortDirection = $this->getPinOrderDirection();
+        $sortChildren = static function (
+            QUI\Interfaces\Projects\Site $siteA,
+            QUI\Interfaces\Projects\Site $siteB
+        ) use (
+            $sortBy,
+            $sortDirection
+): int {
+            $valueA = $siteA->getAttribute($sortBy);
+            $valueB = $siteB->getAttribute($sortBy);
+
+            if ($valueA === $valueB) {
+                return 0;
+            }
+
+            $result = $valueA <=> $valueB;
+
+            if ($sortDirection === 'DESC') {
+                return $result * -1;
+            }
+
+            return $result;
+        };
+
+        usort($pinned, $sortChildren);
+        usort($normal, $sortChildren);
+
+        return array_merge($pinned, $normal);
+    }
+
+    protected function getPinOrderField(): string
+    {
+        $pinnedOrder = (string)$this->getAttribute('pinnedOrder');
+
+        if ($pinnedOrder === '') {
+            return 'release_from';
+        }
+
+        $parts = explode(' ', $pinnedOrder, 2);
+
+        return $parts[0];
+    }
+
+    protected function getPinOrderDirection(): string
+    {
+        $pinnedOrder = (string)$this->getAttribute('pinnedOrder');
+        $parts = explode(' ', $pinnedOrder, 2);
+
+        if (isset($parts[1]) && strtoupper($parts[1]) === 'ASC') {
+            return 'ASC';
+        }
+
+        return 'DESC';
     }
 
     /**
