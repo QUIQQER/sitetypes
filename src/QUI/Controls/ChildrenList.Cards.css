@@ -1,0 +1,214 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------------------------------
+   Config / theming layer (3-level pattern): long themeable variable >
+   control config (--_q-controlConf-*) > fallback. The CSS body only uses
+   the short --_NAME variables.
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-cards {
+    --_cols: var(--quiqqer-childrenlist-cards-columns,
+        var(--_q-controlConf-cardColumns, 3));
+    --_cols-tablet: var(--quiqqer-childrenlist-cards-columnsTablet,
+        var(--_q-controlConf-cardColumnsTablet, var(--_cols)));
+    --_cols-mobile: var(--quiqqer-childrenlist-cards-columnsMobile,
+        var(--_q-controlConf-cardColumnsMobile, 1));
+    --_aspect: var(--quiqqer-childrenlist-cards-aspectRatio,
+        var(--_q-controlConf-cardAspectRatio, 1 / 1));
+    --_fit: var(--quiqqer-childrenlist-cards-imageFit,
+        var(--_q-controlConf-cardImageFit, cover));
+    --_gap: var(--quiqqer-childrenlist-cards-gap,
+        var(--_q-controlConf-cardGap, clamp(1rem, 0.9rem + 0.5cqi, 1.5rem)));
+
+    /* pure theming layer: content padding scales with the card width, since
+       cqi is resolved where the variable is used (inside -entry-content) and
+       refers to its nearest container — the card, not this list root */
+    --_content-padding: var(--quiqqer-childrenlist-cards-contentPadding,
+        clamp(1rem, 0.75rem + 2.5cqi, 1.5rem));
+
+    /* pure theming layer: size of the icon fallback in the image area,
+       scales with the card width (cqi, resolved inside the card) */
+    --_icon-size: var(--quiqqer-childrenlist-cards-iconSize,
+        clamp(2.5rem, 18cqi, 4.5rem));
+
+    /* --_title-size is a general, template-independent setting and is defined
+       in ChildrenList.Base.css (always loaded); it is only consumed here. */
+
+    /* the grid responds to this container's own width, not the viewport, so
+       the layout adapts inside sidebars, columns etc. */
+    container: childrenlistCards / inline-size;
+}
+
+.qui-control-childrenlist-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--_cols), minmax(0, 1fr));
+    gap: var(--_gap);
+}
+
+/* ---------------------------------------------------------------------------
+   Entry (card)
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-cards-entry {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--qui-colors-surface-card);
+    border: var(--qui-border-width) var(--qui-border-style) var(--qui-border-color);
+    border-radius: var(--qui-radius-card);
+    box-shadow: var(--qui-shadow-card);
+
+    /* each card is its own container, so the title (cqi units) scales with
+       the card's width, not the whole list width */
+    container-type: inline-size;
+}
+
+/* keyboard focus: highlight the whole card when the inner link is focused */
+.qui-control-childrenlist-cards-entry:focus-within {
+    outline: 2px solid var(--qui-colors-link);
+    outline-offset: 2px;
+}
+
+/* stretched link: the title link covers the whole card, making it clickable
+   without extra JS and without redundant links on image/button */
+.qui-control-childrenlist-cards-entry-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Image
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-cards-entry-image {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: var(--_aspect);
+    /* subtle surface so the image area reads as such even without an image
+       or with only the icon fallback */
+    background: var(--qui-colors-surface-card-subtle);
+}
+
+.qui-control-childrenlist-cards-entry-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: var(--_fit);
+    transition: transform 0.3s ease;
+}
+
+/* icon fallback: the site may be configured with a FontAwesome icon instead
+   of an image; the {image} plugin then renders a .quiqqer-icon span. Centre
+   it on a subtle surface and scale it with the card width. */
+.qui-control-childrenlist-cards-entry-image .quiqqer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--qui-colors-text-muted);
+    font-size: var(--_icon-size);
+    transition: transform 0.3s ease;
+}
+
+/* scale the image (or icon fallback) when hovering anywhere on the card */
+.qui-control-childrenlist-cards-entry:hover img,
+.qui-control-childrenlist-cards-entry:hover .quiqqer-icon {
+    transform: scale(1.04);
+}
+
+/* ---------------------------------------------------------------------------
+   Content
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-cards-entry-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: var(--_content-padding);
+}
+
+.qui-control-childrenlist-cards-entry-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--qui-colors-text-muted);
+    font-size: 0.85rem;
+}
+
+.qui-control-childrenlist-cards-entry-tag {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.qui-control-childrenlist-cards-entry-time {
+    margin-left: 0.5em;
+}
+
+.qui-control-childrenlist-cards-entry-title {
+    margin: 0;
+    font-size: var(--_title-size);
+    line-height: var(--qui-line-height-xs);
+}
+
+.qui-control-childrenlist-cards-entry-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* byline: author and date on one muted line below the title */
+.qui-control-childrenlist-cards-entry-byline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    color: var(--qui-colors-text-muted);
+    font-size: var(--qui-fs-xs);
+    line-height: 1;
+}
+
+.qui-control-childrenlist-cards-entry-author .fa {
+    margin-right: 0.35em;
+}
+
+/* separator between author and date when both are shown */
+.qui-control-childrenlist-cards-entry-author
++ .qui-control-childrenlist-cards-entry-date::before {
+    content: "·";
+    margin-right: 0.5em;
+}
+
+.qui-control-childrenlist-cards-entry-short {
+    margin: 0;
+    color: var(--qui-colors-text);
+}
+
+/* visual styling comes from the .btn-link component; only layout here */
+.qui-control-childrenlist-cards-entry-more {
+    align-self: flex-start;
+    margin-top: auto;
+    /* neutralise the component's horizontal padding so the link sits flush
+       with the card text */
+    --padding-inline: 0;
+}
+
+.qui-control-childrenlist-cards-entry-more--full {
+    align-self: stretch;
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive grid — based on the container's width (see container: … above),
+   not the viewport, so the card count adapts to the actual available space.
+--------------------------------------------------------------------------- */
+@container childrenlistCards (max-width: 991px) {
+    .qui-control-childrenlist-cards-grid {
+        grid-template-columns: repeat(var(--_cols-tablet), minmax(0, 1fr));
+    }
+}
+
+@container childrenlistCards (max-width: 600px) {
+    .qui-control-childrenlist-cards-grid {
+        grid-template-columns: repeat(var(--_cols-mobile), minmax(0, 1fr));
+    }
+}

@@ -22,7 +22,7 @@
     </form>
 
     <section class="content-template qui-search-result-list">
-    {if !empty($children)}
+    {if !empty($children) && $Site->getAttribute('quiqqer.settings.sitetypes.list.showSheets')}
         {$Pagination->create()}
     {/if}
     {if empty($children)}
@@ -37,7 +37,9 @@
 
         {$ChildrenList->create()}
 
+        {if $Site->getAttribute('quiqqer.settings.sitetypes.list.showSheets')}
         {$Pagination->create()}
+        {/if}
     {/if}
 
     </section>

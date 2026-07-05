@@ -1,0 +1,108 @@
+{assign var=_Child value=$Child->load()}
+
+<article itemscope
+         itemprop="{$this->getAttribute('child-itemprop')}"
+         itemtype="{$this->getAttribute('child-itemtype')}"
+         data-id="{$Child->getId()}"
+         data-name="item"
+         class="qui-control-childrenlist-cards-entry"
+>
+    {$tmp = $MetaList->clear()}
+    {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
+    {$MetaList->create()}
+
+    <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
+    <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
+    <meta itemprop="position" content="{$counter}"/>
+
+    {* entry image (not a separate link; the whole card is clickable
+       via the stretched title link below) *}
+    {if $this->getAttribute('showImages')}
+    <div class="qui-control-childrenlist-cards-entry-image">
+        {image src=$Child->getAttribute('image_site')
+        width="800"
+        type="resize"
+        title="{$Child->getAttribute('title')|escape:'html'}"}
+    </div>
+    {/if}
+
+    {* entry content *}
+    <div class="qui-control-childrenlist-cards-entry-content">
+
+        {* childTags: site id => tag titles, resolved and capped by 'tagsMax' *}
+        {if isset($childTags[$Child->getId()]) && $childTags[$Child->getId()]}
+        <div class="qui-control-childrenlist-cards-entry-meta">
+            {foreach from=$childTags[$Child->getId()] item=tagTitle}
+            <span class="badge badge-primary badge-sm
+                         qui-control-childrenlist-cards-entry-tag">
+                {$tagTitle|escape:'html'}
+            </span>
+            {/foreach}
+        </div>
+        {/if}
+
+        {if $this->getAttribute('showHeader')}
+        <h3 class="qui-control-childrenlist-cards-entry-title">
+            {* the single, card-spanning link (see .entry-title a::after) *}
+            <a href="{url site=$Child}"
+               title="{$Child->getAttribute('title')|escape:'html'}"
+               class="qui-control-childrenlist-cards-entry-link"
+            >
+                {$Child->getAttribute('title')}
+            </a>
+        </h3>
+        {/if}
+
+        {if $this->getAttribute('showCreator') || $this->getAttribute('showDate')}
+        <div class="qui-control-childrenlist-cards-entry-byline">
+            {if $this->getAttribute('showCreator')}
+            <span class="qui-control-childrenlist-cards-entry-author">
+                {user id=$Child->getAttribute('c_user') var=User}
+                {if $User->getId() && $User->getAttribute('firstname')}
+                    {$User->getAttribute('firstname')}
+                {elseif $User->getId()}
+                    {$User->getName()}
+                {/if}
+            </span>
+            {/if}
+
+            {if $this->getAttribute('showDate')}
+            <span class="qui-control-childrenlist-cards-entry-date">
+                {if $Child->getAttribute('release_from') &&
+                $Child->getAttribute('release_from') != '0000-00-00 00:00:00'}
+                <time datetime="{$Child->getAttribute('release_from')|date_format:'c'}">
+                    {locale_date date=$Child->getAttribute('release_from')}
+                </time>
+                {else}
+                <time datetime="{$Child->getAttribute('c_date')|date_format:'c'}">
+                    {locale_date date=$Child->getAttribute('c_date')}
+                </time>
+                {/if}
+                {if $this->getAttribute('showTime')}
+                <span class="qui-control-childrenlist-cards-entry-time">
+                    {$Child->getAttribute('release_from')|date_format:"H:i"}
+                </span>
+                {/if}
+            </span>
+            {/if}
+        </div>
+        {/if}
+
+        {if $this->getAttribute('showShort')}
+        <p class="qui-control-childrenlist-cards-entry-short">
+            {$Child->getAttribute('short')|nl2br}
+        </p>
+        {/if}
+
+        {* visual affordance only — not a link, since the whole card is
+           clickable via the stretched title link above *}
+        <span class="button btn-link {if $this->getAttribute('buttonSize') == 'small'}btn-sm{elseif $this->getAttribute('buttonSize') == 'large'}btn-lg{/if}
+                     qui-control-childrenlist-cards-entry-more{if $this->getAttribute('buttonWidth') == 'full'} qui-control-childrenlist-cards-entry-more--full{/if}"
+              aria-hidden="true"
+        >
+            {locale group="quiqqer/sitetypes" value="list.more"}
+            <span class="fa fa-arrow-right btn__icon"></span>
+        </span>
+    </div>
+
+</article>

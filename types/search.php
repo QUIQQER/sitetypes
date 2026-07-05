@@ -47,7 +47,7 @@ $sheets = 0;
 $count = 0;
 
 if (!$max) {
-    $max = 5;
+    $max = 10;
 }
 
 if (isset($_REQUEST['sheet'])) {
@@ -142,16 +142,35 @@ $ChildrenList = new QUI\Controls\ChildrenList([
     'limit' => $max,
     'showDate' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showDate'),
     'showCreator' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showCreator'),
-    'showTime' => false,
+    'showTime' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showTime'),
     'showSheets' => false,
     'showImages' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showImages'),
-    'showShort' => true,
-    'showHeader' => true,
+    'showShort' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showShort'),
+    'showHeader' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showHeader'),
     'showContent' => false,
     'itemtype' => 'https://schema.org/ItemList',
     'child-itemtype' => 'https://schema.org/ListItem',
     'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template'),
     'children' => $children,
+    'tagsMax' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tagsMax'),
+
+    // card template (display 'cards')
+    'cardLayout' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.layout'),
+    'cardColumns' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columns'),
+    'cardColumnsTablet' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columnsTablet'),
+    'cardColumnsMobile' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columnsMobile'),
+    'cardImageFit' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.imageFit'),
+    'cardAspectRatio' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.aspectRatio'),
+    'cardGap' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.gap'),
+
+    // media list template (display 'mediaList')
+    'mediaImagePosition' => $Site->getAttribute('quiqqer.settings.sitetypes.list.media.imagePosition'),
+    'mediaImageWidth' => $Site->getAttribute('quiqqer.settings.sitetypes.list.media.imageWidth'),
+
+    // general, template independent
+    'titleSize' => $Site->getAttribute('quiqqer.settings.sitetypes.list.titleSize'),
+    'buttonSize' => $Site->getAttribute('quiqqer.settings.sitetypes.list.buttonSize'),
+    'buttonWidth' => $Site->getAttribute('quiqqer.settings.sitetypes.list.buttonWidth')
 ]);
 
 $Engine->assign([

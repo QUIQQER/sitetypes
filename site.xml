@@ -164,10 +164,33 @@
             <!-- search attributes -->
             <attributes>
                 <attribute default="childrenlist">quiqqer.settings.sitetypes.list.template</attribute>
-                <attribute>quiqqer.settings.sitetypes.list.max</attribute>
+                <attribute default="10">quiqqer.settings.sitetypes.list.max</attribute>
                 <attribute default="0">quiqqer.settings.sitetypes.list.showCreator</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showDate</attribute>
+                <attribute default="0">quiqqer.settings.sitetypes.list.showTime</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showImages</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.showHeader</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.showShort</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.showSheets</attribute>
+                <attribute default="3">quiqqer.settings.sitetypes.list.tagsMax</attribute>
+
+                <!-- card template (template = cards) -->
+                <attribute default="standard">quiqqer.settings.sitetypes.list.cards.layout</attribute>
+                <attribute default="3">quiqqer.settings.sitetypes.list.cards.columns</attribute>
+                <attribute>quiqqer.settings.sitetypes.list.cards.columnsTablet</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.cards.columnsMobile</attribute>
+                <attribute default="cover">quiqqer.settings.sitetypes.list.cards.imageFit</attribute>
+                <attribute default="1/1">quiqqer.settings.sitetypes.list.cards.aspectRatio</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.cards.gap</attribute>
+
+                <!-- media list template (template = mediaList) -->
+                <attribute default="left">quiqqer.settings.sitetypes.list.media.imagePosition</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.media.imageWidth</attribute>
+
+                <!-- general (template independent) -->
+                <attribute default="normal">quiqqer.settings.sitetypes.list.titleSize</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.buttonSize</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.buttonWidth</attribute>
             </attributes>
 
             <!-- search settings -->
@@ -178,10 +201,18 @@
                             <locale group="quiqqer/sitetypes" var="quiqqer.sitetypes.list.settings.title"/>
                         </title>
 
-                        <select conf="quiqqer.settings.sitetypes.list.template">
+                        <select conf="quiqqer.settings.sitetypes.list.template"
+                                data-qui="package/quiqqer/core/bin/QUI/controls/settings/Dependency"
+                        >
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.template"/>
                             </text>
+                            <option value="cards">
+                                <locale group="quiqqer/sitetypes" var="list.template.cards"/>
+                            </option>
+                            <option value="mediaList">
+                                <locale group="quiqqer/sitetypes" var="list.template.mediaList"/>
+                            </option>
                             <option value="childrenList">
                                 <locale group="quiqqer/sitetypes" var="list.template.childrenList"/>
                             </option>
@@ -228,6 +259,13 @@
                             </text>
                         </input>
 
+                        <input conf="quiqqer.settings.sitetypes.list.showTime" type="checkbox">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.showTime"/>
+                            </text>
+                        </input>
+
                         <input conf="quiqqer.settings.sitetypes.list.showImages" type="checkbox">
                             <text>
                                 <locale group="quiqqer/sitetypes"
@@ -235,6 +273,277 @@
                                 />
                             </text>
                         </input>
+
+                        <input conf="quiqqer.settings.sitetypes.list.showHeader" type="checkbox">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.showHeader"
+                                />
+                            </text>
+                        </input>
+
+                        <input conf="quiqqer.settings.sitetypes.list.showShort" type="checkbox">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.showShort"
+                                />
+                            </text>
+                        </input>
+
+                        <input conf="quiqqer.settings.sitetypes.list.showSheets" type="checkbox">
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.showSheets"
+                                />
+                            </text>
+                        </input>
+
+                        <input conf="quiqqer.settings.sitetypes.list.tagsMax" type="number"
+                               min="0"
+                               data-dependency="quiqqer.settings.sitetypes.list.template"
+                               data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tagsMax"/>
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tagsMax.desc"/>
+                            </description>
+                        </input>
+
+                        <!-- card template settings (template = cards) -->
+                        <select conf="quiqqer.settings.sitetypes.list.cards.layout"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.layout"/>
+                            </text>
+                            <option value="standard">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.layout.standard"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.columns"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columns"/>
+                            </text>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.columnsTablet"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsTablet"/>
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsTablet.desc"/>
+                            </description>
+                            <option value="">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsTablet.inherit"/>
+                            </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.columnsMobile"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsMobile"/>
+                            </text>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.imageFit"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.imageFit"/>
+                            </text>
+                            <option value="cover">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.imageFit.cover"/>
+                            </option>
+                            <option value="contain">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.imageFit.contain"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.aspectRatio"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio"/>
+                            </text>
+                            <option value="auto">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.auto"/>
+                            </option>
+                            <option value="1/1">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.1-1"/>
+                            </option>
+                            <option value="3/4">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-4"/>
+                            </option>
+                            <option value="2/3">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.2-3"/>
+                            </option>
+                            <option value="4/5">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.4-5"/>
+                            </option>
+                            <option value="9/16">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.9-16"/>
+                            </option>
+                            <option value="4/3">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.4-3"/>
+                            </option>
+                            <option value="3/2">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-2"/>
+                            </option>
+                            <option value="5/4">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.5-4"/>
+                            </option>
+                            <option value="16/9">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.16-9"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.gap"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap"/>
+                            </text>
+                            <option value="none">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.none"/>
+                            </option>
+                            <option value="xs">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.xs"/>
+                            </option>
+                            <option value="s">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.s"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.large"/>
+                            </option>
+                            <option value="extraLarge">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.extraLarge"/>
+                            </option>
+                        </select>
+
+                        <!-- media list template settings (template = mediaList) -->
+                        <select conf="quiqqer.settings.sitetypes.list.media.imagePosition"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition"/>
+                            </text>
+                            <option value="left">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition.left"/>
+                            </option>
+                            <option value="right">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition.right"/>
+                            </option>
+                            <option value="alternate">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition.alternate"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.media.imageWidth"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth"/>
+                            </text>
+                            <option value="small">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.small"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.large"/>
+                            </option>
+                            <option value="half">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.half"/>
+                            </option>
+                        </select>
+
+                        <!-- general design settings (template independent) -->
+                        <select conf="quiqqer.settings.sitetypes.list.titleSize">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.titleSize"/>
+                            </text>
+                            <option value="extraSmall">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.extraSmall"/>
+                            </option>
+                            <option value="small">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.small"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.large"/>
+                            </option>
+                            <option value="extraLarge">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.extraLarge"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.buttonSize">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonSize"/>
+                            </text>
+                            <option value="small">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.small"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.large"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.buttonWidth">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonWidth"/>
+                            </text>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonWidth.normal"/>
+                            </option>
+                            <option value="full">
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonWidth.full"/>
+                            </option>
+                        </select>
                     </settings>
                 </category>
             </settings>
@@ -387,8 +696,27 @@
                 <attribute default="1">quiqqer.settings.sitetypes.list.showHeader</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showShort</attribute>
                 <attribute default="1">quiqqer.settings.sitetypes.list.showSheets</attribute>
+                <attribute default="3">quiqqer.settings.sitetypes.list.tagsMax</attribute>
                 <attribute default="disabled">quiqqer.settings.sitetypes.list.filter</attribute>
                 <attribute>quiqqer.settings.sitetypes.list.tags</attribute>
+
+                <!-- card template (template = cards) -->
+                <attribute default="standard">quiqqer.settings.sitetypes.list.cards.layout</attribute>
+                <attribute default="3">quiqqer.settings.sitetypes.list.cards.columns</attribute>
+                <attribute>quiqqer.settings.sitetypes.list.cards.columnsTablet</attribute>
+                <attribute default="1">quiqqer.settings.sitetypes.list.cards.columnsMobile</attribute>
+                <attribute default="cover">quiqqer.settings.sitetypes.list.cards.imageFit</attribute>
+                <attribute default="1/1">quiqqer.settings.sitetypes.list.cards.aspectRatio</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.cards.gap</attribute>
+
+                <!-- media list template (template = mediaList) -->
+                <attribute default="left">quiqqer.settings.sitetypes.list.media.imagePosition</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.media.imageWidth</attribute>
+
+                <!-- general (template independent) -->
+                <attribute default="normal">quiqqer.settings.sitetypes.list.titleSize</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.buttonSize</attribute>
+                <attribute default="normal">quiqqer.settings.sitetypes.list.buttonWidth</attribute>
             </attributes>
 
             <!-- list settings -->
@@ -400,10 +728,18 @@
                                     var="quiqqer.sitetypes.list.settings.title"/>
                         </title>
 
-                        <select conf="quiqqer.settings.sitetypes.list.template">
+                        <select conf="quiqqer.settings.sitetypes.list.template"
+                                data-qui="package/quiqqer/core/bin/QUI/controls/settings/Dependency"
+                        >
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.template"/>
                             </text>
+                            <option value="cards">
+                                <locale group="quiqqer/sitetypes" var="list.template.cards"/>
+                            </option>
+                            <option value="mediaList">
+                                <locale group="quiqqer/sitetypes" var="list.template.mediaList"/>
+                            </option>
                             <option value="cardRows">
                                 <locale group="quiqqer/sitetypes" var="list.template.cardRows"/>
                             </option>
@@ -510,6 +846,262 @@
                                 />
                             </text>
                         </input>
+
+                        <input conf="quiqqer.settings.sitetypes.list.tagsMax" type="number"
+                               min="0"
+                               data-dependency="quiqqer.settings.sitetypes.list.template"
+                               data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tagsMax"/>
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes"
+                                        var="quiqqer.sitetypes.list.settings.tagsMax.desc"/>
+                            </description>
+                        </input>
+
+                        <!-- card template settings (template = cards) -->
+                        <select conf="quiqqer.settings.sitetypes.list.cards.layout"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.layout"/>
+                            </text>
+                            <option value="standard">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.layout.standard"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.columns"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columns"/>
+                            </text>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.columnsTablet"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsTablet"/>
+                            </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsTablet.desc"/>
+                            </description>
+                            <option value="">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsTablet.inherit"/>
+                            </option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.columnsMobile"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.columnsMobile"/>
+                            </text>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.imageFit"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.imageFit"/>
+                            </text>
+                            <option value="cover">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.imageFit.cover"/>
+                            </option>
+                            <option value="contain">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.imageFit.contain"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.aspectRatio"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio"/>
+                            </text>
+                            <option value="auto">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.auto"/>
+                            </option>
+                            <option value="1/1">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.1-1"/>
+                            </option>
+                            <option value="3/4">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-4"/>
+                            </option>
+                            <option value="2/3">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.2-3"/>
+                            </option>
+                            <option value="4/5">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.4-5"/>
+                            </option>
+                            <option value="9/16">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.9-16"/>
+                            </option>
+                            <option value="4/3">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.4-3"/>
+                            </option>
+                            <option value="3/2">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-2"/>
+                            </option>
+                            <option value="5/4">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.5-4"/>
+                            </option>
+                            <option value="16/9">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.16-9"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.cards.gap"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="cards,mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap"/>
+                            </text>
+                            <option value="none">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.none"/>
+                            </option>
+                            <option value="xs">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.xs"/>
+                            </option>
+                            <option value="s">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.s"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.large"/>
+                            </option>
+                            <option value="extraLarge">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.gap.extraLarge"/>
+                            </option>
+                        </select>
+
+                        <!-- media list template settings (template = mediaList) -->
+                        <select conf="quiqqer.settings.sitetypes.list.media.imagePosition"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition"/>
+                            </text>
+                            <option value="left">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition.left"/>
+                            </option>
+                            <option value="right">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition.right"/>
+                            </option>
+                            <option value="alternate">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imagePosition.alternate"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.media.imageWidth"
+                                data-dependency="quiqqer.settings.sitetypes.list.template"
+                                data-dependency-options="mediaList"
+                        >
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth"/>
+                            </text>
+                            <option value="small">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.small"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.large"/>
+                            </option>
+                            <option value="half">
+                                <locale group="quiqqer/sitetypes" var="list.settings.media.imageWidth.half"/>
+                            </option>
+                        </select>
+
+                        <!-- general design settings (template independent) -->
+                        <select conf="quiqqer.settings.sitetypes.list.titleSize">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.titleSize"/>
+                            </text>
+                            <option value="extraSmall">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.extraSmall"/>
+                            </option>
+                            <option value="small">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.small"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.large"/>
+                            </option>
+                            <option value="extraLarge">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.extraLarge"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.buttonSize">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonSize"/>
+                            </text>
+                            <option value="small">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.small"/>
+                            </option>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.normal"/>
+                            </option>
+                            <option value="large">
+                                <locale group="quiqqer/sitetypes" var="list.settings.size.large"/>
+                            </option>
+                        </select>
+
+                        <select conf="quiqqer.settings.sitetypes.list.buttonWidth">
+                            <text>
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonWidth"/>
+                            </text>
+                            <option value="normal">
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonWidth.normal"/>
+                            </option>
+                            <option value="full">
+                                <locale group="quiqqer/sitetypes" var="list.settings.buttonWidth.full"/>
+                            </option>
+                        </select>
+                    </settings>
+                </category>
+
+                <category name="sitetypes-list-filter-settings">
+                    <settings>
+                        <title>
+                            <locale group="quiqqer/sitetypes"
+                                    var="quiqqer.sitetypes.list.settings.filter.title"/>
+                        </title>
 
                         <select conf="quiqqer.settings.sitetypes.list.filter">
                             <text>

@@ -1,0 +1,224 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------------------------------
+   Config / theming layer (3-level pattern): long themeable variable >
+   control config (--_q-controlConf-*) > fallback. The CSS body only uses
+   the short --_NAME variables.
+
+   Image fit, aspect ratio and gap share the card config values
+   (--_q-controlConf-card*), since the settings are template independent.
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-medialist {
+    --_img-width: var(--quiqqer-childrenlist-medialist-imageWidth,
+        var(--_q-controlConf-mediaImageWidth, clamp(11rem, 35cqi, 22rem)));
+    --_aspect: var(--quiqqer-childrenlist-medialist-aspectRatio,
+        var(--_q-controlConf-cardAspectRatio, 3 / 2));
+    --_fit: var(--quiqqer-childrenlist-medialist-imageFit,
+        var(--_q-controlConf-cardImageFit, cover));
+    --_gap: var(--quiqqer-childrenlist-medialist-gap,
+        var(--_q-controlConf-cardGap, clamp(1rem, 0.9rem + 0.5cqi, 1.5rem)));
+
+    /* pure theming layer: content padding scales with the entry width, since
+       cqi is resolved where the variable is used (inside -entry-content) and
+       refers to its nearest container — the entry, not this list root */
+    --_content-padding: var(--quiqqer-childrenlist-medialist-contentPadding,
+        clamp(1rem, 0.75rem + 2.5cqi, 1.75rem));
+
+    /* pure theming layer: size of the icon fallback in the image area,
+       scales with the entry width (cqi, resolved inside the entry) */
+    --_icon-size: var(--quiqqer-childrenlist-medialist-iconSize,
+        clamp(2.5rem, 12cqi, 4.5rem));
+
+    /* --_title-size is a general, template-independent setting and is defined
+       in ChildrenList.Base.css (always loaded); it is only consumed here. */
+
+    /* the image width and the stacking breakpoint respond to this container's
+       own width, not the viewport, so the layout adapts inside sidebars,
+       columns etc. */
+    container: childrenlistMediaList / inline-size;
+}
+
+.qui-control-childrenlist-medialist-items {
+    display: grid;
+    gap: var(--_gap);
+}
+
+/* ---------------------------------------------------------------------------
+   Entry (row: image beside content)
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-medialist-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, var(--_img-width)) minmax(0, 1fr);
+    grid-template-areas: "image content";
+    overflow: hidden;
+    background: var(--qui-colors-surface-card);
+    border: var(--qui-border-width) var(--qui-border-style) var(--qui-border-color);
+    border-radius: var(--qui-radius-card);
+    box-shadow: var(--qui-shadow-card);
+
+    /* each entry is its own container, so title (cqi units), content padding
+       and icon fallback scale with the entry's width, not the list width */
+    container-type: inline-size;
+}
+
+/* image on the right instead of the left */
+.qui-control-childrenlist-medialist--right
+.qui-control-childrenlist-medialist-entry,
+.qui-control-childrenlist-medialist--alternate
+.qui-control-childrenlist-medialist-entry:nth-child(even) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--_img-width));
+    grid-template-areas: "content image";
+}
+
+/* keyboard focus: highlight the whole entry when the inner link is focused */
+.qui-control-childrenlist-medialist-entry:focus-within {
+    outline: 2px solid var(--qui-colors-link);
+    outline-offset: 2px;
+}
+
+/* stretched link: the title link covers the whole entry, making it clickable
+   without extra JS and without redundant links on image/button */
+.qui-control-childrenlist-medialist-entry-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Image
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-medialist-entry-image {
+    grid-area: image;
+    overflow: hidden;
+    aspect-ratio: var(--_aspect);
+    /* the aspect ratio is only the minimum height: when the content column
+       is taller, the image grows to the full entry height (cover crops) */
+    min-height: 100%;
+    /* subtle surface so the image area reads as such even without an image
+       or with only the icon fallback */
+    background: var(--qui-colors-surface-card-subtle);
+}
+
+.qui-control-childrenlist-medialist-entry-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: var(--_fit);
+    transition: transform 0.3s ease;
+}
+
+/* icon fallback: the site may be configured with a FontAwesome icon instead
+   of an image; the {image} plugin then renders a .quiqqer-icon span. Centre
+   it on a subtle surface and scale it with the entry width. */
+.qui-control-childrenlist-medialist-entry-image .quiqqer-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--qui-colors-text-muted);
+    font-size: var(--_icon-size);
+    transition: transform 0.3s ease;
+}
+
+/* scale the image (or icon fallback) when hovering anywhere on the entry */
+.qui-control-childrenlist-medialist-entry:hover img,
+.qui-control-childrenlist-medialist-entry:hover .quiqqer-icon {
+    transform: scale(1.04);
+}
+
+/* ---------------------------------------------------------------------------
+   Content
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-medialist-entry-content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: var(--_content-padding);
+}
+
+.qui-control-childrenlist-medialist-entry-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--qui-colors-text-muted);
+    font-size: 0.85rem;
+}
+
+.qui-control-childrenlist-medialist-entry-tag {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.qui-control-childrenlist-medialist-entry-time {
+    margin-left: 0.5em;
+}
+
+.qui-control-childrenlist-medialist-entry-title {
+    margin: 0;
+    font-size: var(--_title-size);
+    line-height: var(--qui-line-height-xs);
+}
+
+.qui-control-childrenlist-medialist-entry-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* byline: author and date on one muted line below the title */
+.qui-control-childrenlist-medialist-entry-byline {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    color: var(--qui-colors-text-muted);
+    font-size: var(--qui-fs-xs);
+    line-height: 1;
+}
+
+/* separator between author and date when both are shown */
+.qui-control-childrenlist-medialist-entry-author
++ .qui-control-childrenlist-medialist-entry-date::before {
+    content: "·";
+    margin-right: 0.5em;
+}
+
+.qui-control-childrenlist-medialist-entry-short {
+    margin: 0;
+    color: var(--qui-colors-text);
+}
+
+/* visual styling comes from the .btn-link component; only layout here */
+.qui-control-childrenlist-medialist-entry-more {
+    align-self: flex-start;
+    margin-top: auto;
+    /* neutralise the component's horizontal padding so the link sits flush
+       with the entry text */
+    --padding-inline: 0;
+}
+
+.qui-control-childrenlist-medialist-entry-more--full {
+    align-self: stretch;
+    width: 100%;
+}
+
+/* ---------------------------------------------------------------------------
+   Responsive — based on the container's width (see container: … above), not
+   the viewport. In narrow contexts the row stacks: image on top, full width;
+   the image width setting deliberately no longer applies there.
+--------------------------------------------------------------------------- */
+@container childrenlistMediaList (max-width: 600px) {
+    .qui-control-childrenlist-medialist-entry,
+    .qui-control-childrenlist-medialist--right
+    .qui-control-childrenlist-medialist-entry,
+    .qui-control-childrenlist-medialist--alternate
+    .qui-control-childrenlist-medialist-entry:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "image"
+            "content";
+    }
+}
