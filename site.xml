@@ -213,6 +213,21 @@
                             <option value="mediaList">
                                 <locale group="quiqqer/sitetypes" var="list.template.mediaList"/>
                             </option>
+                            <option value="cardRows">
+                                <locale group="quiqqer/sitetypes" var="list.template.cardRows"/>
+                            </option>
+                            <option value="featuredCards">
+                                <locale group="quiqqer/sitetypes" var="list.template.featuredCards"/>
+                            </option>
+                            <option value="CSSGridCards">
+                                <locale group="quiqqer/sitetypes" var="list.template.CSSGridCards"/>
+                            </option>
+                            <option value="simpleArticleList">
+                                <locale group="quiqqer/sitetypes" var="list.template.simpleArticleList"/>
+                            </option>
+                            <option value="advancedArticleList">
+                                <locale group="quiqqer/sitetypes" var="list.template.advancedArticleList"/>
+                            </option>
                             <option value="childrenList">
                                 <locale group="quiqqer/sitetypes" var="list.template.childrenList"/>
                             </option>
@@ -221,18 +236,6 @@
                             </option>
                             <option value="authorTop">
                                 <locale group="quiqqer/sitetypes" var="list.template.authorTop"/>
-                            </option>
-                            <option value="simpleArticleList">
-                                <locale group="quiqqer/sitetypes" var="list.template.simpleArticleList"/>
-                            </option>
-                            <option value="advancedArticleList">
-                                <locale group="quiqqer/sitetypes" var="list.template.advancedArticleList"/>
-                            </option>
-                            <option value="cardRows">
-                                <locale group="quiqqer/sitetypes" var="list.template.cardRows"/>
-                            </option>
-                            <option value="featuredCards">
-                                <locale group="quiqqer/sitetypes" var="list.template.featuredCards"/>
                             </option>
                             <option value="gallery">
                                 <locale group="quiqqer/sitetypes" var="list.template.gallery"/>
