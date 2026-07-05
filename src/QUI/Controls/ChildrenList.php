@@ -369,11 +369,13 @@ class ChildrenList extends QUI\Control
                 $template = dirname(__FILE__) . '/ChildrenList.AdvancedArticleList.html';
                 break;
 
+            // @deprecated use 'cards' instead; removal planned for v3
             case 'imageTopBorder':
                 $css = dirname(__FILE__) . '/ChildrenList.ImageTopBorder.css';
                 $template = dirname(__FILE__) . '/ChildrenList.ImageTopBorder.html';
                 break;
 
+            // @deprecated use 'cards' instead; removal planned for v3
             case 'imageTop':
                 $css = dirname(__FILE__) . '/ChildrenList.ImageTop.css';
                 $template = dirname(__FILE__) . '/ChildrenList.ImageTop.html';

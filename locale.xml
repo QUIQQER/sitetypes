@@ -381,14 +381,14 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <en><![CDATA[Cards (CSS-Grid)]]></en>
         </locale>
         <locale name="list.template.imageTop">
-            <de><![CDATA[Bild oben]]></de>
-            <en><![CDATA[Picture top]]></en>
-            <pl><![CDATA[Zdjęcie na górze]]></pl>
+            <de><![CDATA[Bild oben (veraltet)]]></de>
+            <en><![CDATA[Picture top (deprecated)]]></en>
+            <pl><![CDATA[Zdjęcie na górze (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.imageTopBorder">
-            <de><![CDATA[Bild oben (mit Rahmen)]]></de>
-            <en><![CDATA[Picture top (with border)]]></en>
-            <pl><![CDATA[Zdjęcie na górze (z ramką)]]></pl>
+            <de><![CDATA[Bild oben (mit Rahmen) (veraltet)]]></de>
+            <en><![CDATA[Picture top (with border) (deprecated)]]></en>
+            <pl><![CDATA[Zdjęcie na górze (z ramką) (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.childrenList">
             <de><![CDATA[Standard (veraltet)]]></de>
