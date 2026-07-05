@@ -59,14 +59,15 @@
             {* entry content *}
             <div class="qui-control-childrenlist-featuredCards-entry-content">
 
-                {assign var=tagList value=$Child->getAttribute('quiqqer.tags.tagList')}
-                {if $tagList}
+                {* childTags: site id => tag titles, resolved and capped by 'tagsMax' *}
+                {if isset($childTags[$Child->getId()]) && $childTags[$Child->getId()]}
                 <div class="qui-control-childrenlist-featuredCards-entry-meta">
-                    {* tagList is an array of tag slugs, set by quiqqer/tags on load *}
+                    {foreach from=$childTags[$Child->getId()] item=tagTitle}
                     <span class="badge badge-primary badge-sm
                                  qui-control-childrenlist-featuredCards-entry-tag">
-                        {$tagList[0]|escape:'html'}
+                        {$tagTitle|escape:'html'}
                     </span>
+                    {/foreach}
                 </div>
                 {/if}
 

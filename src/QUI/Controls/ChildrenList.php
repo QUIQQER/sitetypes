@@ -379,6 +379,7 @@ class ChildrenList extends QUI\Control
                 $template = dirname(__FILE__) . '/ChildrenList.ImageTop.html';
                 break;
 
+            // @deprecated use 'mediaList' instead; removal planned for v3
             case 'cardRows':
                 $css = dirname(__FILE__) . '/ChildrenList.CardRows.css';
                 $template = dirname(__FILE__) . '/ChildrenList.CardRows.html';

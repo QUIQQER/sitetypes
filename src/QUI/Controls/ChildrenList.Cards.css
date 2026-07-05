@@ -19,6 +19,15 @@
     --_gap: var(--quiqqer-childrenlist-cards-gap,
         var(--_q-controlConf-cardGap, clamp(1rem, 0.9rem + 0.5cqi, 1.5rem)));
 
+    /* pure theming layer: card surface, border and shadow; override per
+       project with e.g. --quiqqer-childrenlist-cards-shadow: none; */
+    --_background: var(--quiqqer-childrenlist-cards-background,
+        var(--qui-colors-surface-card));
+    --_border: var(--quiqqer-childrenlist-cards-border,
+        var(--qui-border-width) var(--qui-border-style) var(--qui-border-color));
+    --_shadow: var(--quiqqer-childrenlist-cards-shadow,
+        var(--qui-shadow-card));
+
     /* pure theming layer: content padding scales with the card width, since
        cqi is resolved where the variable is used (inside -entry-content) and
        refers to its nearest container — the card, not this list root */
@@ -52,10 +61,10 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background: var(--qui-colors-surface-card);
-    border: var(--qui-border-width) var(--qui-border-style) var(--qui-border-color);
+    background: var(--_background);
+    border: var(--_border);
     border-radius: var(--qui-radius-card);
-    box-shadow: var(--qui-shadow-card);
+    box-shadow: var(--_shadow);
 
     /* each card is its own container, so the title (cqi units) scales with
        the card's width, not the whole list width */

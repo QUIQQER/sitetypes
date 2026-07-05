@@ -300,8 +300,6 @@
 
                         <input conf="quiqqer.settings.sitetypes.list.tagsMax" type="number"
                                min="0"
-                               data-dependency="quiqqer.settings.sitetypes.list.template"
-                               data-dependency-options="cards,mediaList"
                         >
                             <text>
                                 <locale group="quiqqer/sitetypes"
@@ -431,7 +429,7 @@
 
                         <select conf="quiqqer.settings.sitetypes.list.cards.gap"
                                 data-dependency="quiqqer.settings.sitetypes.list.template"
-                                data-dependency-options="cards,mediaList"
+                                data-dependency-options="cards,mediaList,featuredCards"
                         >
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.gap"/>
@@ -849,8 +847,6 @@
 
                         <input conf="quiqqer.settings.sitetypes.list.tagsMax" type="number"
                                min="0"
-                               data-dependency="quiqqer.settings.sitetypes.list.template"
-                               data-dependency-options="cards,mediaList"
                         >
                             <text>
                                 <locale group="quiqqer/sitetypes"
@@ -980,7 +976,7 @@
 
                         <select conf="quiqqer.settings.sitetypes.list.cards.gap"
                                 data-dependency="quiqqer.settings.sitetypes.list.template"
-                                data-dependency-options="cards,mediaList"
+                                data-dependency-options="cards,mediaList,featuredCards"
                         >
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.gap"/>
