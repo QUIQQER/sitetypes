@@ -103,8 +103,11 @@
     overflow: hidden;
     aspect-ratio: var(--_aspect);
     /* the aspect ratio is only the minimum height: when the content column
-       is taller, the image grows to the full entry height (cover crops) */
+       is taller, the image grows to the full entry height (cover crops);
+       max-width keeps it inside its grid column instead of letting the
+       aspect ratio push it wider */
     min-height: 100%;
+    max-width: 100%;
     /* subtle surface so the image area reads as such even without an image
        or with only the icon fallback */
     background: var(--qui-colors-surface-card-subtle);

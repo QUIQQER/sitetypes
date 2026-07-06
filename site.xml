@@ -398,6 +398,9 @@
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio"/>
                             </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.desc"/>
+                            </description>
                             <option value="auto">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.auto"/>
                             </option>
@@ -945,6 +948,9 @@
                             <text>
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio"/>
                             </text>
+                            <description>
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.desc"/>
+                            </description>
                             <option value="auto">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.auto"/>
                             </option>

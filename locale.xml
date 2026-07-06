@@ -525,6 +525,10 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <de><![CDATA[Bild-Seitenverhältnis]]></de>
             <en><![CDATA[Image aspect ratio]]></en>
         </locale>
+        <locale name="list.settings.cards.aspectRatio.desc">
+            <de><![CDATA[Legt die Mindesthöhe des Bildes fest. Bei sehr langen Texten wächst die Karte — das Bild füllt dann die volle Höhe und wird passend zugeschnitten. Automatisch: Das Bild bestimmt die Höhe der Karte selbst.]]></de>
+            <en><![CDATA[Sets the minimum height of the image. With very long texts the card grows — the image then fills the full height and is cropped to fit. Auto: the image itself determines the card height.]]></en>
+        </locale>
         <locale name="list.settings.cards.aspectRatio.auto">
             <de><![CDATA[Automatisch (Originalverhältnis)]]></de>
             <en><![CDATA[Auto (original ratio)]]></en>
