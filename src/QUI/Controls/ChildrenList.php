@@ -447,19 +447,17 @@ class ChildrenList extends QUI\Control
 
     protected function getChildCreatorName(QUI\Interfaces\Projects\Site $Child): string
     {
-        $userId = (int)$Child->getAttribute('c_user');
+        // c_user contains a user UUID (string) since QUIQQER v2,
+        // legacy sites may still hold a numeric id
+        $userId = trim((string)$Child->getAttribute('c_user'));
 
-        if ($userId <= 0) {
+        if ($userId === '' || $userId === '0') {
             return '';
         }
 
         try {
             $User = QUI::getUsers()->get($userId);
         } catch (Exception) {
-            return '';
-        }
-
-        if (!$User->getId()) {
             return '';
         }
 
