@@ -19,10 +19,11 @@
         {$filterHtml}
     {/if}
 
-    <div class="qui-control-childrenlist-galleryOverlay control-template ">
+        <div class="qui-control-childrenlist-galleryOverlay control-template ">
         {assign var=counter value=1}
         {foreach from=$children item=Child}
             {assign var=_Child value=$Child->load()}
+            {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
             <article itemscope
                      itemprop="{$this->getAttribute('child-itemprop')}"
                      itemtype="{$this->getAttribute('child-itemtype')}"
@@ -64,22 +65,15 @@
                             </header>
                             <div class="overlay-content">
                                 {* info *}
-                                {if $this->getAttribute('showCreator') ||
+                                {if ($this->getAttribute('showCreator') && $creatorName) ||
                                     $this->getAttribute('showDate') ||
                                     $this->getAttribute('showTime')}
                                 <div class="overlay-title__info">
                                     {* user *}
-                                    {if $this->getAttribute('showCreator')}
-                                        {user id=$Child->getAttribute('c_user') var=User}
-
+                                    {if $this->getAttribute('showCreator') && $creatorName}
                                         <span class="overlay-title__info-entry author">
                                             <span class="fa fa-user"></span>
-
-                                            {if $User->getId() && $User->getAttribute('firstname')}
-                                                {$User->getAttribute('firstname')}
-                                            {elseif  $User->getId()}
-                                                {$User->getName()}
-                                            {/if}
+                                            {$creatorName}
                                         </span>
                                     {/if}
 

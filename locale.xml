@@ -294,8 +294,12 @@
             <en><![CDATA[more]]></en>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.title">
-            <de><![CDATA[Listeneinstellungen]]></de>
-            <en><![CDATA[List settings]]></en>
+            <de><![CDATA[Listeneinstellungen: Allgemein]]></de>
+            <en><![CDATA[List settings: General]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.filter.title">
+            <de><![CDATA[Listeneinstellungen: Filter]]></de>
+            <en><![CDATA[List settings: Filter]]></en>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.max">
             <de><![CDATA[Anzahl Kindseiten pro Seite]]></de>
@@ -362,13 +366,21 @@
             <pl><![CDATA[Layout]]></pl>
         </locale>
         <locale name="list.template.cardRows">
-            <de><![CDATA[Breitere Karten mit Bild links untereinander]]></de>
-            <en><![CDATA[Cards]]></en>
-            <pl><![CDATA[Cards]]></pl>
+            <de><![CDATA[Breitere Karten mit Bild links untereinander (veraltet)]]></de>
+            <en><![CDATA[Wider cards with image on the left (deprecated)]]></en>
+            <pl><![CDATA[Wider cards with image on the left (deprecated)]]></pl>
         </locale>
         <locale name="list.template.featuredCards">
             <de><![CDATA[Hervorgehobener Beitrag + Karten]]></de>
             <en><![CDATA[Featured + Cards]]></en>
+        </locale>
+        <locale name="list.template.cards">
+            <de><![CDATA[Karten]]></de>
+            <en><![CDATA[Cards]]></en>
+        </locale>
+        <locale name="list.template.mediaList">
+            <de><![CDATA[Medienliste (Bild + Text)]]></de>
+            <en><![CDATA[Media list (image + text)]]></en>
         </locale>
         <locale name="list.template.gallery">
             <de><![CDATA[Galerie]]></de>
@@ -379,29 +391,29 @@
             <en><![CDATA[Cards (CSS-Grid)]]></en>
         </locale>
         <locale name="list.template.imageTop">
-            <de><![CDATA[Bild oben]]></de>
-            <en><![CDATA[Picture top]]></en>
-            <pl><![CDATA[Zdjęcie na górze]]></pl>
+            <de><![CDATA[Bild oben (veraltet)]]></de>
+            <en><![CDATA[Picture top (deprecated)]]></en>
+            <pl><![CDATA[Zdjęcie na górze (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.imageTopBorder">
-            <de><![CDATA[Bild oben (mit Rahmen)]]></de>
-            <en><![CDATA[Picture top (with border)]]></en>
-            <pl><![CDATA[Zdjęcie na górze (z ramką)]]></pl>
+            <de><![CDATA[Bild oben (mit Rahmen) (veraltet)]]></de>
+            <en><![CDATA[Picture top (with border) (deprecated)]]></en>
+            <pl><![CDATA[Zdjęcie na górze (z ramką) (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.childrenList">
-            <de><![CDATA[Standard]]></de>
-            <en><![CDATA[Default]]></en>
-            <pl><![CDATA[Standardowy widok]]></pl>
+            <de><![CDATA[Standard (veraltet)]]></de>
+            <en><![CDATA[Default (deprecated)]]></en>
+            <pl><![CDATA[Standardowy widok (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.longFooter">
-            <de><![CDATA[Langer Footer]]></de>
-            <en><![CDATA[Long footer]]></en>
-            <pl><![CDATA[Długa stopka]]></pl>
+            <de><![CDATA[Langer Footer (veraltet)]]></de>
+            <en><![CDATA[Long footer (deprecated)]]></en>
+            <pl><![CDATA[Długa stopka (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.authorTop">
-            <de><![CDATA[Autor und Datum oben]]></de>
-            <en><![CDATA[Author and date top]]></en>
-            <pl><![CDATA[Autor i data na górze]]></pl>
+            <de><![CDATA[Autor und Datum oben (veraltet)]]></de>
+            <en><![CDATA[Author and date top (deprecated)]]></en>
+            <pl><![CDATA[Autor i data na górze (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.simpleArticleList">
             <de><![CDATA[Einfache Artikel-Liste]]></de>
@@ -415,19 +427,19 @@
         </locale>
 
         <locale name="list.template.1er">
-            <de><![CDATA[1 Box pro Reihe]]></de>
-            <en><![CDATA[1 box in a row]]></en>
-            <pl><![CDATA[1 kontener w rzędzie]]></pl>
+            <de><![CDATA[1 Box pro Reihe (veraltet)]]></de>
+            <en><![CDATA[1 box in a row (deprecated)]]></en>
+            <pl><![CDATA[1 kontener w rzędzie (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.2er">
-            <de><![CDATA[2 Boxen pro Reihe]]></de>
-            <en><![CDATA[2 boxes in a row]]></en>
-            <pl><![CDATA[2 kontenery w rzędzie]]></pl>
+            <de><![CDATA[2 Boxen pro Reihe (veraltet)]]></de>
+            <en><![CDATA[2 boxes in a row (deprecated)]]></en>
+            <pl><![CDATA[2 kontenery w rzędzie (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.3er">
-            <de><![CDATA[3 Boxen pro Reihe]]></de>
-            <en><![CDATA[3 boxes in a row]]></en>
-            <pl><![CDATA[3 kontenery w rzędzie]]></pl>
+            <de><![CDATA[3 Boxen pro Reihe (veraltet)]]></de>
+            <en><![CDATA[3 boxes in a row (deprecated)]]></en>
+            <pl><![CDATA[3 kontenery w rzędzie (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.4er">
             <de><![CDATA[4 Boxen pro Reihe]]></de>
@@ -466,6 +478,214 @@
             <de><![CDATA[Uhrzeit anzeigen]]></de>
             <en><![CDATA[Show time]]></en>
             <pl><![CDATA[Pokaż godzinę]]></pl>
+        </locale>
+
+        <!-- tag badges (cards / media list) -->
+        <locale name="quiqqer.sitetypes.list.settings.tagsMax">
+            <de><![CDATA[Maximale Tags pro Eintrag]]></de>
+            <en><![CDATA[Maximum tags per entry]]></en>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.settings.tagsMax.desc">
+            <de><![CDATA[0 = keine Tags anzeigen.]]></de>
+            <en><![CDATA[0 = do not show tags.]]></en>
+        </locale>
+
+        <!-- card template settings -->
+        <locale name="list.settings.cards.layout">
+            <de><![CDATA[Card-Layout]]></de>
+            <en><![CDATA[Card layout]]></en>
+        </locale>
+        <locale name="list.settings.cards.layout.standard">
+            <de><![CDATA[Standard]]></de>
+            <en><![CDATA[Standard]]></en>
+        </locale>
+        <locale name="list.settings.cards.columns">
+            <de><![CDATA[Karten pro Reihe (Desktop)]]></de>
+            <en><![CDATA[Cards per row (desktop)]]></en>
+        </locale>
+        <locale name="list.settings.cards.columnsTablet">
+            <de><![CDATA[Karten pro Reihe (Tablet)]]></de>
+            <en><![CDATA[Cards per row (tablet)]]></en>
+        </locale>
+        <locale name="list.settings.cards.columnsTablet.desc">
+            <de><![CDATA[Leer lassen, um die Desktop-Einstellung zu übernehmen.]]></de>
+            <en><![CDATA[Leave empty to inherit the desktop setting.]]></en>
+        </locale>
+        <locale name="list.settings.cards.columnsTablet.inherit">
+            <de><![CDATA[Wie Desktop]]></de>
+            <en><![CDATA[Same as desktop]]></en>
+        </locale>
+        <locale name="list.settings.cards.columnsMobile">
+            <de><![CDATA[Karten pro Reihe (Mobil)]]></de>
+            <en><![CDATA[Cards per row (mobile)]]></en>
+        </locale>
+        <locale name="list.settings.cards.imageFit">
+            <de><![CDATA[Bild-Verhalten]]></de>
+            <en><![CDATA[Image behaviour]]></en>
+        </locale>
+        <locale name="list.settings.cards.imageFit.cover">
+            <de><![CDATA[Gesamte Fläche ausfüllen]]></de>
+            <en><![CDATA[Fill the whole area]]></en>
+        </locale>
+        <locale name="list.settings.cards.imageFit.contain">
+            <de><![CDATA[Vollständig einpassen]]></de>
+            <en><![CDATA[Fit completely]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio">
+            <de><![CDATA[Bild-Seitenverhältnis]]></de>
+            <en><![CDATA[Image aspect ratio]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.desc">
+            <de><![CDATA[Legt die Mindesthöhe des Bildes fest. Bei sehr langen Texten wächst die Karte — das Bild füllt dann die volle Höhe und wird passend zugeschnitten. Automatisch: Das Bild bestimmt die Höhe der Karte selbst.]]></de>
+            <en><![CDATA[Sets the minimum height of the image. With very long texts the card grows — the image then fills the full height and is cropped to fit. Auto: the image itself determines the card height.]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.auto">
+            <de><![CDATA[Automatisch (Originalverhältnis)]]></de>
+            <en><![CDATA[Auto (original ratio)]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.1-1">
+            <de><![CDATA[1:1 – Quadrat]]></de>
+            <en><![CDATA[1:1 – Square]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.3-4">
+            <de><![CDATA[Hochformat 3:4]]></de>
+            <en><![CDATA[Portrait 3:4]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.2-3">
+            <de><![CDATA[Hochformat 2:3]]></de>
+            <en><![CDATA[Portrait 2:3]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.4-5">
+            <de><![CDATA[Hochformat 4:5]]></de>
+            <en><![CDATA[Portrait 4:5]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.9-16">
+            <de><![CDATA[Hochformat 9:16]]></de>
+            <en><![CDATA[Portrait 9:16]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.4-3">
+            <de><![CDATA[Querformat 4:3]]></de>
+            <en><![CDATA[Landscape 4:3]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.3-2">
+            <de><![CDATA[Querformat 3:2]]></de>
+            <en><![CDATA[Landscape 3:2]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.5-4">
+            <de><![CDATA[Querformat 5:4]]></de>
+            <en><![CDATA[Landscape 5:4]]></en>
+        </locale>
+        <locale name="list.settings.cards.aspectRatio.16-9">
+            <de><![CDATA[Querformat 16:9]]></de>
+            <en><![CDATA[Landscape 16:9]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap">
+            <de><![CDATA[Abstand zwischen Karten]]></de>
+            <en><![CDATA[Gap between cards]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap.none">
+            <de><![CDATA[Kein]]></de>
+            <en><![CDATA[None]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap.xs">
+            <de><![CDATA[Sehr klein]]></de>
+            <en><![CDATA[Extra small]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap.s">
+            <de><![CDATA[Klein]]></de>
+            <en><![CDATA[Small]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap.normal">
+            <de><![CDATA[Normal]]></de>
+            <en><![CDATA[Normal]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap.large">
+            <de><![CDATA[Groß]]></de>
+            <en><![CDATA[Large]]></en>
+        </locale>
+        <locale name="list.settings.cards.gap.extraLarge">
+            <de><![CDATA[Sehr groß]]></de>
+            <en><![CDATA[Extra large]]></en>
+        </locale>
+
+        <!-- media list template settings -->
+        <locale name="list.settings.media.imagePosition">
+            <de><![CDATA[Bildposition]]></de>
+            <en><![CDATA[Image position]]></en>
+        </locale>
+        <locale name="list.settings.media.imagePosition.left">
+            <de><![CDATA[Links]]></de>
+            <en><![CDATA[Left]]></en>
+        </locale>
+        <locale name="list.settings.media.imagePosition.right">
+            <de><![CDATA[Rechts]]></de>
+            <en><![CDATA[Right]]></en>
+        </locale>
+        <locale name="list.settings.media.imagePosition.alternate">
+            <de><![CDATA[Abwechselnd]]></de>
+            <en><![CDATA[Alternating]]></en>
+        </locale>
+        <locale name="list.settings.media.imageWidth">
+            <de><![CDATA[Bildbreite]]></de>
+            <en><![CDATA[Image width]]></en>
+        </locale>
+        <locale name="list.settings.media.imageWidth.small">
+            <de><![CDATA[Klein]]></de>
+            <en><![CDATA[Small]]></en>
+        </locale>
+        <locale name="list.settings.media.imageWidth.normal">
+            <de><![CDATA[Normal]]></de>
+            <en><![CDATA[Normal]]></en>
+        </locale>
+        <locale name="list.settings.media.imageWidth.large">
+            <de><![CDATA[Groß]]></de>
+            <en><![CDATA[Large]]></en>
+        </locale>
+        <locale name="list.settings.media.imageWidth.half">
+            <de><![CDATA[Halbe Breite]]></de>
+            <en><![CDATA[Half width]]></en>
+        </locale>
+
+        <!-- general design settings (template independent) -->
+        <locale name="list.settings.titleSize">
+            <de><![CDATA[Titel-Größe]]></de>
+            <en><![CDATA[Title size]]></en>
+        </locale>
+        <locale name="list.settings.buttonSize">
+            <de><![CDATA[Button-Größe]]></de>
+            <en><![CDATA[Button size]]></en>
+        </locale>
+        <locale name="list.settings.buttonWidth">
+            <de><![CDATA[Button-Breite]]></de>
+            <en><![CDATA[Button width]]></en>
+        </locale>
+        <locale name="list.settings.buttonWidth.normal">
+            <de><![CDATA[Normal]]></de>
+            <en><![CDATA[Normal]]></en>
+        </locale>
+        <locale name="list.settings.buttonWidth.full">
+            <de><![CDATA[Volle Breite]]></de>
+            <en><![CDATA[Full width]]></en>
+        </locale>
+        <locale name="list.settings.size.extraSmall">
+            <de><![CDATA[Sehr klein]]></de>
+            <en><![CDATA[Extra small]]></en>
+        </locale>
+        <locale name="list.settings.size.small">
+            <de><![CDATA[Klein]]></de>
+            <en><![CDATA[Small]]></en>
+        </locale>
+        <locale name="list.settings.size.normal">
+            <de><![CDATA[Normal]]></de>
+            <en><![CDATA[Normal]]></en>
+        </locale>
+        <locale name="list.settings.size.large">
+            <de><![CDATA[Groß]]></de>
+            <en><![CDATA[Large]]></en>
+        </locale>
+        <locale name="list.settings.size.extraLarge">
+            <de><![CDATA[Sehr groß]]></de>
+            <en><![CDATA[Extra large]]></en>
         </locale>
 
         <locale name="list.created.by">

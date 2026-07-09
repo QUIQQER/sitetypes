@@ -1,0 +1,37 @@
+{assign var=Placeholder value=$Project->getMedia()->getPlaceholderImage()}
+
+{if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
+<header class="control-header">
+    <h1>{$this->getAttribute('frontendTitle')}</h1>
+</header>
+{/if}
+
+{if $this->getAttribute('content') != ""}
+<div class="control-content">
+    {$this->getAttribute('content')}
+</div>
+{/if}
+
+<section itemscope itemtype="{$this->getAttribute('itemtype')}"
+         class="qui-control-childrenlist-cards control-template"
+>
+    <link property="mainEntityOfPage" href="{url site=$Site}">
+
+    {if $showFilter}
+        {$filterHtml}
+    {/if}
+
+    <div class="qui-control-childrenlist-cards-grid">
+
+        {assign var=counter value=1}
+
+        {foreach from=$children item=Child}
+            {include file=$cardTemplate Child=$Child counter=$counter}
+            {assign var=counter value=$counter+1}
+        {/foreach}
+    </div>
+</section>
+
+{if $this->getAttribute('showSheets') && $sheets > 1}
+{$Pagination->create()}
+{/if}

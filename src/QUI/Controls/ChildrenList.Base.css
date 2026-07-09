@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+/* ---------------------------------------------------------------------------
+   ChildrenList base styles — always loaded, independent of the selected
+   template (display). Home for the general, template-independent design
+   settings so they do not have to be duplicated into every template's CSS.
+
+   Config / theming layer (3-level pattern): long themeable variable >
+   control config (--_q-controlConf-*) > fallback. Templates only read the
+   short --_NAME variables. The variables are bound on every ChildrenList
+   root element (all templates share the qui-control-childrenlist- prefix),
+   so a template just needs to consume them to opt in.
+--------------------------------------------------------------------------- */
+[class*="qui-control-childrenlist-"] {
+    --_title-size: var(--quiqqer-childrenlist-title-size,
+        var(--_q-controlConf-titleSize, clamp(0.95rem, 0.8rem + 1.1cqi, 1.2rem)));
+}

@@ -1,9 +1,19 @@
 @CHARSET "UTF-8";
 
+/* ---------------------------------------------------------------------------
+   Config / theming layer (3-level pattern): long themeable variable >
+   control config (--_q-controlConf-cardGap, shared with the card / media
+   list settings) > fallback. The CSS body only uses the short --_gap.
+--------------------------------------------------------------------------- */
+.qui-control-childrenlist-featuredCards {
+    --_gap: var(--quiqqer-childrenlist-featuredCards-gap,
+        var(--_q-controlConf-cardGap, 2rem));
+}
+
 .qui-control-childrenlist-featuredCards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: var(--_gap);
 }
 
 /* ---------------------------------------------------------------------------
@@ -173,7 +183,6 @@
 @media screen and (max-width: 991px) {
     .qui-control-childrenlist-featuredCards-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
     }
 }
 
