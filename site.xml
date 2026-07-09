@@ -404,9 +404,6 @@
                             <option value="auto">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.auto"/>
                             </option>
-                            <option value="1/1">
-                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.1-1"/>
-                            </option>
                             <option value="3/4">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-4"/>
                             </option>
@@ -419,14 +416,17 @@
                             <option value="9/16">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.9-16"/>
                             </option>
+                            <option value="1/1">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.1-1"/>
+                            </option>
+                            <option value="5/4">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.5-4"/>
+                            </option>
                             <option value="4/3">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.4-3"/>
                             </option>
                             <option value="3/2">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-2"/>
-                            </option>
-                            <option value="5/4">
-                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.5-4"/>
                             </option>
                             <option value="16/9">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.16-9"/>
@@ -954,9 +954,6 @@
                             <option value="auto">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.auto"/>
                             </option>
-                            <option value="1/1">
-                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.1-1"/>
-                            </option>
                             <option value="3/4">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-4"/>
                             </option>
@@ -969,14 +966,17 @@
                             <option value="9/16">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.9-16"/>
                             </option>
+                            <option value="1/1">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.1-1"/>
+                            </option>
+                            <option value="5/4">
+                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.5-4"/>
+                            </option>
                             <option value="4/3">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.4-3"/>
                             </option>
                             <option value="3/2">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.3-2"/>
-                            </option>
-                            <option value="5/4">
-                                <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.5-4"/>
                             </option>
                             <option value="16/9">
                                 <locale group="quiqqer/sitetypes" var="list.settings.cards.aspectRatio.16-9"/>
