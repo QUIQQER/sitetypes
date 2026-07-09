@@ -28,6 +28,7 @@
 
     {* entry content *}
     <div class="qui-control-childrenlist-cards-entry-content">
+        {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
 
         {* childTags: site id => tag titles, resolved and capped by 'tagsMax' *}
         {if isset($childTags[$Child->getId()]) && $childTags[$Child->getId()]}
@@ -53,16 +54,11 @@
         </h3>
         {/if}
 
-        {if $this->getAttribute('showCreator') || $this->getAttribute('showDate')}
+        {if ($this->getAttribute('showCreator') && $creatorName) || $this->getAttribute('showDate')}
         <div class="qui-control-childrenlist-cards-entry-byline">
-            {if $this->getAttribute('showCreator')}
+            {if $this->getAttribute('showCreator') && $creatorName}
             <span class="qui-control-childrenlist-cards-entry-author">
-                {user id=$Child->getAttribute('c_user') var=User}
-                {if $User->getId() && $User->getAttribute('firstname')}
-                    {$User->getAttribute('firstname')}
-                {elseif $User->getId()}
-                    {$User->getName()}
-                {/if}
+                {$creatorName}
             </span>
             {/if}
 

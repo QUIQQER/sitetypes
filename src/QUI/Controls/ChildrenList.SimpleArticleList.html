@@ -16,6 +16,7 @@
     {assign var=counter value=1}
 
     {foreach from=$children item=Child}
+    {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
     <article class="qui-control-childrenlist-simpleArticleList"
              itemscope
              itemtype="{$this->getAttribute('child-itemtype')}"
@@ -45,15 +46,10 @@
             <header class="qui-control-childrenlist-simpleArticleList-header">
                 <span>{$Child->getAttribute('title')}</span>
             </header>
-            {if $this->getAttribute('showCreator')}
+            {if $this->getAttribute('showCreator') && $creatorName}
             <span class="qui-control-childrenlist-simpleArticleList-author colorFont fontColor">
-                {user id=$Child->getAttribute('c_user') var=User}
                 <span class="fa fa-user"></span>
-                {if $User->getId() && $User->getAttribute('firstname')}
-                    <span>{$User->getAttribute('firstname')}</span>
-                {elseif  $User->getId()}
-                    <span>{$User->getName()}</span>
-                {/if}
+                <span>{$creatorName}</span>
             </span>
             {/if}
         </a>

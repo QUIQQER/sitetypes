@@ -187,7 +187,7 @@ class ChildrenList extends QUI\Control
                     ]
                 ]);
 
-                if (is_array($count_children[0])) {
+                if (isset($count_children[0]['count'])) {
                     $count_children = $count_children[0]['count'];
                 }
             } else {
@@ -294,7 +294,8 @@ class ChildrenList extends QUI\Control
             'mediaImagePosition' => $this->normalizeMediaImagePosition(
                 $this->getAttribute('mediaImagePosition')
             ),
-            'childTags' => is_array($children) ? $this->getChildTagTitles($children) : []
+            'childTags' => is_array($children) ? $this->getChildTagTitles($children) : [],
+            'childCreatorNames' => is_array($children) ? $this->getChildCreatorNames($children) : []
         ]);
 
         $filterHtml = $Engine->fetch(dirname(__FILE__) . '/ChildrenList.Filter.html');
@@ -427,6 +428,48 @@ class ChildrenList extends QUI\Control
         $this->addCSSFile($css);
 
         return $Engine->fetch($template);
+    }
+
+    /**
+     * @param array<int, QUI\Projects\Site> $children
+     * @return array<int, string>
+     */
+    protected function getChildCreatorNames(array $children): array
+    {
+        $creatorNames = [];
+
+        foreach ($children as $Child) {
+            $creatorNames[$Child->getId()] = $this->getChildCreatorName($Child);
+        }
+
+        return $creatorNames;
+    }
+
+    protected function getChildCreatorName(QUI\Interfaces\Projects\Site $Child): string
+    {
+        $userId = (int)$Child->getAttribute('c_user');
+
+        if ($userId <= 0) {
+            return '';
+        }
+
+        try {
+            $User = QUI::getUsers()->get($userId);
+        } catch (Exception) {
+            return '';
+        }
+
+        if (!$User->getId()) {
+            return '';
+        }
+
+        $firstname = trim((string)$User->getAttribute('firstname'));
+
+        if ($firstname !== '') {
+            return $firstname;
+        }
+
+        return trim((string)$User->getName());
     }
 
     /**

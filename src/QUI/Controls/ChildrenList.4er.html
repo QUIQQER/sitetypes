@@ -22,6 +22,7 @@
     <div class="qui-control-childrenlist-4er-row grid-children-container">
         {foreach from=$children item=Child key=key}
         {assign var=_Child value=$Child->load()}
+        {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
         <article itemscope
                  itemprop="{$this->getAttribute('child-itemprop')}"
                  itemtype="{$this->getAttribute('child-itemtype')}"
@@ -70,18 +71,13 @@
                 {/if}
 
                 <div class="qui-control-childrenlist-4er-entry-content-footer">
-                    {if $this->getAttribute('showCreator') || $this->getAttribute('showDate')}
+                    {if ($this->getAttribute('showCreator') && $creatorName) || $this->getAttribute('showDate')}
                     <p class="qui-control-childrenlist-4er-entry-content-footer-authorDate">
 
-                        {if $this->getAttribute('showCreator')}
+                        {if $this->getAttribute('showCreator') && $creatorName}
                         <span class="qui-control-childrenlist-4er-entry-content-footer-author">
-                                {user id=$Child->getAttribute('c_user') var=User}
                                 <span class="fa fa-user"></span>
-                                {if $User->getId() && $User->getAttribute('firstname')}
-                                    {$User->getAttribute('firstname')}
-                                {elseif  $User->getId()}
-                                    {$User->getName()}
-                                {/if}
+                                {$creatorName}
                             </span>
                         {/if}
 
