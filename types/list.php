@@ -39,7 +39,26 @@ $ChildrenList = new QUI\Controls\ChildrenList([
     'child-itemtype' => 'https://schema.org/ListItem',
     'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template'),
     'filter' => $Site->getAttribute('quiqqer.settings.sitetypes.list.filter'),
-    'tags' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tags')
+    'tags' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tags'),
+    'tagsMax' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tagsMax'),
+
+    // card template (display 'cards')
+    'cardLayout' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.layout'),
+    'cardColumns' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columns'),
+    'cardColumnsTablet' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columnsTablet'),
+    'cardColumnsMobile' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columnsMobile'),
+    'cardImageFit' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.imageFit'),
+    'cardAspectRatio' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.aspectRatio'),
+    'cardGap' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.gap'),
+
+    // media list template (display 'mediaList')
+    'mediaImagePosition' => $Site->getAttribute('quiqqer.settings.sitetypes.list.media.imagePosition'),
+    'mediaImageWidth' => $Site->getAttribute('quiqqer.settings.sitetypes.list.media.imageWidth'),
+
+    // general, template independent
+    'titleSize' => $Site->getAttribute('quiqqer.settings.sitetypes.list.titleSize'),
+    'buttonSize' => $Site->getAttribute('quiqqer.settings.sitetypes.list.buttonSize'),
+    'buttonWidth' => $Site->getAttribute('quiqqer.settings.sitetypes.list.buttonWidth')
 ]);
 
 try {

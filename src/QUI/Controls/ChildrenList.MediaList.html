@@ -1,5 +1,3 @@
-{assign var=Placeholder value=$Project->getMedia()->getPlaceholderImage()}
-
 {if $this->getAttribute('showTitle') && $this->getAttribute('frontendTitle')}
 <header class="control-header">
     <h1>{$this->getAttribute('frontendTitle')}</h1>
@@ -13,7 +11,8 @@
 {/if}
 
 <section itemscope itemtype="{$this->getAttribute('itemtype')}"
-         class="qui-control-childrenlist-featuredCards control-template"
+         class="qui-control-childrenlist-medialist control-template
+                qui-control-childrenlist-medialist--{$mediaImagePosition}"
 >
     <link property="mainEntityOfPage" href="{url site=$Site}">
 
@@ -21,7 +20,7 @@
         {$filterHtml}
     {/if}
 
-    <div class="qui-control-childrenlist-featuredCards-grid">
+    <div class="qui-control-childrenlist-medialist-items">
 
         {assign var=counter value=1}
 
@@ -29,13 +28,12 @@
         {assign var=_Child value=$Child->load()}
         {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
 
-        {* the first entry of every page is rendered as the large featured item *}
         <article itemscope
                  itemprop="{$this->getAttribute('child-itemprop')}"
                  itemtype="{$this->getAttribute('child-itemtype')}"
                  data-id="{$Child->getId()}"
                  data-name="item"
-                 class="qui-control-childrenlist-featuredCards-entry{if $counter == 1} is-featured{/if}"
+                 class="qui-control-childrenlist-medialist-entry"
         >
             {$tmp = $MetaList->clear()}
             {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
@@ -44,12 +42,11 @@
             <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
             <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
             <meta itemprop="position" content="{$counter}"/>
-            {assign var=counter value=$counter+1}
 
-            {* entry image (not a separate link; the whole card is clickable
+            {* entry image (not a separate link; the whole entry is clickable
                via the stretched title link below) *}
             {if $this->getAttribute('showImages')}
-            <div class="qui-control-childrenlist-featuredCards-entry-image">
+            <div class="qui-control-childrenlist-medialist-entry-image">
                 {image src=$Child->getAttribute('image_site')
                 width="800"
                 type="resize"
@@ -58,14 +55,14 @@
             {/if}
 
             {* entry content *}
-            <div class="qui-control-childrenlist-featuredCards-entry-content">
+            <div class="qui-control-childrenlist-medialist-entry-content">
 
                 {* childTags: site id => tag titles, resolved and capped by 'tagsMax' *}
                 {if isset($childTags[$Child->getId()]) && $childTags[$Child->getId()]}
-                <div class="qui-control-childrenlist-featuredCards-entry-meta">
+                <div class="qui-control-childrenlist-medialist-entry-meta">
                     {foreach from=$childTags[$Child->getId()] item=tagTitle}
                     <span class="badge badge-primary badge-sm
-                                 qui-control-childrenlist-featuredCards-entry-tag">
+                                 qui-control-childrenlist-medialist-entry-tag">
                         {$tagTitle|escape:'html'}
                     </span>
                     {/foreach}
@@ -73,27 +70,27 @@
                 {/if}
 
                 {if $this->getAttribute('showHeader')}
-                <h2 class="qui-control-childrenlist-featuredCards-entry-title">
-                    {* the single, card-spanning link (see .entry-title a::after) *}
+                <h3 class="qui-control-childrenlist-medialist-entry-title">
+                    {* the single, entry-spanning link (see .entry-title a::after) *}
                     <a href="{url site=$Child}"
                        title="{$Child->getAttribute('title')|escape:'html'}"
-                       class="qui-control-childrenlist-featuredCards-entry-link"
+                       class="qui-control-childrenlist-medialist-entry-link"
                     >
                         {$Child->getAttribute('title')}
                     </a>
-                </h2>
+                </h3>
                 {/if}
 
                 {if ($this->getAttribute('showCreator') && $creatorName) || $this->getAttribute('showDate')}
-                <div class="qui-control-childrenlist-featuredCards-entry-byline">
+                <div class="qui-control-childrenlist-medialist-entry-byline">
                     {if $this->getAttribute('showCreator') && $creatorName}
-                    <span class="qui-control-childrenlist-featuredCards-entry-author">
+                    <span class="qui-control-childrenlist-medialist-entry-author">
                         {$creatorName}
                     </span>
                     {/if}
 
                     {if $this->getAttribute('showDate')}
-                    <span class="qui-control-childrenlist-featuredCards-entry-date">
+                    <span class="qui-control-childrenlist-medialist-entry-date">
                         {if $Child->getAttribute('release_from') &&
                         $Child->getAttribute('release_from') != '0000-00-00 00:00:00'}
                         <time datetime="{$Child->getAttribute('release_from')|date_format:'c'}">
@@ -105,7 +102,7 @@
                         </time>
                         {/if}
                         {if $this->getAttribute('showTime')}
-                        <span class="qui-control-childrenlist-featuredCards-entry-time">
+                        <span class="qui-control-childrenlist-medialist-entry-time">
                             {$Child->getAttribute('release_from')|date_format:"H:i"}
                         </span>
                         {/if}
@@ -115,14 +112,15 @@
                 {/if}
 
                 {if $this->getAttribute('showShort')}
-                <p class="qui-control-childrenlist-featuredCards-entry-short">
+                <p class="qui-control-childrenlist-medialist-entry-short">
                     {$Child->getAttribute('short')|nl2br}
                 </p>
                 {/if}
 
-                {* visual affordance only — not a link, since the whole card is
-                   clickable via the stretched title link above *}
-                <span class="button btn-link btn-sm qui-control-childrenlist-featuredCards-entry-more"
+                {* visual affordance only — not a link, since the whole entry
+                   is clickable via the stretched title link above *}
+                <span class="button btn-link {if $this->getAttribute('buttonSize') == 'small'}btn-sm{elseif $this->getAttribute('buttonSize') == 'large'}btn-lg{/if}
+                             qui-control-childrenlist-medialist-entry-more{if $this->getAttribute('buttonWidth') == 'full'} qui-control-childrenlist-medialist-entry-more--full{/if}"
                       aria-hidden="true"
                 >
                     {locale group="quiqqer/sitetypes" value="list.more"}
@@ -131,6 +129,8 @@
             </div>
 
         </article>
+
+        {assign var=counter value=$counter+1}
         {/foreach}
     </div>
 </section>

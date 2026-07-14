@@ -15,6 +15,7 @@
 
 <section itemscope itemtype="{$this->getAttribute('itemtype')}">
     {foreach from=$children item=Child}
+    {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
 
     <article itemscope
              itemprop="{$this->getAttribute('child-itemprop')}"
@@ -61,15 +62,10 @@
                         </a>
                     </h2>
                 </header>
-                {if $this->getAttribute('showCreator')}
+                {if $this->getAttribute('showCreator') && $creatorName}
                 <span class="qui-control-childrenlist-advancedArticleList-author">
-                {user id=$Child->getAttribute('c_user') var=User}
                 <span class="fa fa-user"></span>
-                {if $User->getId() && $User->getAttribute('firstname')}
-                    {$User->getAttribute('firstname')}
-                {elseif  $User->getId()}
-                    {$User->getName()}
-                {/if}
+                {$creatorName}
             </span>
                 {/if}
             </div>
