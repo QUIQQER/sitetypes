@@ -2,19 +2,23 @@
     "name": "quiqqer/sitetypes",
     "type": "quiqqer-module",
     "description": "The SiteTypes package extends QUIQQER with some standard page types. With these side types, websites can be quickly created. The plugin offers all the important page styles for a website / homepage.",
-    "license": "GPL-3.0+",
+    "homepage": "https://www.quiqqer.com",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
-            "name": "Henning Leutz",
-            "email": "support@pcsg.de",
-            "homepage": "https://www.pcsg.de",
-            "role": "Developer"
+            "name": "PCSG - Computer & Internet Service OHG",
+            "email": "info@quiqqer.com",
+            "homepage": "https://www.quiqqer.com",
+            "role": "Maintainer"
         }
     ],
     "support": {
-        "email": "support@pcsg.de"
+        "email": "support@pcsg.de",
+        "issues": "https://dev.quiqqer.com/quiqqer/sitetypes/issues",
+        "source": "https://dev.quiqqer.com/quiqqer/sitetypes"
     },
     "require": {
+        "php": "^8.2",
         "quiqqer/core": "^2.6.4",
         "quiqqer/bricks": "^2.2.0",
         "quiqqer/tags": "^2"

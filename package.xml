@@ -13,14 +13,14 @@
         <support>
             <email><![CDATA[support@pcsg.de]]></email>
             <forum><![CDATA[https://community.quiqqer.com]]></forum>
-            <source><![CDATA[https://dev.quiqqer.com/quiqqer/package-sitetypes]]></source>
-            <issues><![CDATA[https://dev.quiqqer.com/quiqqer/package-sitetypes/issues]]></issues>
-            <wiki><![CDATA[https://dev.quiqqer.com/quiqqer/package-sitetypes/wikis/home]]></wiki>
+            <source><![CDATA[https://dev.quiqqer.com/quiqqer/sitetypes]]></source>
+            <issues><![CDATA[https://dev.quiqqer.com/quiqqer/sitetypes/issues]]></issues>
+            <wiki><![CDATA[https://dev.quiqqer.com/quiqqer/sitetypes/wikis/home]]></wiki>
         </support>
 
         <copyright>
             <name><![CDATA[PCSG - Computer & Internet Service OHG]]></name>
-            <license><![CDATA[GPL-3.0+]]></license>
+            <license><![CDATA[GPL-3.0-or-later]]></license>
         </copyright>
     </package>
 </quiqqer>
