@@ -3,233 +3,468 @@
     <groups name="quiqqer/sitetypes" datatype="php,js">
         <locale name="package.title">
             <de><![CDATA[QUIQQER - Allgemeine Standard-Seitentypen]]></de>
-            <en><![CDATA[QUIQQER - Appropriated standard site types]]></en>
+            <en><![CDATA[QUIQQER - Standard page types]]></en>
+            <es><![CDATA[QUIQQER - Tipos de página estándar]]></es>
+            <pt><![CDATA[QUIQQER - Tipos de página padrão]]></pt>
+            <fr><![CDATA[QUIQQER - Types de page standard]]></fr>
+            <it><![CDATA[QUIQQER - Tipi di pagina standard]]></it>
+            <pl><![CDATA[QUIQQER - Standardowe typy stron]]></pl>
         </locale>
         <locale name="package.description" html="true">
-            <de><![CDATA[Das Site Types Paket erweitert QUIQQER um einige standard Seitentypen. Mit diesen Seitentypen lassen sich schnell Webseiten erstellen. Das Plugin bietet alle wichtigen Seitentype für eine Webseite / Homepage.]]></de>
-            <en><![CDATA[The SiteTypes package extends QUIQQER with some standard page types. With these side types, websites can be quickly created. The plugin offers all the important page styles for a website / homepage.]]></en>
+            <de><![CDATA[Das SiteTypes-Paket erweitert QUIQQER um gängige Standard-Seitentypen. Damit lassen sich schnell Websites erstellen. Das Paket bietet die wichtigsten Seitentypen für eine Website.]]></de>
+            <en><![CDATA[The SiteTypes package adds common standard page types to QUIQQER, allowing you to build websites quickly. It provides the essential page types for a website.]]></en>
+            <es><![CDATA[El paquete SiteTypes añade a QUIQQER los tipos de página estándar necesarios para crear un sitio web de forma rápida.]]></es>
+            <pt><![CDATA[O pacote SiteTypes adiciona ao QUIQQER os tipos de página padrão necessários para criar um site rapidamente.]]></pt>
+            <fr><![CDATA[Le paquet SiteTypes ajoute à QUIQQER les principaux types de page standard pour créer rapidement un site web.]]></fr>
+            <it><![CDATA[Il pacchetto SiteTypes aggiunge a QUIQQER i principali tipi di pagina standard per creare rapidamente un sito web.]]></it>
+            <pl><![CDATA[Pakiet SiteTypes dodaje do QUIQQER najważniejsze standardowe typy stron, umożliwiając szybkie tworzenie witryn internetowych.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/contact.description">
-            <de><![CDATA[Mit dem Kontaktformular bieten Sie Ihren Nutzern an, Sie schnell und einfach zu kontaktieren.
-Dazu legen Sie diesen Seitentyp in Ihrem Projekt an und lassen diese Seite entweder in der Navigation anzeigen, sodass Sie oben im Menü zu sehen ist,
-oder verlinken beispielsweise im Footer auf die Seite. In den Einstellungen des Kontaktformulars legen Sie noch eine Support E-Mail-Adresse fest, an welche die Anfragen gesendet werden sollen.]]></de>
-            <en><![CDATA[]]></en>
+            <de><![CDATA[Mit dem Kontaktformular bieten Sie Ihren Nutzern die Möglichkeit, Sie schnell und einfach zu kontaktieren. Legen Sie eine Seite dieses Typs in Ihrem Projekt an und zeigen Sie sie in der Navigation an oder verlinken Sie beispielsweise im Footer darauf. In den Einstellungen des Kontaktformulars legen Sie eine Support-E-Mail-Adresse fest, an die die Anfragen gesendet werden.]]></de>
+            <en><![CDATA[The contact form lets visitors contact you quickly and easily. Create a page of this type in your project and display it in the navigation or link to it, for example from the footer. In the contact form settings, enter the support email address that should receive enquiries.]]></en>
+            <es><![CDATA[El formulario de contacto permite a los visitantes ponerse en contacto contigo de forma rápida y sencilla. Crea una página de este tipo en tu proyecto y muéstrala en la navegación o enlázala, por ejemplo, desde el pie de página. En la configuración del formulario, indica la dirección de correo electrónico de soporte que recibirá las consultas.]]></es>
+            <pt><![CDATA[O formulário de contacto permite aos visitantes entrar em contacto consigo de forma rápida e simples. Crie uma página deste tipo no seu projeto e apresente-a na navegação ou adicione uma ligação, por exemplo, no rodapé. Nas definições do formulário, indique o endereço de e-mail de suporte que receberá os pedidos de contacto.]]></pt>
+            <fr><![CDATA[Le formulaire de contact permet aux visiteurs de vous contacter rapidement et facilement. Créez une page de ce type dans votre projet, puis affichez-la dans la navigation ou ajoutez un lien vers cette page, par exemple dans le pied de page. Dans les paramètres du formulaire, indiquez l’adresse e-mail du support qui recevra les demandes.]]></fr>
+            <it><![CDATA[Il modulo di contatto permette ai visitatori di contattarti in modo rapido e semplice. Crea una pagina di questo tipo nel progetto e mostrala nella navigazione oppure aggiungi un link, ad esempio nel piè di pagina. Nelle impostazioni del modulo, indica l’indirizzo e-mail di assistenza a cui inviare le richieste.]]></it>
+            <pl><![CDATA[Formularz kontaktowy pozwala odwiedzającym szybko i łatwo się z Tobą skontaktować. Utwórz stronę tego typu w projekcie i wyświetl ją w nawigacji lub dodaj do niej link, na przykład w stopce. W ustawieniach formularza podaj adres e-mail pomocy technicznej, na który będą wysyłane wiadomości.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/forwarding.title">
             <de><![CDATA[Standard-Weiterleitung]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard redirect]]></en>
+            <es><![CDATA[Redirección estándar]]></es>
+            <pt><![CDATA[Redirecionamento padrão]]></pt>
+            <fr><![CDATA[Redirection standard]]></fr>
+            <it><![CDATA[Reindirizzamento standard]]></it>
+            <pl><![CDATA[Standardowe przekierowanie]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/forwarding.description">
             <de><![CDATA[Nutzen Sie die Weiterleitung, um Nutzer bei einem Klick auf diese Seite zu einer anderen umzuleiten.
 Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer von Ihrer Weiterleitungs-Seite "Community" auf die externe Seite um.]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Use a redirect to send visitors to another page when they open this one. For example, if your community is hosted on an external website, create a redirect page called "Community" that sends visitors to that site.]]></en>
+            <es><![CDATA[Utiliza una redirección para llevar a los visitantes a otra página cuando abran esta. Por ejemplo, si tu comunidad está alojada en un sitio web externo, puedes crear una página de redirección llamada «Comunidad» que lleve a los visitantes a ese sitio.]]></es>
+            <pt><![CDATA[Utilize um redirecionamento para encaminhar os visitantes para outra página quando abrirem esta. Por exemplo, se a sua comunidade estiver alojada num site externo, pode criar uma página de redirecionamento chamada «Comunidade» que encaminhe os visitantes para esse site.]]></pt>
+            <fr><![CDATA[Utilisez une redirection pour envoyer les visiteurs vers une autre page lorsqu’ils ouvrent celle-ci. Par exemple, si votre communauté se trouve sur un site externe, créez une page de redirection intitulée « Communauté » qui renvoie vers ce site.]]></fr>
+            <it><![CDATA[Usa un reindirizzamento per indirizzare i visitatori a un’altra pagina quando aprono questa. Ad esempio, se la tua community si trova su un sito esterno, puoi creare una pagina di reindirizzamento chiamata «Community» che rimandi a quel sito.]]></it>
+            <pl><![CDATA[Użyj przekierowania, aby przenieść odwiedzających na inną stronę po otwarciu tej strony. Jeśli na przykład Twoja społeczność korzysta z zewnętrznej witryny, możesz utworzyć stronę przekierowania „Społeczność”, która prowadzi do tej witryny.]]></pl>
         </locale>
         <locale name="admin.types.externalContent">
             <de><![CDATA[Externer Inhalt]]></de>
             <en><![CDATA[External content]]></en>
+            <es><![CDATA[Contenido externo]]></es>
+            <pt><![CDATA[Conteúdo externo]]></pt>
+            <fr><![CDATA[Contenu externe]]></fr>
+            <it><![CDATA[Contenuto esterno]]></it>
+            <pl><![CDATA[Treść zewnętrzna]]></pl>
         </locale>
         <locale name="admin.types.externalContent.description">
             <de><![CDATA[Der Seitentyp ermöglicht es, eine externe Webseite oder ein anderes HTML-Dokument innerhalb einer eigenen Webseite zu laden und anzuzeigen.]]></de>
             <en><![CDATA[This site type allows you to load and display an external website or another HTML document within your own website.]]></en>
+            <es><![CDATA[Este tipo de página permite cargar y mostrar un sitio web externo u otro documento HTML dentro de tu propio sitio web.]]></es>
+            <pt><![CDATA[Este tipo de página permite carregar e apresentar um site externo ou outro documento HTML dentro do seu próprio site.]]></pt>
+            <fr><![CDATA[Ce type de page permet de charger et d’afficher un site web externe ou un autre document HTML au sein de votre propre site.]]></fr>
+            <it><![CDATA[Questo tipo di pagina permette di caricare e visualizzare un sito web esterno o un altro documento HTML all’interno del tuo sito.]]></it>
+            <pl><![CDATA[Ten typ strony umożliwia wczytanie i wyświetlenie zewnętrznej witryny lub innego dokumentu HTML we własnej witrynie.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/list.title">
             <de><![CDATA[Standard-Liste]]></de>
-            <en><![CDATA[Standard-Liste]]></en>
+            <en><![CDATA[Standard list]]></en>
+            <es><![CDATA[Lista estándar]]></es>
+            <pt><![CDATA[Lista padrão]]></pt>
+            <fr><![CDATA[Liste standard]]></fr>
+            <it><![CDATA[Elenco standard]]></it>
+            <pl><![CDATA[Standardowa lista]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/list.description">
             <de><![CDATA[Mit der Standard-Liste werden alle darunter angelegten Seiten aufgelistet.]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[The standard list displays all child pages created under this page.]]></en>
+            <es><![CDATA[La lista estándar muestra todas las subpáginas creadas bajo esta página.]]></es>
+            <pt><![CDATA[A lista padrão apresenta todas as subpáginas criadas nesta página.]]></pt>
+            <fr><![CDATA[La liste standard affiche toutes les sous-pages créées sous cette page.]]></fr>
+            <it><![CDATA[L’elenco standard mostra tutte le sottopagine create sotto questa pagina.]]></it>
+            <pl><![CDATA[Standardowa lista wyświetla wszystkie podstrony utworzone pod tą stroną.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/list-content.title">
             <de><![CDATA[Standard-Inhaltsliste]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard content list]]></en>
+            <es><![CDATA[Lista de contenidos estándar]]></es>
+            <pt><![CDATA[Lista de conteúdos padrão]]></pt>
+            <fr><![CDATA[Liste de contenus standard]]></fr>
+            <it><![CDATA[Elenco dei contenuti standard]]></it>
+            <pl><![CDATA[Standardowa lista treści]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/list-content.description">
-            <de>
-                <![CDATA[Die Standard-Inhaltsliste listet alle darunter angelegten Seiten zusammen mit dem Inhalt der seite auf.]]></de>
-            <en><![CDATA[]]></en>
+            <de><![CDATA[Die Standard-Inhaltsliste zeigt alle darunter angelegten Seiten zusammen mit ihrem Inhalt an.]]></de>
+            <en><![CDATA[The standard content list displays all child pages together with their content.]]></en>
+            <es><![CDATA[La lista de contenidos estándar muestra todas las subpáginas junto con su contenido.]]></es>
+            <pt><![CDATA[A lista de conteúdos padrão apresenta todas as subpáginas juntamente com o respetivo conteúdo.]]></pt>
+            <fr><![CDATA[La liste de contenus standard affiche toutes les sous-pages avec leur contenu.]]></fr>
+            <it><![CDATA[L’elenco dei contenuti standard mostra tutte le sottopagine insieme al loro contenuto.]]></it>
+            <pl><![CDATA[Standardowa lista treści wyświetla wszystkie podstrony wraz z ich zawartością.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/sitemap.title">
             <de><![CDATA[Standard-Sitemap]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard sitemap]]></en>
+            <es><![CDATA[Mapa del sitio estándar]]></es>
+            <pt><![CDATA[Mapa do site padrão]]></pt>
+            <fr><![CDATA[Plan du site standard]]></fr>
+            <it><![CDATA[Mappa del sito standard]]></it>
+            <pl><![CDATA[Standardowa mapa witryny]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/sitemap.description">
-            <de>
-                <![CDATA[Eine Sitmap listet sämtliche Seiten und Unterseiten Ihres Projekts auf. Im Prinzip eine vereinfachte Navigation Ihrer Webseite, in welcher der Nutzer leichter einer gesuchte Seite finden kann.]]></de>
-            <en><![CDATA[]]></en>
+            <de><![CDATA[Eine Sitemap listet sämtliche Seiten und Unterseiten Ihres Projekts auf. Sie bietet eine vereinfachte Navigation, mit der Nutzer gesuchte Seiten leichter finden können.]]></de>
+            <en><![CDATA[A sitemap lists all pages and subpages of your project. It provides simplified navigation to help visitors find the page they are looking for.]]></en>
+            <es><![CDATA[Un mapa del sitio enumera todas las páginas y subpáginas del proyecto. Ofrece una navegación simplificada para que los visitantes encuentren más fácilmente la página que buscan.]]></es>
+            <pt><![CDATA[Um mapa do site apresenta todas as páginas e subpáginas do projeto. Oferece uma navegação simplificada para que os visitantes encontrem mais facilmente a página que procuram.]]></pt>
+            <fr><![CDATA[Un plan du site répertorie toutes les pages et sous-pages du projet. Il offre une navigation simplifiée pour aider les visiteurs à trouver plus facilement la page recherchée.]]></fr>
+            <it><![CDATA[Una mappa del sito elenca tutte le pagine e sottopagine del progetto. Offre una navigazione semplificata per aiutare i visitatori a trovare più facilmente la pagina desiderata.]]></it>
+            <pl><![CDATA[Mapa witryny przedstawia wszystkie strony i podstrony projektu. Zapewnia uproszczoną nawigację, która ułatwia odwiedzającym znalezienie szukanej strony.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/sitemap-block.title">
-            <de><![CDATA[Standard Kategorie-Sitemap]]></de>
-            <en><![CDATA[]]></en>
+            <de><![CDATA[Standard-Kategorie-Sitemap]]></de>
+            <en><![CDATA[Standard category sitemap]]></en>
+            <es><![CDATA[Mapa del sitio por categorías estándar]]></es>
+            <pt><![CDATA[Mapa do site por categorias padrão]]></pt>
+            <fr><![CDATA[Plan du site standard par catégories]]></fr>
+            <it><![CDATA[Mappa del sito standard per categorie]]></it>
+            <pl><![CDATA[Standardowa mapa witryny według kategorii]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/sitemap-block.description">
-            <de>
-                <![CDATA[Eine Kategorie-Sitmap listet sämtliche Seiten und Unterseiten Ihres Projekts, sortiert nach Kategorien mit Überschriften auf. Im Prinzip eine vereinfachte Navigation Ihrer Webseite, in welcher der Nutzer leichter einer gesuchte Seite finden kann.]]></de>
-            <en><![CDATA[]]></en>
+            <de><![CDATA[Eine Kategorie-Sitemap listet sämtliche Seiten und Unterseiten Ihres Projekts nach Kategorien mit Überschriften auf. Diese vereinfachte Navigation hilft Nutzern, gesuchte Seiten leichter zu finden.]]></de>
+            <en><![CDATA[A category sitemap lists all pages and subpages of your project, grouped into categories with headings. This simplified navigation helps visitors find the page they are looking for.]]></en>
+            <es><![CDATA[Un mapa del sitio por categorías enumera todas las páginas y subpáginas del proyecto, agrupadas por categorías con sus encabezados. Esta navegación simplificada ayuda a los visitantes a encontrar más fácilmente la página que buscan.]]></es>
+            <pt><![CDATA[Um mapa do site por categorias apresenta todas as páginas e subpáginas do projeto, agrupadas por categorias com os respetivos títulos. Esta navegação simplificada ajuda os visitantes a encontrar mais facilmente a página que procuram.]]></pt>
+            <fr><![CDATA[Un plan du site par catégories répertorie toutes les pages et sous-pages du projet, regroupées par catégories avec des titres. Cette navigation simplifiée aide les visiteurs à trouver plus facilement la page recherchée.]]></fr>
+            <it><![CDATA[Una mappa del sito per categorie elenca tutte le pagine e sottopagine del progetto, raggruppate per categorie con i relativi titoli. Questa navigazione semplificata aiuta i visitatori a trovare più facilmente la pagina desiderata.]]></it>
+            <pl><![CDATA[Mapa witryny według kategorii przedstawia wszystkie strony i podstrony projektu, pogrupowane w kategorie z nagłówkami. Ta uproszczona nawigacja ułatwia odwiedzającym znalezienie szukanej strony.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/legalnotes.title">
             <de><![CDATA[Standard-Impressum]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard legal notice]]></en>
+            <es><![CDATA[Aviso legal estándar]]></es>
+            <pt><![CDATA[Informações legais padrão]]></pt>
+            <fr><![CDATA[Mentions légales standard]]></fr>
+            <it><![CDATA[Note legali standard]]></it>
+            <pl><![CDATA[Standardowe informacje prawne]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/legalnotes.description">
             <de>
                 <![CDATA[Grundsätzlich ist ein Impressum jedem Seitenbetreiber zu empfehlen, der seine Website nicht zu rein privaten Zwecken betreibt.]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[A legal notice is generally recommended for websites that are not operated solely for private purposes.]]></en>
+            <es><![CDATA[En general, se recomienda incluir un aviso legal si el sitio web no se utiliza exclusivamente con fines privados.]]></es>
+            <pt><![CDATA[De um modo geral, recomenda-se incluir uma página de informações legais quando o site não é utilizado exclusivamente para fins privados.]]></pt>
+            <fr><![CDATA[Il est généralement recommandé de prévoir des mentions légales pour tout site qui n’est pas exploité à des fins strictement privées.]]></fr>
+            <it><![CDATA[In generale, è consigliabile includere una pagina di note legali quando il sito non viene utilizzato esclusivamente per scopi privati.]]></it>
+            <pl><![CDATA[Zasadniczo zaleca się zamieszczenie informacji prawnych w witrynach, które nie są prowadzone wyłącznie do celów prywatnych.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/search.title">
             <de><![CDATA[Standard-Suche]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard search]]></en>
+            <es><![CDATA[Búsqueda estándar]]></es>
+            <pt><![CDATA[Pesquisa padrão]]></pt>
+            <fr><![CDATA[Recherche standard]]></fr>
+            <it><![CDATA[Ricerca standard]]></it>
+            <pl><![CDATA[Standardowe wyszukiwanie]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/search.description">
-            <de>sta
-                <![CDATA[Der Benutzer gibt in ein Eingabefeld ein Stichwort ein, nach dem er Ihre Homepage durchsuchen möchte. Das Modul durchsucht nun die Datenbank nach allen relevanten Einträgen.]]></de>
-            <en><![CDATA[]]></en>
+            <de><![CDATA[Der Benutzer gibt einen Suchbegriff ein, um Ihre Website zu durchsuchen. Das Modul durchsucht die Datenbank nach allen relevanten Einträgen.]]></de>
+            <en><![CDATA[The visitor enters a keyword to search your website. The module then searches the database for all relevant entries.]]></en>
+            <es><![CDATA[El visitante introduce una palabra clave para buscar en el sitio web. El módulo busca en la base de datos todas las entradas relevantes.]]></es>
+            <pt><![CDATA[O visitante introduz uma palavra-chave para pesquisar no site. O módulo procura na base de dados todas as entradas relevantes.]]></pt>
+            <fr><![CDATA[Le visiteur saisit un mot-clé pour rechercher dans le site. Le module recherche alors toutes les entrées pertinentes dans la base de données.]]></fr>
+            <it><![CDATA[Il visitatore inserisce una parola chiave per cercare nel sito. Il modulo cerca nel database tutte le voci pertinenti.]]></it>
+            <pl><![CDATA[Odwiedzający wpisuje słowo kluczowe, aby przeszukać witrynę. Moduł wyszukuje następnie wszystkie pasujące wpisy w bazie danych.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/contact.title">
             <de><![CDATA[Standard-Kontaktformular]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[Standard contact form]]></en>
+            <es><![CDATA[Formulario de contacto estándar]]></es>
+            <pt><![CDATA[Formulário de contacto padrão]]></pt>
+            <fr><![CDATA[Formulaire de contact standard]]></fr>
+            <it><![CDATA[Modulo di contatto standard]]></it>
+            <pl><![CDATA[Standardowy formularz kontaktowy]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/generalTermsAndConditions.title">
             <de><![CDATA[Nutzungsbedingungen / AGB]]></de>
             <en><![CDATA[Terms of use]]></en>
+            <es><![CDATA[Condiciones de uso / condiciones generales]]></es>
+            <pt><![CDATA[Termos de utilização / condições gerais]]></pt>
+            <fr><![CDATA[Conditions d’utilisation / conditions générales]]></fr>
+            <it><![CDATA[Condizioni d’uso / condizioni generali]]></it>
+            <pl><![CDATA[Warunki użytkowania / warunki ogólne]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/generalTermsAndConditions.description" html="true">
-            <de><![CDATA[
-            Dieser Seitentyp stellt für die Nutzer Nutzungsbedingungen zur Verfügung,welche der Nutzer bei der Anmeldung bestätigen muss.
-            Der Seitentyp dient dem QUIQQER System dazu automatisch auf die Inhalte dieses Typs zuzugreifen und diese an geeigneter Stelle anzuzeigen
-            ]]></de>
-            <en><![CDATA[
-            This page type provides the user with conditions of use, which the user has to confirm when signing up.
-            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place
-            ]]></en>
+            <de><![CDATA[Dieser Seitentyp stellt Nutzungsbedingungen bereit, die Nutzer bei der Anmeldung bestätigen müssen. Er ermöglicht dem QUIQQER-System, automatisch auf die Inhalte zuzugreifen und sie an geeigneter Stelle anzuzeigen.]]></de>
+            <en><![CDATA[This page type provides the terms of use that users must accept when signing up. It allows QUIQQER to access the content automatically and display it where needed.]]></en>
+            <es><![CDATA[Este tipo de página proporciona las condiciones de uso que los usuarios deben aceptar al registrarse. Permite a QUIQQER acceder automáticamente al contenido y mostrarlo donde corresponda.]]></es>
+            <pt><![CDATA[Este tipo de página disponibiliza os termos de utilização que os utilizadores devem aceitar ao registarem-se. Permite ao QUIQQER aceder automaticamente ao conteúdo e apresentá-lo nos locais adequados.]]></pt>
+            <fr><![CDATA[Ce type de page fournit les conditions d’utilisation que les utilisateurs doivent accepter lors de leur inscription. Il permet à QUIQQER d’accéder automatiquement à ce contenu et de l’afficher aux endroits appropriés.]]></fr>
+            <it><![CDATA[Questo tipo di pagina contiene le condizioni d’uso che gli utenti devono accettare durante la registrazione. Consente a QUIQQER di accedere automaticamente al contenuto e mostrarlo nei punti appropriati.]]></it>
+            <pl><![CDATA[Ten typ strony udostępnia warunki użytkowania, które użytkownicy muszą zaakceptować podczas rejestracji. Umożliwia QUIQQER automatyczny dostęp do treści i wyświetlanie jej w odpowiednich miejscach.]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/privacypolicy.title">
             <de><![CDATA[Datenschutzbestimmungen]]></de>
             <en><![CDATA[Privacy Policy]]></en>
+            <es><![CDATA[Política de privacidad]]></es>
+            <pt><![CDATA[Política de privacidade]]></pt>
+            <fr><![CDATA[Politique de confidentialité]]></fr>
+            <it><![CDATA[Informativa sulla privacy]]></it>
+            <pl><![CDATA[Polityka prywatności]]></pl>
         </locale>
         <locale name="quiqqer/sitetypes:types/privacypolicy.description" html="true">
-            <de><![CDATA[
-            Dieser Seitentyp stellt für die Nutzer Datenschutzbestimmungen zur Verfügung, welche der Nutzer bei der Anmeldung bestätigen muss.
-            Der Seitentyp dient dem QUIQQER System dazu automatisch auf die Inhalte dieses Typs zuzugreifen und diese an geeigneter Stelle anzuzeigen.
-            ]]></de>
-            <en><![CDATA[
-            This page type provides the users with data protection regulations, which must be confirmed by the user when signing up.
-            The page type automatically serves the QUIQQER system to access the content of this type and display it in a suitable place.
-            ]]></en>
+            <de><![CDATA[Dieser Seitentyp stellt Datenschutzbestimmungen bereit, die Nutzer bei der Anmeldung bestätigen müssen. Er ermöglicht dem QUIQQER-System, automatisch auf die Inhalte zuzugreifen und sie an geeigneter Stelle anzuzeigen.]]></de>
+            <en><![CDATA[This page type provides the privacy policy that users must confirm when signing up. It allows QUIQQER to access the content automatically and display it where needed.]]></en>
+            <es><![CDATA[Este tipo de página proporciona la política de privacidad que los usuarios deben confirmar al registrarse. Permite a QUIQQER acceder automáticamente al contenido y mostrarlo donde corresponda.]]></es>
+            <pt><![CDATA[Este tipo de página disponibiliza a política de privacidade que os utilizadores devem confirmar ao registarem-se. Permite ao QUIQQER aceder automaticamente ao conteúdo e apresentá-lo nos locais adequados.]]></pt>
+            <fr><![CDATA[Ce type de page fournit la politique de confidentialité que les utilisateurs doivent confirmer lors de leur inscription. Il permet à QUIQQER d’accéder automatiquement à ce contenu et de l’afficher aux endroits appropriés.]]></fr>
+            <it><![CDATA[Questo tipo di pagina contiene l’informativa sulla privacy che gli utenti devono confermare durante la registrazione. Consente a QUIQQER di accedere automaticamente al contenuto e mostrarlo nei punti appropriati.]]></it>
+            <pl><![CDATA[Ten typ strony udostępnia politykę prywatności, którą użytkownicy muszą potwierdzić podczas rejestracji. Umożliwia QUIQQER automatyczny dostęp do treści i wyświetlanie jej w odpowiednich miejscach.]]></pl>
         </locale>
 
         <locale name="sitetypes.externalContent.settings.title">
             <de><![CDATA[Externer Inhalt]]></de>
             <en><![CDATA[External content]]></en>
+            <es><![CDATA[Contenido externo]]></es>
+            <pt><![CDATA[Conteúdo externo]]></pt>
+            <fr><![CDATA[Contenu externe]]></fr>
+            <it><![CDATA[Contenuto esterno]]></it>
+            <pl><![CDATA[Treść zewnętrzna]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.type.title">
-            <de><![CDATA[Externer Inhalt Typ]]></de>
+            <de><![CDATA[Typ des externen Inhalts]]></de>
             <en><![CDATA[External content type]]></en>
+            <es><![CDATA[Tipo de contenido externo]]></es>
+            <pt><![CDATA[Tipo de conteúdo externo]]></pt>
+            <fr><![CDATA[Type de contenu externe]]></fr>
+            <it><![CDATA[Tipo di contenuto esterno]]></it>
+            <pl><![CDATA[Typ treści zewnętrznej]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.type.option.text">
-            <de><![CDATA[Text Eingabe]]></de>
+            <de><![CDATA[Texteingabe]]></de>
             <en><![CDATA[Text input]]></en>
+            <es><![CDATA[Entrada de texto]]></es>
+            <pt><![CDATA[Introdução de texto]]></pt>
+            <fr><![CDATA[Saisie de texte]]></fr>
+            <it><![CDATA[Inserimento di testo]]></it>
+            <pl><![CDATA[Wprowadzanie tekstu]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.type.option.iframe">
             <de><![CDATA[iFrame]]></de>
             <en><![CDATA[iFrame]]></en>
+            <es><![CDATA[iFrame]]></es>
+            <pt><![CDATA[iFrame]]></pt>
+            <fr><![CDATA[iFrame]]></fr>
+            <it><![CDATA[iFrame]]></it>
+            <pl><![CDATA[iFrame]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.text.title">
             <de><![CDATA[Externer Inhalt]]></de>
             <en><![CDATA[External content]]></en>
+            <es><![CDATA[Contenido externo]]></es>
+            <pt><![CDATA[Conteúdo externo]]></pt>
+            <fr><![CDATA[Contenu externe]]></fr>
+            <it><![CDATA[Contenuto esterno]]></it>
+            <pl><![CDATA[Treść zewnętrzna]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.url.title">
             <de><![CDATA[Link]]></de>
-            <en><![CDATA[Url]]></en>
+            <en><![CDATA[URL]]></en>
+            <es><![CDATA[URL]]></es>
+            <pt><![CDATA[URL]]></pt>
+            <fr><![CDATA[URL]]></fr>
+            <it><![CDATA[URL]]></it>
+            <pl><![CDATA[URL]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.heightDesktop.title">
             <de><![CDATA[Höhe des iFrames]]></de>
             <en><![CDATA[Height of iFrame]]></en>
+            <es><![CDATA[Altura del iFrame]]></es>
+            <pt><![CDATA[Altura do iFrame]]></pt>
+            <fr><![CDATA[Hauteur de l’iFrame]]></fr>
+            <it><![CDATA[Altezza dell’iFrame]]></it>
+            <pl><![CDATA[Wysokość iFrame]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.heightDesktop.desc">
-            <de><![CDATA[Erlaubt sind alle valide CSS Werte, z.B. 250px, 100%, 50vh, etc. Wert ohne Einheit wird als Pixel interpretiert.]]></de>
-            <en><![CDATA[Allowed are all valid CSS values, e.g. 250px, 100%, 50vh, etc. Values without a unit are interpreted as pixels.]]></en>
+            <de><![CDATA[Erlaubt sind alle gültigen CSS-Werte, z. B. 250px, 100% oder 50vh. Werte ohne Einheit werden als Pixel interpretiert.]]></de>
+            <en><![CDATA[All valid CSS values are allowed, e.g. 250px, 100% or 50vh. Values without a unit are interpreted as pixels.]]></en>
+            <es><![CDATA[Se admiten todos los valores CSS válidos, por ejemplo, 250px, 100% o 50vh. Los valores sin unidad se interpretan como píxeles.]]></es>
+            <pt><![CDATA[São permitidos todos os valores CSS válidos, por exemplo, 250px, 100% ou 50vh. Os valores sem unidade são interpretados como píxeis.]]></pt>
+            <fr><![CDATA[Toutes les valeurs CSS valides sont acceptées, par exemple 250px, 100% ou 50vh. Les valeurs sans unité sont interprétées en pixels.]]></fr>
+            <it><![CDATA[Sono consentiti tutti i valori CSS validi, ad esempio 250px, 100% o 50vh. I valori senza unità vengono interpretati come pixel.]]></it>
+            <pl><![CDATA[Dozwolone są wszystkie poprawne wartości CSS, np. 250px, 100% lub 50vh. Wartości bez jednostki są interpretowane jako piksele.]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.heightMobile.title">
             <de><![CDATA[Höhe des iFrames (auf mobilen Geräten)]]></de>
             <en><![CDATA[Height of iFrame (on mobile devices)]]></en>
+            <es><![CDATA[Altura del iFrame (dispositivos móviles)]]></es>
+            <pt><![CDATA[Altura do iFrame (dispositivos móveis)]]></pt>
+            <fr><![CDATA[Hauteur de l’iFrame (appareils mobiles)]]></fr>
+            <it><![CDATA[Altezza dell’iFrame (dispositivi mobili)]]></it>
+            <pl><![CDATA[Wysokość iFrame (urządzenia mobilne)]]></pl>
         </locale>
         <locale name="sitetypes.externalContent.settings.heightMobile.desc">
-            <de><![CDATA[Erlaubt sind alle valide CSS Werte, z.B. 250px, 100%, 50vh, etc. Wert ohne Einheit wird als Pixel interpretiert.<br>Diese Einstellung ist optional. Wird kein Wert eingetragen, wird die Desktop-Einstellung verwendet.]]></de>
-            <en><![CDATA[Allowed are all valid CSS values, e.g. 250px, 100%, 50vh, etc. Values without a unit are interpreted as pixels.<br>This setting is optional. If no value is entered, the desktop setting is used.]]></en>
+            <de><![CDATA[Erlaubt sind alle gültigen CSS-Werte, z. B. 250px, 100% oder 50vh. Werte ohne Einheit werden als Pixel interpretiert.<br>Diese Einstellung ist optional. Wird kein Wert eingetragen, wird die Desktop-Einstellung verwendet.]]></de>
+            <en><![CDATA[All valid CSS values are allowed, e.g. 250px, 100% or 50vh. Values without a unit are interpreted as pixels.<br>This setting is optional. If no value is entered, the desktop setting is used.]]></en>
+            <es><![CDATA[Se admiten todos los valores CSS válidos, por ejemplo, 250px, 100% o 50vh. Los valores sin unidad se interpretan como píxeles.<br>Esta opción es opcional. Si no se introduce ningún valor, se utiliza la configuración de escritorio.]]></es>
+            <pt><![CDATA[São permitidos todos os valores CSS válidos, por exemplo, 250px, 100% ou 50vh. Os valores sem unidade são interpretados como píxeis.<br>Esta definição é opcional. Se não for introduzido nenhum valor, é utilizada a definição para computador.]]></pt>
+            <fr><![CDATA[Toutes les valeurs CSS valides sont acceptées, par exemple 250px, 100% ou 50vh. Les valeurs sans unité sont interprétées en pixels.<br>Ce paramètre est facultatif. Si aucune valeur n’est saisie, le paramètre pour ordinateur est utilisé.]]></fr>
+            <it><![CDATA[Sono consentiti tutti i valori CSS validi, ad esempio 250px, 100% o 50vh. I valori senza unità vengono interpretati come pixel.<br>Questa impostazione è facoltativa. Se non inserisci un valore, viene utilizzata l’impostazione desktop.]]></it>
+            <pl><![CDATA[Dozwolone są wszystkie poprawne wartości CSS, np. 250px, 100% lub 50vh. Wartości bez jednostki są interpretowane jako piksele.<br>To ustawienie jest opcjonalne. Jeśli nie podasz wartości, zostanie użyte ustawienie dla komputerów.]]></pl>
         </locale>
     </groups>
     <groups name="quiqqer/sitetypes" datatype="php">
         <locale name="quiqqer.sitetypes.privacypolicy.settings.title">
-            <de><![CDATA[Datenschutzbestimmungen Einstellungen]]></de>
+            <de><![CDATA[Einstellungen der Datenschutzbestimmungen]]></de>
             <en><![CDATA[Privacy Policy Settings]]></en>
+            <es><![CDATA[Configuración de la política de privacidad]]></es>
+            <pt><![CDATA[Definições da política de privacidade]]></pt>
+            <fr><![CDATA[Paramètres de la politique de confidentialité]]></fr>
+            <it><![CDATA[Impostazioni dell’informativa sulla privacy]]></it>
+            <pl><![CDATA[Ustawienia polityki prywatności]]></pl>
         </locale>
         <locale name="quiqqer.settings.privacypolicy.gdpr.showRevokeCookiesButton">
             <de><![CDATA["Cookies Widerrufen"-Button anzeigen]]></de>
             <en><![CDATA[Show "Revoke Cookies"-button]]></en>
+            <es><![CDATA[Mostrar el botón para retirar el consentimiento de cookies]]></es>
+            <pt><![CDATA[Mostrar o botão para retirar o consentimento para cookies]]></pt>
+            <fr><![CDATA[Afficher le bouton de retrait du consentement aux cookies]]></fr>
+            <it><![CDATA[Mostra il pulsante per revocare il consenso ai cookie]]></it>
+            <pl><![CDATA[Pokaż przycisk wycofania zgody na pliki cookie]]></pl>
         </locale>
         <locale name="quiqqer.settings.sitetypes.gdpr.showRevokeCookiesButton.description">
             <de><![CDATA[Wenn das Paket "quiqqer/gdpr" installiert ist, einen Button zum Widerrufen aller Cookies am Ende der Datenschutzerklärung anzeigen]]></de>
             <en><![CDATA[If the "quiqqer/gdpr" package is installed, display a button to revoke all cookies at the end of the privacy policy.]]></en>
+            <es><![CDATA[Si el paquete "quiqqer/gdpr" está instalado, muestra al final de la política de privacidad un botón para retirar el consentimiento para todas las cookies.]]></es>
+            <pt><![CDATA[Se o pacote "quiqqer/gdpr" estiver instalado, apresenta no final da política de privacidade um botão para retirar o consentimento para todos os cookies.]]></pt>
+            <fr><![CDATA[Si le paquet "quiqqer/gdpr" est installé, affiche à la fin de la politique de confidentialité un bouton permettant de retirer le consentement pour tous les cookies.]]></fr>
+            <it><![CDATA[Se il pacchetto "quiqqer/gdpr" è installato, mostra alla fine dell’informativa sulla privacy un pulsante per revocare il consenso a tutti i cookie.]]></it>
+            <pl><![CDATA[Jeśli pakiet "quiqqer/gdpr" jest zainstalowany, wyświetla na końcu polityki prywatności przycisk wycofania zgody na wszystkie pliki cookie.]]></pl>
         </locale>
 
         <locale name="list.more">
             <de><![CDATA[Mehr]]></de>
             <en><![CDATA[More]]></en>
+            <es><![CDATA[Más]]></es>
+            <pt><![CDATA[Mais]]></pt>
+            <fr><![CDATA[En savoir plus]]></fr>
+            <it><![CDATA[Scopri di più]]></it>
             <pl><![CDATA[Więcej]]></pl>
         </locale>
         <locale name="list.icons.more">
             <de><![CDATA[Weiter]]></de>
             <en><![CDATA[More]]></en>
+            <es><![CDATA[Continuar]]></es>
+            <pt><![CDATA[Continuar]]></pt>
+            <fr><![CDATA[Continuer]]></fr>
+            <it><![CDATA[Continua]]></it>
             <pl><![CDATA[Dalej]]></pl>
         </locale>
         <locale name="admin.types.search">
             <de><![CDATA[Standardsuche]]></de>
             <en><![CDATA[Standard search]]></en>
+            <es><![CDATA[Búsqueda estándar]]></es>
+            <pt><![CDATA[Pesquisa padrão]]></pt>
+            <fr><![CDATA[Recherche standard]]></fr>
+            <it><![CDATA[Ricerca standard]]></it>
+            <pl><![CDATA[Standardowe wyszukiwanie]]></pl>
         </locale>
         <locale name="admin.types.search.desc">
             <de><![CDATA[Einfache Suche]]></de>
             <en><![CDATA[Simple search]]></en>
+            <es><![CDATA[Búsqueda sencilla]]></es>
+            <pt><![CDATA[Pesquisa simples]]></pt>
+            <fr><![CDATA[Recherche simple]]></fr>
+            <it><![CDATA[Ricerca semplice]]></it>
+            <pl><![CDATA[Proste wyszukiwanie]]></pl>
         </locale>
         <locale name="admin.types.list">
             <de><![CDATA[Standardliste]]></de>
             <en><![CDATA[Standard list]]></en>
+            <es><![CDATA[Lista estándar]]></es>
+            <pt><![CDATA[Lista padrão]]></pt>
+            <fr><![CDATA[Liste standard]]></fr>
+            <it><![CDATA[Elenco standard]]></it>
+            <pl><![CDATA[Standardowa lista]]></pl>
         </locale>
         <locale name="admin.types.list.desc">
             <de><![CDATA[Liste]]></de>
             <en><![CDATA[List]]></en>
+            <es><![CDATA[Lista]]></es>
+            <pt><![CDATA[Lista]]></pt>
+            <fr><![CDATA[Liste]]></fr>
+            <it><![CDATA[Elenco]]></it>
+            <pl><![CDATA[Lista]]></pl>
         </locale>
         <locale name="admin.types.content.list">
             <de><![CDATA[Standard-Inhaltsliste]]></de>
             <en><![CDATA[Standard content list]]></en>
+            <es><![CDATA[Lista de contenidos estándar]]></es>
+            <pt><![CDATA[Lista de conteúdos padrão]]></pt>
+            <fr><![CDATA[Liste de contenus standard]]></fr>
+            <it><![CDATA[Elenco dei contenuti standard]]></it>
+            <pl><![CDATA[Standardowa lista treści]]></pl>
         </locale>
         <locale name="admin.types.content.list.desc">
             <de><![CDATA[Inhaltsliste]]></de>
             <en><![CDATA[Content list]]></en>
+            <es><![CDATA[Lista de contenidos]]></es>
+            <pt><![CDATA[Lista de conteúdos]]></pt>
+            <fr><![CDATA[Liste de contenus]]></fr>
+            <it><![CDATA[Elenco dei contenuti]]></it>
+            <pl><![CDATA[Lista treści]]></pl>
         </locale>
         <locale name="admin.types.sitemap">
             <de><![CDATA[Standard-Sitemap]]></de>
             <en><![CDATA[Standard sitemap]]></en>
+            <es><![CDATA[Mapa del sitio estándar]]></es>
+            <pt><![CDATA[Mapa do site padrão]]></pt>
+            <fr><![CDATA[Plan du site standard]]></fr>
+            <it><![CDATA[Mappa del sito standard]]></it>
+            <pl><![CDATA[Standardowa mapa witryny]]></pl>
         </locale>
         <locale name="admin.types.sitemap.desc">
             <de><![CDATA[Sitemap]]></de>
             <en><![CDATA[Sitemap]]></en>
+            <es><![CDATA[Mapa del sitio]]></es>
+            <pt><![CDATA[Mapa do site]]></pt>
+            <fr><![CDATA[Plan du site]]></fr>
+            <it><![CDATA[Mappa del sito]]></it>
+            <pl><![CDATA[Mapa witryny]]></pl>
         </locale>
         <locale name="admin.types.sitemap.settings">
-            <de><![CDATA[Sitemap Einstellungen]]></de>
+            <de><![CDATA[Sitemap-Einstellungen]]></de>
             <en><![CDATA[Sitemap settings]]></en>
+            <es><![CDATA[Configuración del mapa del sitio]]></es>
+            <pt><![CDATA[Definições do mapa do site]]></pt>
+            <fr><![CDATA[Paramètres du plan du site]]></fr>
+            <it><![CDATA[Impostazioni della mappa del sito]]></it>
+            <pl><![CDATA[Ustawienia mapy witryny]]></pl>
         </locale>
         <locale name="quiqqer.settings.sitetypes.dontShowInSitemap">
             <de><![CDATA[Nicht in Sitemap anzeigen]]></de>
             <en><![CDATA[Do not show in Sitemap]]></en>
+            <es><![CDATA[No mostrar en el mapa del sitio]]></es>
+            <pt><![CDATA[Não mostrar no mapa do site]]></pt>
+            <fr><![CDATA[Ne pas afficher dans le plan du site]]></fr>
+            <it><![CDATA[Non mostrare nella mappa del sito]]></it>
+            <pl><![CDATA[Nie pokazuj w mapie witryny]]></pl>
         </locale>
         <locale name="admin.types.sitemap-block">
-            <de><![CDATA[Standard Kategorie-Sitemap]]></de>
+            <de><![CDATA[Standard-Kategorie-Sitemap]]></de>
             <en><![CDATA[Standard sitemap - Categories]]></en>
+            <es><![CDATA[Mapa del sitio por categorías estándar]]></es>
+            <pt><![CDATA[Mapa do site por categorias padrão]]></pt>
+            <fr><![CDATA[Plan du site standard par catégories]]></fr>
+            <it><![CDATA[Mappa del sito standard per categorie]]></it>
+            <pl><![CDATA[Standardowa mapa witryny według kategorii]]></pl>
         </locale>
         <locale name="admin.types.standalone">
             <de><![CDATA[Templatefreie Seite (Standalone)]]></de>
             <en><![CDATA[Template-free page (Standalone)]]></en>
+            <es><![CDATA[Página sin plantilla (independiente)]]></es>
+            <pt><![CDATA[Página sem modelo (independente)]]></pt>
+            <fr><![CDATA[Page sans modèle (autonome)]]></fr>
+            <it><![CDATA[Pagina senza modello (autonoma)]]></it>
+            <pl><![CDATA[Strona bez szablonu (samodzielna)]]></pl>
         </locale>
         <locale name="admin.types.standalone.description">
             <de><![CDATA[
@@ -241,199 +476,411 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             This page type is delivered without any template or layout. No header, footer, or global template structure will be included.
             The page can be fully defined using custom HTML, CSS, and JavaScript and is ideal for special landing pages or technical standalone pages.
             ]]></en>
+            <es><![CDATA[Este tipo de página se muestra sin plantilla ni diseño global. No incluye encabezado, pie de página ni estructura global de la plantilla. La página se puede definir íntegramente con HTML, CSS y JavaScript propios, por lo que resulta adecuada para páginas técnicas especiales o páginas de destino personalizadas.]]></es>
+            <pt><![CDATA[Este tipo de página é apresentado sem modelo nem estrutura global. Não inclui cabeçalho, rodapé ou a estrutura global do modelo. A página pode ser definida integralmente com HTML, CSS e JavaScript próprios, sendo adequada para páginas técnicas especiais ou páginas de destino personalizadas.]]></pt>
+            <fr><![CDATA[Ce type de page est affiché sans modèle ni mise en page globale. Aucun en-tête, pied de page ou élément de structure globale n’est inclus. La page peut être entièrement définie avec du HTML, du CSS et du JavaScript personnalisés, ce qui convient aux pages techniques particulières ou aux pages de destination sur mesure.]]></fr>
+            <it><![CDATA[Questo tipo di pagina viene visualizzato senza modello né layout globale. Non include intestazione, piè di pagina o struttura globale del modello. Puoi definire interamente la pagina con HTML, CSS e JavaScript personalizzati, per creare pagine tecniche specifiche o landing page su misura.]]></it>
+            <pl><![CDATA[Ten typ strony jest wyświetlany bez szablonu i globalnego układu. Nie zawiera nagłówka, stopki ani globalnej struktury szablonu. Stronę można w całości zdefiniować za pomocą własnego kodu HTML, CSS i JavaScript, co sprawdza się przy specjalnych stronach technicznych lub niestandardowych stronach docelowych.]]></pl>
         </locale>
         <locale name="admin.types.standalone.category">
-            <de><![CDATA[Standalone Inhalt]]></de>
+            <de><![CDATA[Standalone-Inhalt]]></de>
             <en><![CDATA[Standalone Content]]></en>
+            <es><![CDATA[Contenido independiente]]></es>
+            <pt><![CDATA[Conteúdo independente]]></pt>
+            <fr><![CDATA[Contenu autonome]]></fr>
+            <it><![CDATA[Contenuto autonomo]]></it>
+            <pl><![CDATA[Treść samodzielnej strony]]></pl>
         </locale>
         <locale name="quiqqer.standalone.settings.title">
-            <de><![CDATA[Standalone Einstellungen]]></de>
+            <de><![CDATA[Standalone-Einstellungen]]></de>
             <en><![CDATA[Standalone settings]]></en>
+            <es><![CDATA[Configuración de la página independiente]]></es>
+            <pt><![CDATA[Definições da página independente]]></pt>
+            <fr><![CDATA[Paramètres de la page autonome]]></fr>
+            <it><![CDATA[Impostazioni della pagina autonoma]]></it>
+            <pl><![CDATA[Ustawienia samodzielnej strony]]></pl>
         </locale>
         <locale name="quiqqer.standalone.settings.outputType">
             <de><![CDATA[Ausgabe-/Header-Typ]]></de>
             <en><![CDATA[Output/Header type]]></en>
+            <es><![CDATA[Tipo de salida / encabezado]]></es>
+            <pt><![CDATA[Tipo de saída / cabeçalho]]></pt>
+            <fr><![CDATA[Type de sortie / d’en-tête]]></fr>
+            <it><![CDATA[Tipo di output / intestazione]]></it>
+            <pl><![CDATA[Typ wyjścia / nagłówka]]></pl>
         </locale>
         <locale name="quiqqer.standalone.settings.outputType.textHtml">
             <de><![CDATA[HTML (text/html)]]></de>
             <en><![CDATA[HTML (text/html)]]></en>
+            <es><![CDATA[HTML (text/html)]]></es>
+            <pt><![CDATA[HTML (text/html)]]></pt>
+            <fr><![CDATA[HTML (text/html)]]></fr>
+            <it><![CDATA[HTML (text/html)]]></it>
+            <pl><![CDATA[HTML (text/html)]]></pl>
         </locale>
         <locale name="quiqqer.standalone.settings.outputType.textPlain">
             <de><![CDATA[Plain Text (text/plain)]]></de>
             <en><![CDATA[Plain Text (text/plain)]]></en>
+            <es><![CDATA[Texto sin formato (text/plain)]]></es>
+            <pt><![CDATA[Texto simples (text/plain)]]></pt>
+            <fr><![CDATA[Texte brut (text/plain)]]></fr>
+            <it><![CDATA[Testo semplice (text/plain)]]></it>
+            <pl><![CDATA[Zwykły tekst (text/plain)]]></pl>
         </locale>
         <locale name="quiqqer.standalone.settings.outputType.applicationJson">
             <de><![CDATA[JSON (application/json)]]></de>
             <en><![CDATA[JSON (application/json)]]></en>
+            <es><![CDATA[JSON (application/json)]]></es>
+            <pt><![CDATA[JSON (application/json)]]></pt>
+            <fr><![CDATA[JSON (application/json)]]></fr>
+            <it><![CDATA[JSON (application/json)]]></it>
+            <pl><![CDATA[JSON (application/json)]]></pl>
         </locale>
         <locale name="quiqqer.standalone.settings.outputType.applicationXml">
             <de><![CDATA[XML (application/xml)]]></de>
             <en><![CDATA[XML (application/xml)]]></en>
+            <es><![CDATA[XML (application/xml)]]></es>
+            <pt><![CDATA[XML (application/xml)]]></pt>
+            <fr><![CDATA[XML (application/xml)]]></fr>
+            <it><![CDATA[XML (application/xml)]]></it>
+            <pl><![CDATA[XML (application/xml)]]></pl>
         </locale>
 
         <locale name="tpl.search.button">
             <de><![CDATA[Suche starten]]></de>
             <en><![CDATA[Start search]]></en>
+            <es><![CDATA[Iniciar búsqueda]]></es>
+            <pt><![CDATA[Iniciar pesquisa]]></pt>
+            <fr><![CDATA[Lancer la recherche]]></fr>
+            <it><![CDATA[Avvia la ricerca]]></it>
+            <pl><![CDATA[Rozpocznij wyszukiwanie]]></pl>
         </locale>
         <locale name="tpl.search.placeholder">
             <de><![CDATA[Bitte Suchbegriff eingeben]]></de>
-            <en><![CDATA[Please insert your search here...]]></en>
+            <en><![CDATA[Please enter a search term]]></en>
+            <es><![CDATA[Introduce un término de búsqueda]]></es>
+            <pt><![CDATA[Introduza um termo de pesquisa]]></pt>
+            <fr><![CDATA[Saisissez un terme de recherche]]></fr>
+            <it><![CDATA[Inserisci un termine di ricerca]]></it>
+            <pl><![CDATA[Wpisz szukane hasło]]></pl>
         </locale>
         <locale name="tpl.search.list.more">
             <de><![CDATA[mehr]]></de>
             <en><![CDATA[more]]></en>
+            <es><![CDATA[más]]></es>
+            <pt><![CDATA[mais]]></pt>
+            <fr><![CDATA[en savoir plus]]></fr>
+            <it><![CDATA[scopri di più]]></it>
+            <pl><![CDATA[więcej]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.title">
             <de><![CDATA[Listeneinstellungen: Allgemein]]></de>
             <en><![CDATA[List settings: General]]></en>
+            <es><![CDATA[Configuración de la lista: general]]></es>
+            <pt><![CDATA[Definições da lista: geral]]></pt>
+            <fr><![CDATA[Paramètres de la liste : général]]></fr>
+            <it><![CDATA[Impostazioni dell’elenco: generali]]></it>
+            <pl><![CDATA[Ustawienia listy: ogólne]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter.title">
             <de><![CDATA[Listeneinstellungen: Filter]]></de>
             <en><![CDATA[List settings: Filter]]></en>
+            <es><![CDATA[Configuración de la lista: filtros]]></es>
+            <pt><![CDATA[Definições da lista: filtros]]></pt>
+            <fr><![CDATA[Paramètres de la liste : filtres]]></fr>
+            <it><![CDATA[Impostazioni dell’elenco: filtri]]></it>
+            <pl><![CDATA[Ustawienia listy: filtry]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.max">
             <de><![CDATA[Anzahl Kindseiten pro Seite]]></de>
-            <en><![CDATA[Number of children per page]]></en>
+            <en><![CDATA[Number of child pages per page]]></en>
+            <es><![CDATA[Número de subpáginas por página]]></es>
+            <pt><![CDATA[Número de subpáginas por página]]></pt>
+            <fr><![CDATA[Nombre de sous-pages par page]]></fr>
+            <it><![CDATA[Numero di sottopagine per pagina]]></it>
+            <pl><![CDATA[Liczba podstron na stronie]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.showHeader">
-            <de><![CDATA[Überschrift der Kinder anzeigen]]></de>
-            <en><![CDATA[Show the header of the children]]></en>
+            <de><![CDATA[Überschriften der Unterseiten anzeigen]]></de>
+            <en><![CDATA[Show child page headings]]></en>
+            <es><![CDATA[Mostrar los títulos de las subpáginas]]></es>
+            <pt><![CDATA[Mostrar os títulos das subpáginas]]></pt>
+            <fr><![CDATA[Afficher les titres des sous-pages]]></fr>
+            <it><![CDATA[Mostra i titoli delle sottopagine]]></it>
+            <pl><![CDATA[Pokaż tytuły podstron]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.showImages">
             <de><![CDATA[Seitenbilder der Kinder anzeigen]]></de>
             <en><![CDATA[Show the page images of the children]]></en>
+            <es><![CDATA[Mostrar imágenes de las páginas]]></es>
+            <pt><![CDATA[Mostrar imagens das páginas]]></pt>
+            <fr><![CDATA[Afficher les images des pages]]></fr>
+            <it><![CDATA[Mostra le immagini delle pagine]]></it>
+            <pl><![CDATA[Pokaż zdjęcie]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.showSheets">
             <de><![CDATA[Blätterfunktion anzeigen]]></de>
-            <en><![CDATA[Show sheets]]></en>
+            <en><![CDATA[Show pagination]]></en>
+            <es><![CDATA[Mostrar la paginación]]></es>
+            <pt><![CDATA[Mostrar a paginação]]></pt>
+            <fr><![CDATA[Afficher la pagination]]></fr>
+            <it><![CDATA[Mostra la paginazione]]></it>
+            <pl><![CDATA[Pokaż stronicowanie]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter">
             <de><![CDATA[Filter]]></de>
             <en><![CDATA[Filter]]></en>
+            <es><![CDATA[Filtro]]></es>
+            <pt><![CDATA[Filtro]]></pt>
+            <fr><![CDATA[Filtre]]></fr>
+            <it><![CDATA[Filtro]]></it>
+            <pl><![CDATA[Filtr]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter.desc">
             <de><![CDATA[Achtung! Nicht jede Vorlage (Layout) unterstützt die Option.]]></de>
             <en><![CDATA[Note: Not every template (layout) supports this option.]]></en>
+            <es><![CDATA[Atención: no todas las plantillas admiten esta opción.]]></es>
+            <pt><![CDATA[Atenção: nem todos os modelos suportam esta opção.]]></pt>
+            <fr><![CDATA[Attention : tous les modèles ne prennent pas en charge cette option.]]></fr>
+            <it><![CDATA[Attenzione: non tutti i modelli supportano questa opzione.]]></it>
+            <pl><![CDATA[Uwaga: nie każdy szablon obsługuje tę opcję.]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter.disabled">
             <de><![CDATA[Deaktiviert]]></de>
             <en><![CDATA[Disabled]]></en>
+            <es><![CDATA[Desactivado]]></es>
+            <pt><![CDATA[Desativado]]></pt>
+            <fr><![CDATA[Désactivé]]></fr>
+            <it><![CDATA[Disattivato]]></it>
+            <pl><![CDATA[Wyłączony]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter.input">
-            <de><![CDATA[Freitext Suche]]></de>
+            <de><![CDATA[Freitextsuche]]></de>
             <en><![CDATA[Text search]]></en>
+            <es><![CDATA[Búsqueda de texto libre]]></es>
+            <pt><![CDATA[Pesquisa de texto livre]]></pt>
+            <fr><![CDATA[Recherche en texte libre]]></fr>
+            <it><![CDATA[Ricerca a testo libero]]></it>
+            <pl><![CDATA[Wyszukiwanie tekstowe]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter.tags">
             <de><![CDATA[Tags]]></de>
             <en><![CDATA[Tags]]></en>
+            <es><![CDATA[Etiquetas]]></es>
+            <pt><![CDATA[Etiquetas]]></pt>
+            <fr><![CDATA[Étiquettes]]></fr>
+            <it><![CDATA[Tag]]></it>
+            <pl><![CDATA[Tagi]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.filter.all">
-            <de><![CDATA[Freitext Suche und Tags]]></de>
+            <de><![CDATA[Freitextsuche und Tags]]></de>
             <en><![CDATA[Text search and tags]]></en>
+            <es><![CDATA[Búsqueda de texto libre y etiquetas]]></es>
+            <pt><![CDATA[Pesquisa de texto livre e etiquetas]]></pt>
+            <fr><![CDATA[Recherche en texte libre et étiquettes]]></fr>
+            <it><![CDATA[Ricerca a testo libero e tag]]></it>
+            <pl><![CDATA[Wyszukiwanie tekstowe i tagi]]></pl>
         </locale>
 
         <locale name="quiqqer.sitetypes.list.settings.tags">
             <de><![CDATA[Tags]]></de>
             <en><![CDATA[Tags]]></en>
+            <es><![CDATA[Etiquetas]]></es>
+            <pt><![CDATA[Etiquetas]]></pt>
+            <fr><![CDATA[Étiquettes]]></fr>
+            <it><![CDATA[Tag]]></it>
+            <pl><![CDATA[Tagi]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.tags.desc">
             <de><![CDATA[Diese Tags dienen als Filter auf der Seite, wenn die Filterfunktion aktiviert ist.]]></de>
             <en><![CDATA[These tags serve as a filter on the page, if the filter function is enabled.]]></en>
+            <es><![CDATA[Estas etiquetas se utilizan como filtros en la página cuando la función de filtrado está activada.]]></es>
+            <pt><![CDATA[Estas etiquetas são utilizadas como filtros na página quando a função de filtragem está ativada.]]></pt>
+            <fr><![CDATA[Ces étiquettes servent de filtres sur la page lorsque le filtrage est activé.]]></fr>
+            <it><![CDATA[Questi tag fungono da filtri nella pagina quando la funzione di filtro è attiva.]]></it>
+            <pl><![CDATA[Te tagi służą jako filtry na stronie, gdy funkcja filtrowania jest włączona.]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.frontend.filter.textSearch.placeholder">
             <de><![CDATA[Nach Titel oder Stichwort suchen...]]></de>
             <en><![CDATA[Search for title or keyword...]]></en>
+            <es><![CDATA[Buscar por título o palabra clave...]]></es>
+            <pt><![CDATA[Pesquisar por título ou palavra-chave...]]></pt>
+            <fr><![CDATA[Rechercher par titre ou mot-clé...]]></fr>
+            <it><![CDATA[Cerca per titolo o parola chiave...]]></it>
+            <pl><![CDATA[Szukaj według tytułu lub słowa kluczowego...]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.frontend.filter.tags.btn.all">
             <de><![CDATA[Alle]]></de>
             <en><![CDATA[All]]></en>
+            <es><![CDATA[Todas]]></es>
+            <pt><![CDATA[Todas]]></pt>
+            <fr><![CDATA[Toutes]]></fr>
+            <it><![CDATA[Tutti]]></it>
+            <pl><![CDATA[Wszystkie]]></pl>
         </locale>
 
         <!-- list template -->
         <locale name="list.template">
             <de><![CDATA[Layout]]></de>
             <en><![CDATA[Layout]]></en>
+            <es><![CDATA[Diseño]]></es>
+            <pt><![CDATA[Disposição]]></pt>
+            <fr><![CDATA[Mise en page]]></fr>
+            <it><![CDATA[Layout]]></it>
             <pl><![CDATA[Layout]]></pl>
         </locale>
         <locale name="list.template.cardRows">
             <de><![CDATA[Breitere Karten mit Bild links untereinander (veraltet)]]></de>
             <en><![CDATA[Wider cards with image on the left (deprecated)]]></en>
-            <pl><![CDATA[Wider cards with image on the left (deprecated)]]></pl>
+            <es><![CDATA[Tarjetas anchas apiladas con imagen a la izquierda (obsoleto)]]></es>
+            <pt><![CDATA[Cartões largos empilhados com imagem à esquerda (obsoleto)]]></pt>
+            <fr><![CDATA[Cartes larges empilées avec image à gauche (obsolète)]]></fr>
+            <it><![CDATA[Schede larghe impilate con immagine a sinistra (obsoleto)]]></it>
+            <pl><![CDATA[Szerokie karty jedna pod drugą ze zdjęciem po lewej (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.featuredCards">
             <de><![CDATA[Hervorgehobener Beitrag + Karten]]></de>
             <en><![CDATA[Featured + Cards]]></en>
+            <es><![CDATA[Artículo destacado + tarjetas]]></es>
+            <pt><![CDATA[Artigo em destaque + cartões]]></pt>
+            <fr><![CDATA[Article mis en avant + cartes]]></fr>
+            <it><![CDATA[Articolo in evidenza + schede]]></it>
+            <pl><![CDATA[Wyróżniony artykuł + karty]]></pl>
         </locale>
         <locale name="list.template.cards">
             <de><![CDATA[Karten]]></de>
             <en><![CDATA[Cards]]></en>
+            <es><![CDATA[Tarjetas]]></es>
+            <pt><![CDATA[Cartões]]></pt>
+            <fr><![CDATA[Cartes]]></fr>
+            <it><![CDATA[Schede]]></it>
+            <pl><![CDATA[Karty]]></pl>
         </locale>
         <locale name="list.template.mediaList">
             <de><![CDATA[Medienliste (Bild + Text)]]></de>
             <en><![CDATA[Media list (image + text)]]></en>
+            <es><![CDATA[Lista multimedia (imagen + texto)]]></es>
+            <pt><![CDATA[Lista multimédia (imagem + texto)]]></pt>
+            <fr><![CDATA[Liste multimédia (image + texte)]]></fr>
+            <it><![CDATA[Elenco multimediale (immagine + testo)]]></it>
+            <pl><![CDATA[Lista multimedialna (obraz + tekst)]]></pl>
         </locale>
         <locale name="list.template.gallery">
             <de><![CDATA[Galerie]]></de>
             <en><![CDATA[Gallery]]></en>
+            <es><![CDATA[Galería]]></es>
+            <pt><![CDATA[Galeria]]></pt>
+            <fr><![CDATA[Galerie]]></fr>
+            <it><![CDATA[Galleria]]></it>
+            <pl><![CDATA[Galeria]]></pl>
         </locale>
         <locale name="list.template.CSSGridCards">
             <de><![CDATA[Cards (CSS-Grid)]]></de>
             <en><![CDATA[Cards (CSS-Grid)]]></en>
+            <es><![CDATA[Tarjetas (CSS-Grid)]]></es>
+            <pt><![CDATA[Cartões (CSS-Grid)]]></pt>
+            <fr><![CDATA[Cartes (CSS-Grid)]]></fr>
+            <it><![CDATA[Schede (CSS-Grid)]]></it>
+            <pl><![CDATA[Karty (CSS-Grid)]]></pl>
         </locale>
         <locale name="list.template.imageTop">
             <de><![CDATA[Bild oben (veraltet)]]></de>
             <en><![CDATA[Picture top (deprecated)]]></en>
+            <es><![CDATA[Imagen arriba (obsoleto)]]></es>
+            <pt><![CDATA[Imagem em cima (obsoleto)]]></pt>
+            <fr><![CDATA[Image en haut (obsolète)]]></fr>
+            <it><![CDATA[Immagine in alto (obsoleto)]]></it>
             <pl><![CDATA[Zdjęcie na górze (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.imageTopBorder">
             <de><![CDATA[Bild oben (mit Rahmen) (veraltet)]]></de>
             <en><![CDATA[Picture top (with border) (deprecated)]]></en>
+            <es><![CDATA[Imagen arriba con borde (obsoleto)]]></es>
+            <pt><![CDATA[Imagem em cima com moldura (obsoleto)]]></pt>
+            <fr><![CDATA[Image en haut avec bordure (obsolète)]]></fr>
+            <it><![CDATA[Immagine in alto con bordo (obsoleto)]]></it>
             <pl><![CDATA[Zdjęcie na górze (z ramką) (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.childrenList">
             <de><![CDATA[Standard (veraltet)]]></de>
             <en><![CDATA[Default (deprecated)]]></en>
+            <es><![CDATA[Predeterminado (obsoleto)]]></es>
+            <pt><![CDATA[Predefinido (obsoleto)]]></pt>
+            <fr><![CDATA[Par défaut (obsolète)]]></fr>
+            <it><![CDATA[Predefinito (obsoleto)]]></it>
             <pl><![CDATA[Standardowy widok (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.longFooter">
             <de><![CDATA[Langer Footer (veraltet)]]></de>
             <en><![CDATA[Long footer (deprecated)]]></en>
+            <es><![CDATA[Pie de página largo (obsoleto)]]></es>
+            <pt><![CDATA[Rodapé longo (obsoleto)]]></pt>
+            <fr><![CDATA[Pied de page long (obsolète)]]></fr>
+            <it><![CDATA[Piè di pagina lungo (obsoleto)]]></it>
             <pl><![CDATA[Długa stopka (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.authorTop">
             <de><![CDATA[Autor und Datum oben (veraltet)]]></de>
             <en><![CDATA[Author and date top (deprecated)]]></en>
+            <es><![CDATA[Autor y fecha arriba (obsoleto)]]></es>
+            <pt><![CDATA[Autor e data em cima (obsoleto)]]></pt>
+            <fr><![CDATA[Auteur et date en haut (obsolète)]]></fr>
+            <it><![CDATA[Autore e data in alto (obsoleto)]]></it>
             <pl><![CDATA[Autor i data na górze (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.simpleArticleList">
             <de><![CDATA[Einfache Artikel-Liste]]></de>
             <en><![CDATA[Simple article list]]></en>
+            <es><![CDATA[Lista sencilla de artículos]]></es>
+            <pt><![CDATA[Lista simples de artigos]]></pt>
+            <fr><![CDATA[Liste d’articles simple]]></fr>
+            <it><![CDATA[Elenco semplice di articoli]]></it>
             <pl><![CDATA[Prosta lista artykułów (sidebar)]]></pl>
         </locale>
         <locale name="list.template.advancedArticleList">
             <de><![CDATA[Erweiterte Artikel-Liste]]></de>
             <en><![CDATA[Advanced article list]]></en>
+            <es><![CDATA[Lista avanzada de artículos]]></es>
+            <pt><![CDATA[Lista avançada de artigos]]></pt>
+            <fr><![CDATA[Liste d’articles avancée]]></fr>
+            <it><![CDATA[Elenco avanzato di articoli]]></it>
             <pl><![CDATA[Rozszerzona lista wpisów]]></pl>
         </locale>
 
         <locale name="list.template.1er">
             <de><![CDATA[1 Box pro Reihe (veraltet)]]></de>
             <en><![CDATA[1 box in a row (deprecated)]]></en>
+            <es><![CDATA[1 bloque por fila (obsoleto)]]></es>
+            <pt><![CDATA[1 bloco por linha (obsoleto)]]></pt>
+            <fr><![CDATA[1 bloc par ligne (obsolète)]]></fr>
+            <it><![CDATA[1 riquadro per riga (obsoleto)]]></it>
             <pl><![CDATA[1 kontener w rzędzie (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.2er">
             <de><![CDATA[2 Boxen pro Reihe (veraltet)]]></de>
             <en><![CDATA[2 boxes in a row (deprecated)]]></en>
+            <es><![CDATA[2 bloques por fila (obsoleto)]]></es>
+            <pt><![CDATA[2 blocos por linha (obsoleto)]]></pt>
+            <fr><![CDATA[2 blocs par ligne (obsolète)]]></fr>
+            <it><![CDATA[2 riquadri per riga (obsoleto)]]></it>
             <pl><![CDATA[2 kontenery w rzędzie (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.3er">
             <de><![CDATA[3 Boxen pro Reihe (veraltet)]]></de>
             <en><![CDATA[3 boxes in a row (deprecated)]]></en>
+            <es><![CDATA[3 bloques por fila (obsoleto)]]></es>
+            <pt><![CDATA[3 blocos por linha (obsoleto)]]></pt>
+            <fr><![CDATA[3 blocs par ligne (obsolète)]]></fr>
+            <it><![CDATA[3 riquadri per riga (obsoleto)]]></it>
             <pl><![CDATA[3 kontenery w rzędzie (przestarzały)]]></pl>
         </locale>
         <locale name="list.template.4er">
             <de><![CDATA[4 Boxen pro Reihe]]></de>
             <en><![CDATA[4 boxes in a row]]></en>
+            <es><![CDATA[4 bloques por fila]]></es>
+            <pt><![CDATA[4 blocos por linha]]></pt>
+            <fr><![CDATA[4 blocs par ligne]]></fr>
+            <it><![CDATA[4 riquadri per riga]]></it>
             <pl><![CDATA[4 treści w rzędzie]]></pl>
         </locale>
 
@@ -441,6 +888,10 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
         <locale name="quiqqer.sitetypes.list.settings.showImages">
             <de><![CDATA[Bild anzeigen]]></de>
             <en><![CDATA[Show image]]></en>
+            <es><![CDATA[Mostrar imágenes de las páginas]]></es>
+            <pt><![CDATA[Mostrar imagens das páginas]]></pt>
+            <fr><![CDATA[Afficher les images des pages]]></fr>
+            <it><![CDATA[Mostra le immagini delle pagine]]></it>
             <pl><![CDATA[Pokaż zdjęcie]]></pl>
         </locale>
 
@@ -448,25 +899,41 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
         <locale name="quiqqer.sitetypes.list.settings.showShort">
             <de><![CDATA[Kurzbeschreibung anzeigen]]></de>
             <en><![CDATA[Show short description]]></en>
-            <pl><![CDATA[Pokaż krótki opis newsa]]></pl>
+            <es><![CDATA[Mostrar descripción breve]]></es>
+            <pt><![CDATA[Mostrar breve descrição]]></pt>
+            <fr><![CDATA[Afficher la description courte]]></fr>
+            <it><![CDATA[Mostra la breve descrizione]]></it>
+            <pl><![CDATA[Pokaż krótki opis]]></pl>
         </locale>
 
         <!-- show author -->
         <locale name="quiqqer.sitetypes.list.settings.showCreator">
             <de><![CDATA[Autor anzeigen]]></de>
             <en><![CDATA[Show author]]></en>
+            <es><![CDATA[Mostrar autor]]></es>
+            <pt><![CDATA[Mostrar autor]]></pt>
+            <fr><![CDATA[Afficher l’auteur]]></fr>
+            <it><![CDATA[Mostra l’autore]]></it>
             <pl><![CDATA[Pokaż autora]]></pl>
         </locale>
         <!-- show date -->
         <locale name="quiqqer.sitetypes.list.settings.showDate">
             <de><![CDATA[Datum anzeigen]]></de>
             <en><![CDATA[Show date]]></en>
+            <es><![CDATA[Mostrar fecha]]></es>
+            <pt><![CDATA[Mostrar data]]></pt>
+            <fr><![CDATA[Afficher la date]]></fr>
+            <it><![CDATA[Mostra la data]]></it>
             <pl><![CDATA[Pokaż datę]]></pl>
         </locale>
         <!-- show time -->
         <locale name="quiqqer.sitetypes.list.settings.showTime">
             <de><![CDATA[Uhrzeit anzeigen]]></de>
             <en><![CDATA[Show time]]></en>
+            <es><![CDATA[Mostrar hora]]></es>
+            <pt><![CDATA[Mostrar hora]]></pt>
+            <fr><![CDATA[Afficher l’heure]]></fr>
+            <it><![CDATA[Mostra l’ora]]></it>
             <pl><![CDATA[Pokaż godzinę]]></pl>
         </locale>
 
@@ -474,305 +941,670 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
         <locale name="quiqqer.sitetypes.list.settings.tagsMax">
             <de><![CDATA[Maximale Tags pro Eintrag]]></de>
             <en><![CDATA[Maximum tags per entry]]></en>
+            <es><![CDATA[Máximo de etiquetas por entrada]]></es>
+            <pt><![CDATA[Máximo de etiquetas por entrada]]></pt>
+            <fr><![CDATA[Nombre maximal d’étiquettes par entrée]]></fr>
+            <it><![CDATA[Numero massimo di tag per voce]]></it>
+            <pl><![CDATA[Maksymalna liczba tagów na wpis]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.list.settings.tagsMax.desc">
             <de><![CDATA[0 = keine Tags anzeigen.]]></de>
             <en><![CDATA[0 = do not show tags.]]></en>
+            <es><![CDATA[0 = no mostrar etiquetas.]]></es>
+            <pt><![CDATA[0 = não mostrar etiquetas.]]></pt>
+            <fr><![CDATA[0 = ne pas afficher d’étiquettes.]]></fr>
+            <it><![CDATA[0 = non mostrare i tag.]]></it>
+            <pl><![CDATA[0 = nie pokazuj tagów.]]></pl>
         </locale>
 
         <!-- card template settings -->
         <locale name="list.settings.cards.layout">
             <de><![CDATA[Card-Layout]]></de>
             <en><![CDATA[Card layout]]></en>
+            <es><![CDATA[Diseño de las tarjetas]]></es>
+            <pt><![CDATA[Disposição dos cartões]]></pt>
+            <fr><![CDATA[Disposition des cartes]]></fr>
+            <it><![CDATA[Layout delle schede]]></it>
+            <pl><![CDATA[Układ kart]]></pl>
         </locale>
         <locale name="list.settings.cards.layout.standard">
             <de><![CDATA[Standard]]></de>
             <en><![CDATA[Standard]]></en>
+            <es><![CDATA[Estándar]]></es>
+            <pt><![CDATA[Padrão]]></pt>
+            <fr><![CDATA[Standard]]></fr>
+            <it><![CDATA[Standard]]></it>
+            <pl><![CDATA[Standardowy]]></pl>
         </locale>
         <locale name="list.settings.cards.columns">
             <de><![CDATA[Karten pro Reihe (Desktop)]]></de>
             <en><![CDATA[Cards per row (desktop)]]></en>
+            <es><![CDATA[Tarjetas por fila (escritorio)]]></es>
+            <pt><![CDATA[Cartões por linha (computador)]]></pt>
+            <fr><![CDATA[Cartes par ligne (ordinateur)]]></fr>
+            <it><![CDATA[Schede per riga (desktop)]]></it>
+            <pl><![CDATA[Karty w wierszu (komputer)]]></pl>
         </locale>
         <locale name="list.settings.cards.columnsTablet">
             <de><![CDATA[Karten pro Reihe (Tablet)]]></de>
             <en><![CDATA[Cards per row (tablet)]]></en>
+            <es><![CDATA[Tarjetas por fila (tableta)]]></es>
+            <pt><![CDATA[Cartões por linha (tablet)]]></pt>
+            <fr><![CDATA[Cartes par ligne (tablette)]]></fr>
+            <it><![CDATA[Schede per riga (tablet)]]></it>
+            <pl><![CDATA[Karty w wierszu (tablet)]]></pl>
         </locale>
         <locale name="list.settings.cards.columnsTablet.desc">
             <de><![CDATA[Leer lassen, um die Desktop-Einstellung zu übernehmen.]]></de>
             <en><![CDATA[Leave empty to inherit the desktop setting.]]></en>
+            <es><![CDATA[Déjalo vacío para usar la configuración de escritorio.]]></es>
+            <pt><![CDATA[Deixe em branco para utilizar a definição para computador.]]></pt>
+            <fr><![CDATA[Laissez vide pour utiliser le paramètre pour ordinateur.]]></fr>
+            <it><![CDATA[Lascia vuoto per usare l’impostazione desktop.]]></it>
+            <pl><![CDATA[Pozostaw puste, aby użyć ustawienia dla komputerów.]]></pl>
         </locale>
         <locale name="list.settings.cards.columnsTablet.inherit">
             <de><![CDATA[Wie Desktop]]></de>
             <en><![CDATA[Same as desktop]]></en>
+            <es><![CDATA[Igual que en escritorio]]></es>
+            <pt><![CDATA[Igual ao computador]]></pt>
+            <fr><![CDATA[Comme sur ordinateur]]></fr>
+            <it><![CDATA[Come su desktop]]></it>
+            <pl><![CDATA[Jak na komputerze]]></pl>
         </locale>
         <locale name="list.settings.cards.columnsMobile">
             <de><![CDATA[Karten pro Reihe (Mobil)]]></de>
             <en><![CDATA[Cards per row (mobile)]]></en>
+            <es><![CDATA[Tarjetas por fila (móvil)]]></es>
+            <pt><![CDATA[Cartões por linha (telemóvel)]]></pt>
+            <fr><![CDATA[Cartes par ligne (mobile)]]></fr>
+            <it><![CDATA[Schede per riga (mobile)]]></it>
+            <pl><![CDATA[Karty w wierszu (telefon)]]></pl>
         </locale>
         <locale name="list.settings.cards.imageFit">
             <de><![CDATA[Bild-Verhalten]]></de>
             <en><![CDATA[Image behaviour]]></en>
+            <es><![CDATA[Ajuste de la imagen]]></es>
+            <pt><![CDATA[Ajuste da imagem]]></pt>
+            <fr><![CDATA[Ajustement de l’image]]></fr>
+            <it><![CDATA[Adattamento dell’immagine]]></it>
+            <pl><![CDATA[Dopasowanie obrazu]]></pl>
         </locale>
         <locale name="list.settings.cards.imageFit.cover">
             <de><![CDATA[Gesamte Fläche ausfüllen]]></de>
             <en><![CDATA[Fill the whole area]]></en>
+            <es><![CDATA[Rellenar toda el área]]></es>
+            <pt><![CDATA[Preencher toda a área]]></pt>
+            <fr><![CDATA[Remplir toute la zone]]></fr>
+            <it><![CDATA[Riempi tutta l’area]]></it>
+            <pl><![CDATA[Wypełnij cały obszar]]></pl>
         </locale>
         <locale name="list.settings.cards.imageFit.contain">
             <de><![CDATA[Vollständig einpassen]]></de>
             <en><![CDATA[Fit completely]]></en>
+            <es><![CDATA[Mostrar la imagen completa]]></es>
+            <pt><![CDATA[Mostrar a imagem completa]]></pt>
+            <fr><![CDATA[Afficher l’image entière]]></fr>
+            <it><![CDATA[Mostra l’immagine intera]]></it>
+            <pl><![CDATA[Pokaż cały obraz]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio">
             <de><![CDATA[Bild-Seitenverhältnis]]></de>
             <en><![CDATA[Image aspect ratio]]></en>
+            <es><![CDATA[Relación de aspecto de la imagen]]></es>
+            <pt><![CDATA[Proporção da imagem]]></pt>
+            <fr><![CDATA[Format de l’image]]></fr>
+            <it><![CDATA[Proporzioni dell’immagine]]></it>
+            <pl><![CDATA[Proporcje obrazu]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.desc">
             <de><![CDATA[Legt die Mindesthöhe des Bildes fest. Bei sehr langen Texten wächst die Karte — das Bild füllt dann die volle Höhe und wird passend zugeschnitten. Automatisch: Das Bild bestimmt die Höhe der Karte selbst.]]></de>
             <en><![CDATA[Sets the minimum height of the image. With very long texts the card grows — the image then fills the full height and is cropped to fit. Auto: the image itself determines the card height.]]></en>
+            <es><![CDATA[Define la altura mínima de la imagen. Si el texto es muy largo, la tarjeta crece y la imagen ocupa toda su altura, recortándose para ajustarse. Automática: la propia imagen determina la altura de la tarjeta.]]></es>
+            <pt><![CDATA[Define a altura mínima da imagem. Se o texto for muito longo, o cartão aumenta de altura e a imagem preenche toda a altura, sendo recortada para se ajustar. Automática: a própria imagem determina a altura do cartão.]]></pt>
+            <fr><![CDATA[Définit la hauteur minimale de l’image. Si le texte est très long, la carte s’agrandit : l’image occupe alors toute la hauteur et est recadrée pour s’adapter. Automatique : l’image détermine elle-même la hauteur de la carte.]]></fr>
+            <it><![CDATA[Imposta l’altezza minima dell’immagine. Con testi molto lunghi, la scheda cresce: l’immagine riempie tutta l’altezza e viene ritagliata per adattarsi. Automatiche: l’immagine stessa determina l’altezza della scheda.]]></it>
+            <pl><![CDATA[Określa minimalną wysokość obrazu. Przy bardzo długim tekście karta zwiększa wysokość, a obraz wypełnia ją w całości i jest odpowiednio przycinany. Automatyczne: sam obraz określa wysokość karty.]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.auto">
             <de><![CDATA[Automatisch (Originalverhältnis)]]></de>
             <en><![CDATA[Auto (original ratio)]]></en>
+            <es><![CDATA[Automática (proporción original)]]></es>
+            <pt><![CDATA[Automática (proporção original)]]></pt>
+            <fr><![CDATA[Automatique (proportions d’origine)]]></fr>
+            <it><![CDATA[Automatiche (proporzioni originali)]]></it>
+            <pl><![CDATA[Automatyczne (oryginalne proporcje)]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.1-1">
             <de><![CDATA[1:1 – Quadrat]]></de>
             <en><![CDATA[1:1 – Square]]></en>
+            <es><![CDATA[1:1 – Cuadrado]]></es>
+            <pt><![CDATA[1:1 – Quadrado]]></pt>
+            <fr><![CDATA[1:1 – Carré]]></fr>
+            <it><![CDATA[1:1 – Quadrato]]></it>
+            <pl><![CDATA[1:1 – Kwadrat]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.3-4">
             <de><![CDATA[Hochformat 3:4]]></de>
             <en><![CDATA[Portrait 3:4]]></en>
+            <es><![CDATA[Vertical 3:4]]></es>
+            <pt><![CDATA[Vertical 3:4]]></pt>
+            <fr><![CDATA[Portrait 3:4]]></fr>
+            <it><![CDATA[Verticale 3:4]]></it>
+            <pl><![CDATA[Pionowo 3:4]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.2-3">
             <de><![CDATA[Hochformat 2:3]]></de>
             <en><![CDATA[Portrait 2:3]]></en>
+            <es><![CDATA[Vertical 2:3]]></es>
+            <pt><![CDATA[Vertical 2:3]]></pt>
+            <fr><![CDATA[Portrait 2:3]]></fr>
+            <it><![CDATA[Verticale 2:3]]></it>
+            <pl><![CDATA[Pionowo 2:3]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.4-5">
             <de><![CDATA[Hochformat 4:5]]></de>
             <en><![CDATA[Portrait 4:5]]></en>
+            <es><![CDATA[Vertical 4:5]]></es>
+            <pt><![CDATA[Vertical 4:5]]></pt>
+            <fr><![CDATA[Portrait 4:5]]></fr>
+            <it><![CDATA[Verticale 4:5]]></it>
+            <pl><![CDATA[Pionowo 4:5]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.9-16">
             <de><![CDATA[Hochformat 9:16]]></de>
             <en><![CDATA[Portrait 9:16]]></en>
+            <es><![CDATA[Vertical 9:16]]></es>
+            <pt><![CDATA[Vertical 9:16]]></pt>
+            <fr><![CDATA[Portrait 9:16]]></fr>
+            <it><![CDATA[Verticale 9:16]]></it>
+            <pl><![CDATA[Pionowo 9:16]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.4-3">
             <de><![CDATA[Querformat 4:3]]></de>
             <en><![CDATA[Landscape 4:3]]></en>
+            <es><![CDATA[Horizontal 4:3]]></es>
+            <pt><![CDATA[Horizontal 4:3]]></pt>
+            <fr><![CDATA[Paysage 4:3]]></fr>
+            <it><![CDATA[Orizzontale 4:3]]></it>
+            <pl><![CDATA[Poziomo 4:3]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.3-2">
             <de><![CDATA[Querformat 3:2]]></de>
             <en><![CDATA[Landscape 3:2]]></en>
+            <es><![CDATA[Horizontal 3:2]]></es>
+            <pt><![CDATA[Horizontal 3:2]]></pt>
+            <fr><![CDATA[Paysage 3:2]]></fr>
+            <it><![CDATA[Orizzontale 3:2]]></it>
+            <pl><![CDATA[Poziomo 3:2]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.5-4">
             <de><![CDATA[Querformat 5:4]]></de>
             <en><![CDATA[Landscape 5:4]]></en>
+            <es><![CDATA[Horizontal 5:4]]></es>
+            <pt><![CDATA[Horizontal 5:4]]></pt>
+            <fr><![CDATA[Paysage 5:4]]></fr>
+            <it><![CDATA[Orizzontale 5:4]]></it>
+            <pl><![CDATA[Poziomo 5:4]]></pl>
         </locale>
         <locale name="list.settings.cards.aspectRatio.16-9">
             <de><![CDATA[Querformat 16:9]]></de>
             <en><![CDATA[Landscape 16:9]]></en>
+            <es><![CDATA[Horizontal 16:9]]></es>
+            <pt><![CDATA[Horizontal 16:9]]></pt>
+            <fr><![CDATA[Paysage 16:9]]></fr>
+            <it><![CDATA[Orizzontale 16:9]]></it>
+            <pl><![CDATA[Poziomo 16:9]]></pl>
         </locale>
         <locale name="list.settings.cards.gap">
             <de><![CDATA[Abstand zwischen Karten]]></de>
             <en><![CDATA[Gap between cards]]></en>
+            <es><![CDATA[Espacio entre tarjetas]]></es>
+            <pt><![CDATA[Espaço entre cartões]]></pt>
+            <fr><![CDATA[Espacement entre les cartes]]></fr>
+            <it><![CDATA[Spazio tra le schede]]></it>
+            <pl><![CDATA[Odstęp między kartami]]></pl>
         </locale>
         <locale name="list.settings.cards.gap.none">
             <de><![CDATA[Kein]]></de>
             <en><![CDATA[None]]></en>
+            <es><![CDATA[Ninguno]]></es>
+            <pt><![CDATA[Nenhum]]></pt>
+            <fr><![CDATA[Aucun]]></fr>
+            <it><![CDATA[Nessuno]]></it>
+            <pl><![CDATA[Brak]]></pl>
         </locale>
         <locale name="list.settings.cards.gap.xs">
             <de><![CDATA[Sehr klein]]></de>
             <en><![CDATA[Extra small]]></en>
+            <es><![CDATA[Muy pequeño]]></es>
+            <pt><![CDATA[Muito pequeno]]></pt>
+            <fr><![CDATA[Très petit]]></fr>
+            <it><![CDATA[Molto piccolo]]></it>
+            <pl><![CDATA[Bardzo mały]]></pl>
         </locale>
         <locale name="list.settings.cards.gap.s">
             <de><![CDATA[Klein]]></de>
             <en><![CDATA[Small]]></en>
+            <es><![CDATA[Pequeño]]></es>
+            <pt><![CDATA[Pequeno]]></pt>
+            <fr><![CDATA[Petit]]></fr>
+            <it><![CDATA[Piccolo]]></it>
+            <pl><![CDATA[Mały]]></pl>
         </locale>
         <locale name="list.settings.cards.gap.normal">
             <de><![CDATA[Normal]]></de>
             <en><![CDATA[Normal]]></en>
+            <es><![CDATA[Normal]]></es>
+            <pt><![CDATA[Normal]]></pt>
+            <fr><![CDATA[Normal]]></fr>
+            <it><![CDATA[Normale]]></it>
+            <pl><![CDATA[Normalny]]></pl>
         </locale>
         <locale name="list.settings.cards.gap.large">
             <de><![CDATA[Groß]]></de>
             <en><![CDATA[Large]]></en>
+            <es><![CDATA[Grande]]></es>
+            <pt><![CDATA[Grande]]></pt>
+            <fr><![CDATA[Grand]]></fr>
+            <it><![CDATA[Grande]]></it>
+            <pl><![CDATA[Duży]]></pl>
         </locale>
         <locale name="list.settings.cards.gap.extraLarge">
             <de><![CDATA[Sehr groß]]></de>
             <en><![CDATA[Extra large]]></en>
+            <es><![CDATA[Muy grande]]></es>
+            <pt><![CDATA[Muito grande]]></pt>
+            <fr><![CDATA[Très grand]]></fr>
+            <it><![CDATA[Molto grande]]></it>
+            <pl><![CDATA[Bardzo duży]]></pl>
         </locale>
 
         <!-- media list template settings -->
         <locale name="list.settings.media.imagePosition">
             <de><![CDATA[Bildposition]]></de>
             <en><![CDATA[Image position]]></en>
+            <es><![CDATA[Posición de la imagen]]></es>
+            <pt><![CDATA[Posição da imagem]]></pt>
+            <fr><![CDATA[Position de l’image]]></fr>
+            <it><![CDATA[Posizione dell’immagine]]></it>
+            <pl><![CDATA[Położenie obrazu]]></pl>
         </locale>
         <locale name="list.settings.media.imagePosition.left">
             <de><![CDATA[Links]]></de>
             <en><![CDATA[Left]]></en>
+            <es><![CDATA[Izquierda]]></es>
+            <pt><![CDATA[Esquerda]]></pt>
+            <fr><![CDATA[Gauche]]></fr>
+            <it><![CDATA[Sinistra]]></it>
+            <pl><![CDATA[Po lewej]]></pl>
         </locale>
         <locale name="list.settings.media.imagePosition.right">
             <de><![CDATA[Rechts]]></de>
             <en><![CDATA[Right]]></en>
+            <es><![CDATA[Derecha]]></es>
+            <pt><![CDATA[Direita]]></pt>
+            <fr><![CDATA[Droite]]></fr>
+            <it><![CDATA[Destra]]></it>
+            <pl><![CDATA[Po prawej]]></pl>
         </locale>
         <locale name="list.settings.media.imagePosition.alternate">
             <de><![CDATA[Abwechselnd]]></de>
             <en><![CDATA[Alternating]]></en>
+            <es><![CDATA[Alternada]]></es>
+            <pt><![CDATA[Alternada]]></pt>
+            <fr><![CDATA[Alternée]]></fr>
+            <it><![CDATA[Alternata]]></it>
+            <pl><![CDATA[Naprzemiennie]]></pl>
         </locale>
         <locale name="list.settings.media.imageWidth">
             <de><![CDATA[Bildbreite]]></de>
             <en><![CDATA[Image width]]></en>
+            <es><![CDATA[Ancho de la imagen]]></es>
+            <pt><![CDATA[Largura da imagem]]></pt>
+            <fr><![CDATA[Largeur de l’image]]></fr>
+            <it><![CDATA[Larghezza dell’immagine]]></it>
+            <pl><![CDATA[Szerokość obrazu]]></pl>
         </locale>
         <locale name="list.settings.media.imageWidth.small">
             <de><![CDATA[Klein]]></de>
             <en><![CDATA[Small]]></en>
+            <es><![CDATA[Pequeño]]></es>
+            <pt><![CDATA[Pequena]]></pt>
+            <fr><![CDATA[Petite]]></fr>
+            <it><![CDATA[Ridotta]]></it>
+            <pl><![CDATA[Mała]]></pl>
         </locale>
         <locale name="list.settings.media.imageWidth.normal">
             <de><![CDATA[Normal]]></de>
             <en><![CDATA[Normal]]></en>
+            <es><![CDATA[Normal]]></es>
+            <pt><![CDATA[Normal]]></pt>
+            <fr><![CDATA[Normale]]></fr>
+            <it><![CDATA[Normale]]></it>
+            <pl><![CDATA[Normalna]]></pl>
         </locale>
         <locale name="list.settings.media.imageWidth.large">
             <de><![CDATA[Groß]]></de>
             <en><![CDATA[Large]]></en>
+            <es><![CDATA[Grande]]></es>
+            <pt><![CDATA[Grande]]></pt>
+            <fr><![CDATA[Grande]]></fr>
+            <it><![CDATA[Ampia]]></it>
+            <pl><![CDATA[Duża]]></pl>
         </locale>
         <locale name="list.settings.media.imageWidth.half">
             <de><![CDATA[Halbe Breite]]></de>
             <en><![CDATA[Half width]]></en>
+            <es><![CDATA[Mitad del ancho]]></es>
+            <pt><![CDATA[Metade da largura]]></pt>
+            <fr><![CDATA[Demi-largeur]]></fr>
+            <it><![CDATA[Metà larghezza]]></it>
+            <pl><![CDATA[Połowa szerokości]]></pl>
         </locale>
 
         <!-- general design settings (template independent) -->
         <locale name="list.settings.titleSize">
             <de><![CDATA[Titel-Größe]]></de>
             <en><![CDATA[Title size]]></en>
+            <es><![CDATA[Tamaño del título]]></es>
+            <pt><![CDATA[Tamanho do título]]></pt>
+            <fr><![CDATA[Taille du titre]]></fr>
+            <it><![CDATA[Dimensione del titolo]]></it>
+            <pl><![CDATA[Rozmiar tytułu]]></pl>
         </locale>
         <locale name="list.settings.buttonSize">
             <de><![CDATA[Button-Größe]]></de>
             <en><![CDATA[Button size]]></en>
+            <es><![CDATA[Tamaño del botón]]></es>
+            <pt><![CDATA[Tamanho do botão]]></pt>
+            <fr><![CDATA[Taille du bouton]]></fr>
+            <it><![CDATA[Dimensione del pulsante]]></it>
+            <pl><![CDATA[Rozmiar przycisku]]></pl>
         </locale>
         <locale name="list.settings.buttonWidth">
             <de><![CDATA[Button-Breite]]></de>
             <en><![CDATA[Button width]]></en>
+            <es><![CDATA[Ancho del botón]]></es>
+            <pt><![CDATA[Largura do botão]]></pt>
+            <fr><![CDATA[Largeur du bouton]]></fr>
+            <it><![CDATA[Larghezza del pulsante]]></it>
+            <pl><![CDATA[Szerokość przycisku]]></pl>
         </locale>
         <locale name="list.settings.buttonWidth.normal">
             <de><![CDATA[Normal]]></de>
             <en><![CDATA[Normal]]></en>
+            <es><![CDATA[Normal]]></es>
+            <pt><![CDATA[Normal]]></pt>
+            <fr><![CDATA[Normale]]></fr>
+            <it><![CDATA[Normale]]></it>
+            <pl><![CDATA[Normalna]]></pl>
         </locale>
         <locale name="list.settings.buttonWidth.full">
             <de><![CDATA[Volle Breite]]></de>
             <en><![CDATA[Full width]]></en>
+            <es><![CDATA[Ancho completo]]></es>
+            <pt><![CDATA[Largura total]]></pt>
+            <fr><![CDATA[Pleine largeur]]></fr>
+            <it><![CDATA[Larghezza piena]]></it>
+            <pl><![CDATA[Pełna szerokość]]></pl>
         </locale>
         <locale name="list.settings.size.extraSmall">
             <de><![CDATA[Sehr klein]]></de>
             <en><![CDATA[Extra small]]></en>
+            <es><![CDATA[Muy pequeño]]></es>
+            <pt><![CDATA[Muito pequeno]]></pt>
+            <fr><![CDATA[Très petite]]></fr>
+            <it><![CDATA[Molto piccola]]></it>
+            <pl><![CDATA[Bardzo mały]]></pl>
         </locale>
         <locale name="list.settings.size.small">
             <de><![CDATA[Klein]]></de>
             <en><![CDATA[Small]]></en>
+            <es><![CDATA[Pequeño]]></es>
+            <pt><![CDATA[Pequeno]]></pt>
+            <fr><![CDATA[Petite]]></fr>
+            <it><![CDATA[Piccola]]></it>
+            <pl><![CDATA[Mały]]></pl>
         </locale>
         <locale name="list.settings.size.normal">
             <de><![CDATA[Normal]]></de>
             <en><![CDATA[Normal]]></en>
+            <es><![CDATA[Normal]]></es>
+            <pt><![CDATA[Normal]]></pt>
+            <fr><![CDATA[Normale]]></fr>
+            <it><![CDATA[Normale]]></it>
+            <pl><![CDATA[Normalny]]></pl>
         </locale>
         <locale name="list.settings.size.large">
             <de><![CDATA[Groß]]></de>
             <en><![CDATA[Large]]></en>
+            <es><![CDATA[Grande]]></es>
+            <pt><![CDATA[Grande]]></pt>
+            <fr><![CDATA[Grande]]></fr>
+            <it><![CDATA[Grande]]></it>
+            <pl><![CDATA[Duży]]></pl>
         </locale>
         <locale name="list.settings.size.extraLarge">
             <de><![CDATA[Sehr groß]]></de>
             <en><![CDATA[Extra large]]></en>
+            <es><![CDATA[Muy grande]]></es>
+            <pt><![CDATA[Muito grande]]></pt>
+            <fr><![CDATA[Très grande]]></fr>
+            <it><![CDATA[Molto grande]]></it>
+            <pl><![CDATA[Bardzo duży]]></pl>
         </locale>
 
         <locale name="list.created.by">
             <de><![CDATA[von]]></de>
             <en><![CDATA[by]]></en>
+            <es><![CDATA[por]]></es>
+            <pt><![CDATA[por]]></pt>
+            <fr><![CDATA[par]]></fr>
+            <it><![CDATA[di]]></it>
+            <pl><![CDATA[autor:]]></pl>
         </locale>
         <locale name="list.created.on">
             <de><![CDATA[am]]></de>
             <en><![CDATA[on]]></en>
+            <es><![CDATA[el]]></es>
+            <pt><![CDATA[em]]></pt>
+            <fr><![CDATA[le]]></fr>
+            <it><![CDATA[il]]></it>
+            <pl><![CDATA[dnia]]></pl>
         </locale>
         <locale name="admin.types.contact">
             <de><![CDATA[Standardkontakt]]></de>
             <en><![CDATA[Standard contact]]></en>
+            <es><![CDATA[Contacto estándar]]></es>
+            <pt><![CDATA[Contacto padrão]]></pt>
+            <fr><![CDATA[Contact standard]]></fr>
+            <it><![CDATA[Contatto standard]]></it>
+            <pl><![CDATA[Standardowy kontakt]]></pl>
         </locale>
         <locale name="admin.types.contact.desc">
-            <de><![CDATA[Standard-Weiterleitung]]></de>
-            <en><![CDATA[Standard Forwarding]]></en>
+            <de><![CDATA[Standard-Kontaktformular]]></de>
+            <en><![CDATA[Standard contact form]]></en>
+            <es><![CDATA[Formulario de contacto estándar]]></es>
+            <pt><![CDATA[Formulário de contacto padrão]]></pt>
+            <fr><![CDATA[Formulaire de contact standard]]></fr>
+            <it><![CDATA[Modulo di contatto standard]]></it>
+            <pl><![CDATA[Standardowy formularz kontaktowy]]></pl>
         </locale>
         <locale name="admin.types.forwarding">
             <de><![CDATA[Standard-Weiterleitung]]></de>
             <en><![CDATA[Standard Forwarding]]></en>
+            <es><![CDATA[Redirección estándar]]></es>
+            <pt><![CDATA[Redirecionamento padrão]]></pt>
+            <fr><![CDATA[Redirection standard]]></fr>
+            <it><![CDATA[Reindirizzamento standard]]></it>
+            <pl><![CDATA[Standardowe przekierowanie]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.contact.settings.title">
             <de><![CDATA[Kontaktformular-Einstellungen]]></de>
             <en><![CDATA[Contact form settings]]></en>
+            <es><![CDATA[Configuración del formulario de contacto]]></es>
+            <pt><![CDATA[Definições do formulário de contacto]]></pt>
+            <fr><![CDATA[Paramètres du formulaire de contact]]></fr>
+            <it><![CDATA[Impostazioni del modulo di contatto]]></it>
+            <pl><![CDATA[Ustawienia formularza kontaktowego]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.contact.settings.email.receiver">
-            <de><![CDATA[Empfänger E-Mail-Adresse]]></de>
+            <de><![CDATA[E-Mail-Adresse des Empfängers]]></de>
             <en><![CDATA[Recipient e-mail address]]></en>
+            <es><![CDATA[Correo electrónico del destinatario]]></es>
+            <pt><![CDATA[Endereço de e-mail do destinatário]]></pt>
+            <fr><![CDATA[Adresse e-mail du destinataire]]></fr>
+            <it><![CDATA[Indirizzo e-mail del destinatario]]></it>
+            <pl><![CDATA[Adres e-mail odbiorcy]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.contact.settings.showPrivacyPolicyCheckbox">
             <de><![CDATA[Zeige Datenschutzbestimmungen-Checkbox]]></de>
-            <en><![CDATA[Show Privacy Policy checkbos]]></en>
+            <en><![CDATA[Show Privacy Policy checkbox]]></en>
+            <es><![CDATA[Mostrar la casilla de la política de privacidad]]></es>
+            <pt><![CDATA[Mostrar a caixa de seleção da política de privacidade]]></pt>
+            <fr><![CDATA[Afficher la case à cocher de la politique de confidentialité]]></fr>
+            <it><![CDATA[Mostra la casella di conferma dell’informativa sulla privacy]]></it>
+            <pl><![CDATA[Pokaż pole potwierdzenia polityki prywatności]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.contact.settings.showPrivacyPolicyCheckbox.description" html="true">
             <de><![CDATA[Zeige Datenschutzbestimmungen-Checkbox im Kontaktformular (es empfiehlt sich, zusätzlich eine Seite vom Typ <b>"Datenschutz-Bestimmungen"</b> anzulegen!)]]></de>
             <en><![CDATA[Show Privacy Policy checkbox in the contact form (it is recommended to additionally create a Site of type <b>"Privacy Policy"</b>!)]]></en>
+            <es><![CDATA[Muestra la casilla de la política de privacidad en el formulario de contacto. Se recomienda crear también una página del tipo <b>"Política de privacidad"</b>.]]></es>
+            <pt><![CDATA[Mostra a caixa de seleção da política de privacidade no formulário de contacto. Recomenda-se criar também uma página do tipo <b>"Política de privacidade"</b>.]]></pt>
+            <fr><![CDATA[Affiche la case à cocher de la politique de confidentialité dans le formulaire de contact. Il est recommandé de créer également une page de type <b>"Politique de confidentialité"</b>.]]></fr>
+            <it><![CDATA[Mostra la casella di conferma dell’informativa sulla privacy nel modulo di contatto. Si consiglia di creare anche una pagina di tipo <b>"Informativa sulla privacy"</b>.]]></it>
+            <pl><![CDATA[Wyświetla pole potwierdzenia polityki prywatności w formularzu kontaktowym. Zaleca się również utworzenie strony typu <b>"Polityka prywatności"</b>.]]></pl>
         </locale>
         <locale name="quiqqer.settings.sitetypes.contact.useCaptcha">
             <de><![CDATA[CAPTCHA verwenden]]></de>
             <en><![CDATA[Use CAPTCHA]]></en>
+            <es><![CDATA[Usar CAPTCHA]]></es>
+            <pt><![CDATA[Utilizar CAPTCHA]]></pt>
+            <fr><![CDATA[Utiliser un CAPTCHA]]></fr>
+            <it><![CDATA[Usa CAPTCHA]]></it>
+            <pl><![CDATA[Użyj CAPTCHA]]></pl>
         </locale>
         <locale name="quiqqer.settings.sitetypes.contact.useCaptcha.description" html="true">
             <de><![CDATA[Absenden des Formulars mittels CAPTCHA vor Spam schützen (setzt voraus, dass <b>quiqqer/captcha</b> installiert ist!)]]></de>
             <en><![CDATA[Protect form submit from spam with a CAPTCHA (requires <b>quiqqer/captcha</b> to be installed!)]]></en>
+            <es><![CDATA[Protege el envío del formulario frente al spam mediante un CAPTCHA. Requiere que <b>quiqqer/captcha</b> esté instalado.]]></es>
+            <pt><![CDATA[Protege o envio do formulário contra spam através de um CAPTCHA. Requer a instalação de <b>quiqqer/captcha</b>.]]></pt>
+            <fr><![CDATA[Protège l’envoi du formulaire contre le spam avec un CAPTCHA. Nécessite l’installation de <b>quiqqer/captcha</b>.]]></fr>
+            <it><![CDATA[Protegge l’invio del modulo dallo spam tramite CAPTCHA. Richiede l’installazione di <b>quiqqer/captcha</b>.]]></it>
+            <pl><![CDATA[Chroni przesyłanie formularza przed spamem za pomocą CAPTCHA. Wymaga zainstalowania <b>quiqqer/captcha</b>.]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.forwarding.settings.title">
             <de><![CDATA[Weiterleitungs-Einstellungen]]></de>
             <en><![CDATA[Forwarding settings]]></en>
+            <es><![CDATA[Configuración de redirección]]></es>
+            <pt><![CDATA[Definições de redirecionamento]]></pt>
+            <fr><![CDATA[Paramètres de redirection]]></fr>
+            <it><![CDATA[Impostazioni del reindirizzamento]]></it>
+            <pl><![CDATA[Ustawienia przekierowania]]></pl>
         </locale>
         <locale name="quiqqer.sitetypes.contact.settings.forwarding">
             <de><![CDATA[Zielseite]]></de>
             <en><![CDATA[Target page]]></en>
+            <es><![CDATA[Página de destino]]></es>
+            <pt><![CDATA[Página de destino]]></pt>
+            <fr><![CDATA[Page de destination]]></fr>
+            <it><![CDATA[Pagina di destinazione]]></it>
+            <pl><![CDATA[Strona docelowa]]></pl>
         </locale>
 
         <locale name="tpl.search.no.results">
             <de><![CDATA[Keine Ergebnisse gefunden. Bitte nutzen Sie einen anderen Suchbegriff.]]></de>
-            <en><![CDATA[No results found. Please use a different search.]]></en>
+            <en><![CDATA[No results found. Please use a different search term.]]></en>
+            <es><![CDATA[No se han encontrado resultados. Prueba con otro término de búsqueda.]]></es>
+            <pt><![CDATA[Não foram encontrados resultados. Utilize outro termo de pesquisa.]]></pt>
+            <fr><![CDATA[Aucun résultat trouvé. Essayez un autre terme de recherche.]]></fr>
+            <it><![CDATA[Nessun risultato trovato. Prova con un altro termine di ricerca.]]></it>
+            <pl><![CDATA[Nie znaleziono wyników. Użyj innego hasła wyszukiwania.]]></pl>
         </locale>
         <locale name="message.forwarding.to.itself">
             <de><![CDATA[Eine Weiterleitung kann nicht auf sich selbst verweisen.<br />
                 Die Einstellungen der Weiterleitung wurden daher nicht gespeichert.]]></de>
-            <en><![CDATA[]]></en>
+            <en><![CDATA[A redirect cannot point to itself.<br />The redirect settings have therefore not been saved.]]></en>
+            <es><![CDATA[Una redirección no puede apuntar a sí misma.<br />Por este motivo, no se ha guardado su configuración.]]></es>
+            <pt><![CDATA[Um redirecionamento não pode apontar para si próprio.<br />Por esse motivo, as definições do redirecionamento não foram guardadas.]]></pt>
+            <fr><![CDATA[Une redirection ne peut pas pointer vers elle-même.<br />Les paramètres de redirection n’ont donc pas été enregistrés.]]></fr>
+            <it><![CDATA[Un reindirizzamento non può puntare a sé stesso.<br />Le impostazioni del reindirizzamento non sono quindi state salvate.]]></it>
+            <pl><![CDATA[Przekierowanie nie może wskazywać na siebie.<br />Dlatego ustawienia przekierowania nie zostały zapisane.]]></pl>
         </locale>
         <locale name="admin.types.legalnotes">
             <de><![CDATA[Impressum]]></de>
             <en><![CDATA[Legal notes]]></en>
+            <es><![CDATA[Aviso legal]]></es>
+            <pt><![CDATA[Informações legais]]></pt>
+            <fr><![CDATA[Mentions légales]]></fr>
+            <it><![CDATA[Note legali]]></it>
+            <pl><![CDATA[Informacje prawne]]></pl>
         </locale>
         <locale name="admin.types.legalnotes.desc">
             <de><![CDATA[Impressum]]></de>
             <en><![CDATA[Legal notes]]></en>
+            <es><![CDATA[Aviso legal]]></es>
+            <pt><![CDATA[Informações legais]]></pt>
+            <fr><![CDATA[Mentions légales]]></fr>
+            <it><![CDATA[Note legali]]></it>
+            <pl><![CDATA[Informacje prawne]]></pl>
         </locale>
         <locale name="admin.types.privacypolicy">
             <de><![CDATA[Datenschutz-Bestimmungen]]></de>
             <en><![CDATA[Privacy policy]]></en>
+            <es><![CDATA[Política de privacidad]]></es>
+            <pt><![CDATA[Política de privacidade]]></pt>
+            <fr><![CDATA[Politique de confidentialité]]></fr>
+            <it><![CDATA[Informativa sulla privacy]]></it>
+            <pl><![CDATA[Polityka prywatności]]></pl>
         </locale>
         <locale name="admin.types.privacypolicy.desc">
             <de><![CDATA[Datenschutz-Bestimmungen]]></de>
             <en><![CDATA[Privacy policy]]></en>
+            <es><![CDATA[Política de privacidad]]></es>
+            <pt><![CDATA[Política de privacidade]]></pt>
+            <fr><![CDATA[Politique de confidentialité]]></fr>
+            <it><![CDATA[Informativa sulla privacy]]></it>
+            <pl><![CDATA[Polityka prywatności]]></pl>
         </locale>
         <locale name="admin.types.generalTermsAndConditions">
             <de><![CDATA[Allgemeine Geschäftsbedingungen]]></de>
             <en><![CDATA[General terms and conditions]]></en>
+            <es><![CDATA[Condiciones generales]]></es>
+            <pt><![CDATA[Condições gerais]]></pt>
+            <fr><![CDATA[Conditions générales]]></fr>
+            <it><![CDATA[Condizioni generali]]></it>
+            <pl><![CDATA[Ogólne warunki umowy]]></pl>
         </locale>
         <locale name="admin.types.generalTermsAndConditions.desc">
             <de><![CDATA[Allgemeine Geschäftsbedingungen]]></de>
             <en><![CDATA[General terms and conditions]]></en>
+            <es><![CDATA[Condiciones generales]]></es>
+            <pt><![CDATA[Condições gerais]]></pt>
+            <fr><![CDATA[Conditions générales]]></fr>
+            <it><![CDATA[Condizioni generali]]></it>
+            <pl><![CDATA[Ogólne warunki umowy]]></pl>
         </locale>
 
         <!-- brick standard list -->
         <locale name="standard.list.title">
             <de><![CDATA[Datenschutz-Bestimmungen]]></de>
             <en><![CDATA[Privacy policy]]></en>
+            <es><![CDATA[Política de privacidad]]></es>
+            <pt><![CDATA[Política de privacidade]]></pt>
+            <fr><![CDATA[Politique de confidentialité]]></fr>
+            <it><![CDATA[Informativa sulla privacy]]></it>
+            <pl><![CDATA[Polityka prywatności]]></pl>
         </locale>
         <locale name="standard.list.description">
             <de><![CDATA[Datenschutz-Bestimmungen]]></de>
             <en><![CDATA[Privacy policy]]></en>
+            <es><![CDATA[Política de privacidad]]></es>
+            <pt><![CDATA[Política de privacidade]]></pt>
+            <fr><![CDATA[Politique de confidentialité]]></fr>
+            <it><![CDATA[Informativa sulla privacy]]></it>
+            <pl><![CDATA[Polityka prywatności]]></pl>
         </locale>
     </groups>
 </locales>
