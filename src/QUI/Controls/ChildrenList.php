@@ -121,7 +121,7 @@ class ChildrenList extends QUI\Control
             'filter' => 'disabled', // 'all' / 'input' / 'tags' / 'disabled'
             // max tag badges per entry (cards / mediaList); 0 hides them
             'tagsMax' => 3,
-            // Name of the site attribute used to mark pinned entries; false disables pin sorting
+            // Site attribute name(s) used to mark pinned entries; false disables pin sorting
             'pinnedAttribute' => false,
             'pinnedOrder' => 'release_from DESC'
         ]);
@@ -171,7 +171,19 @@ class ChildrenList extends QUI\Control
             }
         }
 
-        if ($this->getAttribute('parentInputList')) {
+        $loadAllChildrenOnEmptyList = $this->getAttribute('loadAllChildrenOnEmptyList');
+        $where = $this->getAttribute('where');
+
+        if (empty($where)) {
+            $where = [];
+        }
+
+        $where['active'] = 1;
+
+        if ($this->supportsPinnedSorting()) {
+            $children = $this->getPinnedChildren($Site, $where, 0, PHP_INT_MAX);
+            $count_children = count($children);
+        } elseif ($this->getAttribute('parentInputList')) {
             // for bricks
             $count_children = Utils::getSitesByInputList($Project, $parents, [
                 'count' => 'count',
@@ -202,18 +214,8 @@ class ChildrenList extends QUI\Control
             $count_children = count($count_children);
         }
 
-        $loadAllChildrenOnEmptyList = $this->getAttribute('loadAllChildrenOnEmptyList');
-        $where = $this->getAttribute('where');
-
-        if (empty($where)) {
-            $where = [];
-        }
-
-        $where['active'] = 1;
-
         if ($this->supportsPinnedSorting()) {
-            $children = $this->getPinnedChildren($Site, $where, $start, $limit);
-            $count_children = $this->getPinnedChildrenCount($Site, $where);
+            $children = array_slice($children, $start, $limit);
         } elseif ($this->getAttribute('parentInputList')) {
             // for bricks
             $children = Utils::getSitesByInputList($Project, $parents, [
@@ -471,15 +473,12 @@ class ChildrenList extends QUI\Control
     }
 
     /**
-     * Pin sorting is intentionally limited to direct child lists and byType
-     * lists for now. Other ChildrenList sources such as parentInputList or
-     * externally provided children use different loading semantics and are
-     * not covered by the current implementation.
+     * Sort loaded lists before pagination. Externally provided children retain
+     * their caller-defined order and pagination.
      */
     protected function supportsPinnedSorting(): bool
     {
         return (bool)$this->getAttribute('pinnedAttribute')
-            && !$this->getAttribute('parentInputList')
             && !$this->getAttribute('children')
             && $this->getAttribute('loadAllChildrenOnEmptyList');
     }
@@ -495,7 +494,13 @@ class ChildrenList extends QUI\Control
         int $start,
         int $limit
     ): array {
-        if ($this->getAttribute('byType')) {
+        if ($this->getAttribute('parentInputList')) {
+            $children = Utils::getSitesByInputList($this->getProject(), $this->getAttribute('parentInputList'), [
+                'where' => $where,
+                'limit' => false,
+                'order' => $this->getAttribute('order')
+            ]);
+        } elseif ($this->getAttribute('byType')) {
             $children = $this->getPinnedByTypeChildren();
         } else {
             $children = $Site->getChildren([
@@ -520,6 +525,10 @@ class ChildrenList extends QUI\Control
         QUI\Interfaces\Projects\Site $Site,
         array $where
     ): int {
+        if ($this->getAttribute('parentInputList')) {
+            return count($this->getPinnedChildren($Site, $where, 0, PHP_INT_MAX));
+        }
+
         if ($this->getAttribute('byType')) {
             return count($this->getPinnedByTypeChildren());
         }
@@ -573,17 +582,24 @@ class ChildrenList extends QUI\Control
      */
     protected function sortPinnedChildren(array $children): array
     {
-        $pinnedAttribute = (string)$this->getAttribute('pinnedAttribute');
+        $pinnedAttributes = (array)$this->getAttribute('pinnedAttribute');
         $pinned = [];
         $normal = [];
 
         foreach ($children as $Child) {
-            if ($Child->getAttribute($pinnedAttribute)) {
-                $pinned[] = $Child;
-                continue;
+            foreach ($pinnedAttributes as $pinnedAttribute) {
+                if ($Child->getAttribute($pinnedAttribute)) {
+                    $pinned[] = $Child;
+                    continue 2;
+                }
             }
 
             $normal[] = $Child;
+        }
+
+        if ($this->getAttribute('parentInputList')) {
+            // The input list has already applied the configured brick ordering.
+            return array_merge($pinned, $normal);
         }
 
         $sortBy = $this->getPinOrderField();
