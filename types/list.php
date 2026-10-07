@@ -24,6 +24,7 @@ if (
  */
 $a = $Site->getAttribute('quiqqer.tags.tagList');
 $ChildrenList = new QUI\Controls\ChildrenList([
+    'ownJsonLd' => false,
     'showTitle' => false,
     'Site' => $Site,
     'limit' => $Site->getAttribute('quiqqer.settings.sitetypes.list.max'),
@@ -67,6 +68,20 @@ try {
     QUI\System\Log::addWarning($Exception->getMessage());
 }
 
+// Prepare the visible list and explicitly register its structured data before the page head.
+$childrenListHtml = $ChildrenList->create();
+
+try {
+    $ListJsonLd = $ChildrenList->getJsonLd();
+
+    if ($ListJsonLd !== null) {
+        $Template->getJsonLd()->setJsonLdNode('siteList', $ListJsonLd->getJsonLdData());
+    }
+} catch (QUI\Exception $Exception) {
+    QUI\System\Log::addWarning($Exception->getMessage());
+}
+
 $Engine->assign([
+    'childrenListHtml' => $childrenListHtml,
     'ChildrenList' => $ChildrenList
 ]);

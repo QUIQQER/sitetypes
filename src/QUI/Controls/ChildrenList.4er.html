@@ -12,10 +12,9 @@
 </div>
 {/if}
 
-<section itemscope itemtype="{$this->getAttribute('itemtype')}"
+<section
          class="qui-control-childrenlist-4er grid-children"
 >
-    <link property="mainEntityOfPage" href="{url site=$Site}">
 
     {assign var=counter value=1}
 
@@ -23,18 +22,10 @@
         {foreach from=$children item=Child key=key}
         {assign var=_Child value=$Child->load()}
         {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
-        <article itemscope
-                 itemprop="{$this->getAttribute('child-itemprop')}"
-                 itemtype="{$this->getAttribute('child-itemtype')}"
+        <article
                  class="qui-control-childrenlist-4er-entry grid-25 mobile-grid-100"
         >
-            {$tmp = $MetaList->clear()}
-            {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-            {$MetaList->create()}
 
-            <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-            <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-            <meta itemprop="position" content="{$counter}"/>
             {assign var=counter value=$counter+1}
 
             <!-- entry image -->
@@ -113,7 +104,6 @@
                     </a>
                 </div>
             </div>
-
 
         </article>
         {assign var=modKey value=$key+1}

@@ -27,6 +27,11 @@ use function ucfirst;
  */
 class ChildrenList extends QUI\Control
 {
+    /** @var array<int, QUI\Projects\Site> */
+    protected array $renderedChildren = [];
+
+    protected int $renderedStart = 0;
+
     // sizes scale with the container's inline size (cqi), so they shrink in
     // narrow contexts (e.g. sidebar) and grow in the main content area. The
     // upper clamp bound keeps the main-area size, the lower bound the sidebar.
@@ -80,6 +85,8 @@ class ChildrenList extends QUI\Control
             // if true, returns all sites of a certain type
             'byType' => false,
             'where' => false,
+            // Disable automatic JSON-LD output when the caller handles structured data.
+            'ownJsonLd' => true,
             'itemtype' => 'https://schema.org/ItemList',
             'child-itemtype' => 'https://schema.org/ListItem',
             'child-itemprop' => 'itemListElement',
@@ -121,7 +128,7 @@ class ChildrenList extends QUI\Control
             'filter' => 'disabled', // 'all' / 'input' / 'tags' / 'disabled'
             // max tag badges per entry (cards / mediaList); 0 hides them
             'tagsMax' => 3,
-            // Name of the site attribute used to mark pinned entries; false disables pin sorting
+            // Site attribute name(s) used to mark pinned entries; false disables pin sorting
             'pinnedAttribute' => false,
             'pinnedOrder' => 'release_from DESC'
         ]);
@@ -171,7 +178,19 @@ class ChildrenList extends QUI\Control
             }
         }
 
-        if ($this->getAttribute('parentInputList')) {
+        $loadAllChildrenOnEmptyList = $this->getAttribute('loadAllChildrenOnEmptyList');
+        $where = $this->getAttribute('where');
+
+        if (empty($where)) {
+            $where = [];
+        }
+
+        $where['active'] = 1;
+
+        if ($this->supportsPinnedSorting()) {
+            $children = $this->getPinnedChildren($Site, $where, 0, PHP_INT_MAX);
+            $count_children = count($children);
+        } elseif ($this->getAttribute('parentInputList')) {
             // for bricks
             $count_children = Utils::getSitesByInputList($Project, $parents, [
                 'count' => 'count',
@@ -202,18 +221,8 @@ class ChildrenList extends QUI\Control
             $count_children = count($count_children);
         }
 
-        $loadAllChildrenOnEmptyList = $this->getAttribute('loadAllChildrenOnEmptyList');
-        $where = $this->getAttribute('where');
-
-        if (empty($where)) {
-            $where = [];
-        }
-
-        $where['active'] = 1;
-
         if ($this->supportsPinnedSorting()) {
-            $children = $this->getPinnedChildren($Site, $where, $start, $limit);
-            $count_children = $this->getPinnedChildrenCount($Site, $where);
+            $children = array_slice($children, $start, $limit);
         } elseif ($this->getAttribute('parentInputList')) {
             // for bricks
             $children = Utils::getSitesByInputList($Project, $parents, [
@@ -247,6 +256,9 @@ class ChildrenList extends QUI\Control
                 ]);
             }
         }
+
+        $this->renderedChildren = is_array($children) ? $children : [];
+        $this->renderedStart = $start;
 
         // sheets
         $sheets = ceil($count_children / $limit);
@@ -314,6 +326,14 @@ class ChildrenList extends QUI\Control
             }
 
             return $Engine->fetch($this->getAttribute('displayTemplate'));
+        }
+
+        $jsonLd = '';
+
+        try {
+            $jsonLd = $this->getListJsonLd($children, $start);
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::addWarning($Exception->getMessage());
         }
 
         switch ($this->getAttribute('display')) {
@@ -427,7 +447,76 @@ class ChildrenList extends QUI\Control
         $this->addCSSFile(dirname(__FILE__) . '/ChildrenList.Base.css');
         $this->addCSSFile($css);
 
-        return $Engine->fetch($template);
+        // Controls may render after the page head, so emit their JSON-LD here.
+        return $Engine->fetch($template) . $jsonLd;
+    }
+
+    /**
+     * Build structured data for the most recently rendered list on explicit request.
+     * Call create() first. This never modifies the global page graph.
+     */
+    public function getJsonLd(): ?QUI\Utils\JsonLd
+    {
+        return $this->buildListJsonLd($this->renderedChildren, $this->renderedStart);
+    }
+
+    /**
+     * @param array<int, QUI\Projects\Site> $children
+     */
+    protected function getListJsonLd(array $children, int $start = 0): string
+    {
+        if (!$this->getAttribute('ownJsonLd')) {
+            return '';
+        }
+
+        return $this->buildListJsonLd($children, $start)?->getJsonLdSchema() ?? '';
+    }
+
+    /**
+     * Keep MetaList as a collector for existing, type-hinted onMetaList callbacks.
+     * Its legacy Microdata create() method must not be called here.
+     *
+     * @param array<int, QUI\Projects\Site> $children
+     */
+    protected function buildListJsonLd(array $children, int $start = 0): ?QUI\Utils\JsonLd
+    {
+        if ($children === [] || !$this->getAttribute('itemtype')) {
+            return null;
+        }
+
+        $listType = preg_replace('#^https?://schema.org/#', '', $this->getAttribute('itemtype'));
+        $childType = preg_replace('#^https?://schema.org/#', '', $this->getAttribute('child-itemtype'));
+        $childProperty = $this->getAttribute('child-itemprop');
+        $List = new QUI\Utils\JsonLd();
+        $List->set('type', $listType);
+
+        $items = [];
+        $position = max(0, $start) + 1;
+
+        foreach ($children as $Child) {
+            $Child->load();
+            $MetaList = new QUI\Controls\Utils\MetaList();
+            // Article metadata belongs to the linked page, never to ListItem.
+            $MetaList->set('type', $childType === 'ListItem' ? 'WebPage' : $childType);
+            $this->Events->fireEvent('metaList', [$this, $Child, $MetaList]);
+            $MetaList->set('name', $Child->getAttribute('title'));
+            $MetaList->set('url', $Child->getUrlRewrittenWithHost());
+            $item = $MetaList->getJsonLdData();
+
+            if ($childType === 'ListItem') {
+                $item = [
+                    '@type' => 'ListItem',
+                    'position' => $position,
+                    'item' => $item
+                ];
+            }
+
+            $items[] = $item;
+            $position++;
+        }
+
+        $List->set($childProperty, $items);
+        return $List;
     }
 
     /**
@@ -471,15 +560,12 @@ class ChildrenList extends QUI\Control
     }
 
     /**
-     * Pin sorting is intentionally limited to direct child lists and byType
-     * lists for now. Other ChildrenList sources such as parentInputList or
-     * externally provided children use different loading semantics and are
-     * not covered by the current implementation.
+     * Sort loaded lists before pagination. Externally provided children retain
+     * their caller-defined order and pagination.
      */
     protected function supportsPinnedSorting(): bool
     {
         return (bool)$this->getAttribute('pinnedAttribute')
-            && !$this->getAttribute('parentInputList')
             && !$this->getAttribute('children')
             && $this->getAttribute('loadAllChildrenOnEmptyList');
     }
@@ -495,7 +581,13 @@ class ChildrenList extends QUI\Control
         int $start,
         int $limit
     ): array {
-        if ($this->getAttribute('byType')) {
+        if ($this->getAttribute('parentInputList')) {
+            $children = Utils::getSitesByInputList($this->getProject(), $this->getAttribute('parentInputList'), [
+                'where' => $where,
+                'limit' => false,
+                'order' => $this->getAttribute('order')
+            ]);
+        } elseif ($this->getAttribute('byType')) {
             $children = $this->getPinnedByTypeChildren();
         } else {
             $children = $Site->getChildren([
@@ -520,6 +612,10 @@ class ChildrenList extends QUI\Control
         QUI\Interfaces\Projects\Site $Site,
         array $where
     ): int {
+        if ($this->getAttribute('parentInputList')) {
+            return count($this->getPinnedChildren($Site, $where, 0, PHP_INT_MAX));
+        }
+
         if ($this->getAttribute('byType')) {
             return count($this->getPinnedByTypeChildren());
         }
@@ -573,17 +669,24 @@ class ChildrenList extends QUI\Control
      */
     protected function sortPinnedChildren(array $children): array
     {
-        $pinnedAttribute = (string)$this->getAttribute('pinnedAttribute');
+        $pinnedAttributes = (array)$this->getAttribute('pinnedAttribute');
         $pinned = [];
         $normal = [];
 
         foreach ($children as $Child) {
-            if ($Child->getAttribute($pinnedAttribute)) {
-                $pinned[] = $Child;
-                continue;
+            foreach ($pinnedAttributes as $pinnedAttribute) {
+                if ($Child->getAttribute($pinnedAttribute)) {
+                    $pinned[] = $Child;
+                    continue 2;
+                }
             }
 
             $normal[] = $Child;
+        }
+
+        if ($this->getAttribute('parentInputList')) {
+            // The input list has already applied the configured brick ordering.
+            return array_merge($pinned, $normal);
         }
 
         $sortBy = $this->getPinOrderField();

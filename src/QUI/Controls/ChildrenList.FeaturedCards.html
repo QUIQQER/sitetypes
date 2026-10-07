@@ -12,10 +12,9 @@
 </div>
 {/if}
 
-<section itemscope itemtype="{$this->getAttribute('itemtype')}"
+<section
          class="qui-control-childrenlist-featuredCards control-template"
 >
-    <link property="mainEntityOfPage" href="{url site=$Site}">
 
     {if $showFilter}
         {$filterHtml}
@@ -30,20 +29,12 @@
         {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
 
         {* the first entry of every page is rendered as the large featured item *}
-        <article itemscope
-                 itemprop="{$this->getAttribute('child-itemprop')}"
-                 itemtype="{$this->getAttribute('child-itemtype')}"
+        <article
                  data-id="{$Child->getId()}"
                  data-name="item"
                  class="qui-control-childrenlist-featuredCards-entry{if $counter == 1} is-featured{/if}"
         >
-            {$tmp = $MetaList->clear()}
-            {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-            {$MetaList->create()}
 
-            <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-            <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-            <meta itemprop="position" content="{$counter}"/>
             {assign var=counter value=$counter+1}
 
             {* entry image (not a separate link; the whole card is clickable

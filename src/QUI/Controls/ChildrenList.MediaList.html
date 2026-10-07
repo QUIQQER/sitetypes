@@ -10,11 +10,10 @@
 </div>
 {/if}
 
-<section itemscope itemtype="{$this->getAttribute('itemtype')}"
+<section
          class="qui-control-childrenlist-medialist control-template
                 qui-control-childrenlist-medialist--{$mediaImagePosition}"
 >
-    <link property="mainEntityOfPage" href="{url site=$Site}">
 
     {if $showFilter}
         {$filterHtml}
@@ -28,20 +27,11 @@
         {assign var=_Child value=$Child->load()}
         {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
 
-        <article itemscope
-                 itemprop="{$this->getAttribute('child-itemprop')}"
-                 itemtype="{$this->getAttribute('child-itemtype')}"
+        <article
                  data-id="{$Child->getId()}"
                  data-name="item"
                  class="qui-control-childrenlist-medialist-entry"
         >
-            {$tmp = $MetaList->clear()}
-            {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-            {$MetaList->create()}
-
-            <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-            <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-            <meta itemprop="position" content="{$counter}"/>
 
             {* entry image (not a separate link; the whole entry is clickable
                via the stretched title link below) *}

@@ -13,22 +13,14 @@
 {assign var=counter value=1}
 {assign var=noDateClass value="-no-date"}
 
-<section itemscope itemtype="{$this->getAttribute('itemtype')}">
+<section>
     {foreach from=$children item=Child}
     {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
 
-    <article itemscope
-             itemprop="{$this->getAttribute('child-itemprop')}"
-             itemtype="{$this->getAttribute('child-itemtype')}"
+    <article
              class="qui-control-childrenlist-advancedArticleList-wrapper mainFontColor"
     >
-        {$tmp = $MetaList->clear()}
-        {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-        {$MetaList->create()}
 
-        <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-        <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-        <meta itemprop="position" content="{$counter}"/>
         {assign var=counter value=$counter+1}
 
         <div class="qui-control-childrenlist-advancedArticleList
