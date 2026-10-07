@@ -12,8 +12,7 @@
 </div>
 {/if}
 
-<section itemscope itemtype="{$this->getAttribute('itemtype')}">
-    <link property="mainEntityOfPage" href="{url site=$Site}">
+<section>
 
     <div class="qui-control-childrenlist-bigBanner control-template" style="
     {if $this->getAttribute('fontColor')}--qui-childrenList-bigBanner-fontColor: {$this->getAttribute('fontColor')};{/if}
@@ -23,18 +22,10 @@
         {foreach from=$children item=Child}
         {assign var=_Child value=$Child->load()}
         {assign var=creatorName value=$childCreatorNames[$Child->getId()]|default:''}
-        <article itemscope
-                 itemprop="{$this->getAttribute('child-itemprop')}"
-                 itemtype="{$this->getAttribute('child-itemtype')}"
+        <article
                  class="qui-control-childrenlist-bigBanner-entry"
         >
-            {$tmp = $MetaList->clear()}
-            {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-            {$MetaList->create()}
 
-            <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-            <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-            <meta itemprop="position" content="{$counter}"/>
             {assign var=counter value=$counter+1}
 
             <!-- entry image -->

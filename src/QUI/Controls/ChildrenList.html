@@ -12,10 +12,9 @@
 </div>
 {/if}
 
-<section itemscope itemtype="{$this->getAttribute('itemtype')}"
+<section
          class="qui-control-childrenlist-default control-template"
 >
-    <link property="mainEntityOfPage" href="{url site=$Site}">
 
     {if $showFilter}
         {$filterHtml}
@@ -25,20 +24,12 @@
 
     {foreach from=$children item=Child}
     {assign var=_Child value=$Child->load()}
-    <article itemscope
-             itemprop="{$this->getAttribute('child-itemprop')}"
-             itemtype="{$this->getAttribute('child-itemtype')}"
+    <article
              data-id="{$Child->getId()}"
              data-name="item"
              class="qui-control-childrenlist-default-entry"
     >
-        {$tmp = $MetaList->clear()}
-        {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-        {$MetaList->create()}
 
-        <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-        <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-        <meta itemprop="position" content="{$counter}"/>
         {assign var=counter value=$counter+1}
 
         <!-- entry image -->

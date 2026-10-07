@@ -27,6 +27,11 @@ use function ucfirst;
  */
 class ChildrenList extends QUI\Control
 {
+    /** @var array<int, QUI\Projects\Site> */
+    protected array $renderedChildren = [];
+
+    protected int $renderedStart = 0;
+
     // sizes scale with the container's inline size (cqi), so they shrink in
     // narrow contexts (e.g. sidebar) and grow in the main content area. The
     // upper clamp bound keeps the main-area size, the lower bound the sidebar.
@@ -80,6 +85,8 @@ class ChildrenList extends QUI\Control
             // if true, returns all sites of a certain type
             'byType' => false,
             'where' => false,
+            // Disable automatic JSON-LD output when the caller handles structured data.
+            'ownJsonLd' => true,
             'itemtype' => 'https://schema.org/ItemList',
             'child-itemtype' => 'https://schema.org/ListItem',
             'child-itemprop' => 'itemListElement',
@@ -250,6 +257,9 @@ class ChildrenList extends QUI\Control
             }
         }
 
+        $this->renderedChildren = is_array($children) ? $children : [];
+        $this->renderedStart = $start;
+
         // sheets
         $sheets = ceil($count_children / $limit);
 
@@ -316,6 +326,14 @@ class ChildrenList extends QUI\Control
             }
 
             return $Engine->fetch($this->getAttribute('displayTemplate'));
+        }
+
+        $jsonLd = '';
+
+        try {
+            $jsonLd = $this->getListJsonLd($children, $start);
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::addWarning($Exception->getMessage());
         }
 
         switch ($this->getAttribute('display')) {
@@ -429,7 +447,76 @@ class ChildrenList extends QUI\Control
         $this->addCSSFile(dirname(__FILE__) . '/ChildrenList.Base.css');
         $this->addCSSFile($css);
 
-        return $Engine->fetch($template);
+        // Controls may render after the page head, so emit their JSON-LD here.
+        return $Engine->fetch($template) . $jsonLd;
+    }
+
+    /**
+     * Build structured data for the most recently rendered list on explicit request.
+     * Call create() first. This never modifies the global page graph.
+     */
+    public function getJsonLd(): ?QUI\Utils\JsonLd
+    {
+        return $this->buildListJsonLd($this->renderedChildren, $this->renderedStart);
+    }
+
+    /**
+     * @param array<int, QUI\Projects\Site> $children
+     */
+    protected function getListJsonLd(array $children, int $start = 0): string
+    {
+        if (!$this->getAttribute('ownJsonLd')) {
+            return '';
+        }
+
+        return $this->buildListJsonLd($children, $start)?->getJsonLdSchema() ?? '';
+    }
+
+    /**
+     * Keep MetaList as a collector for existing, type-hinted onMetaList callbacks.
+     * Its legacy Microdata create() method must not be called here.
+     *
+     * @param array<int, QUI\Projects\Site> $children
+     */
+    protected function buildListJsonLd(array $children, int $start = 0): ?QUI\Utils\JsonLd
+    {
+        if ($children === [] || !$this->getAttribute('itemtype')) {
+            return null;
+        }
+
+        $listType = preg_replace('#^https?://schema.org/#', '', $this->getAttribute('itemtype'));
+        $childType = preg_replace('#^https?://schema.org/#', '', $this->getAttribute('child-itemtype'));
+        $childProperty = $this->getAttribute('child-itemprop');
+        $List = new QUI\Utils\JsonLd();
+        $List->set('type', $listType);
+
+        $items = [];
+        $position = max(0, $start) + 1;
+
+        foreach ($children as $Child) {
+            $Child->load();
+            $MetaList = new QUI\Controls\Utils\MetaList();
+            // Article metadata belongs to the linked page, never to ListItem.
+            $MetaList->set('type', $childType === 'ListItem' ? 'WebPage' : $childType);
+            $this->Events->fireEvent('metaList', [$this, $Child, $MetaList]);
+            $MetaList->set('name', $Child->getAttribute('title'));
+            $MetaList->set('url', $Child->getUrlRewrittenWithHost());
+            $item = $MetaList->getJsonLdData();
+
+            if ($childType === 'ListItem') {
+                $item = [
+                    '@type' => 'ListItem',
+                    'position' => $position,
+                    'item' => $item
+                ];
+            }
+
+            $items[] = $item;
+            $position++;
+        }
+
+        $List->set($childProperty, $items);
+        return $List;
     }
 
     /**
