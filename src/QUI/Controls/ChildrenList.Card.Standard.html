@@ -1,19 +1,10 @@
 {assign var=_Child value=$Child->load()}
 
-<article itemscope
-         itemprop="{$this->getAttribute('child-itemprop')}"
-         itemtype="{$this->getAttribute('child-itemtype')}"
+<article
          data-id="{$Child->getId()}"
          data-name="item"
          class="qui-control-childrenlist-cards-entry"
 >
-    {$tmp = $MetaList->clear()}
-    {$tmp = $Events->fireEvent('metaList', [$this, $Child, $MetaList])}
-    {$MetaList->create()}
-
-    <meta itemprop="name" content="{$Child->getAttribute('title')}"/>
-    <meta itemprop="url" content="{url site=$Child rewritten=true}"/>
-    <meta itemprop="position" content="{$counter}"/>
 
     {* entry image (not a separate link; the whole card is clickable
        via the stretched title link below) *}
