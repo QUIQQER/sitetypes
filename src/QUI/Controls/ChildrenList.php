@@ -525,6 +525,10 @@ class ChildrenList extends QUI\Control
      */
     protected function getChildCreatorNames(array $children): array
     {
+        if (!$this->getAttribute('showCreator')) {
+            return [];
+        }
+
         $creatorNames = [];
 
         foreach ($children as $Child) {
