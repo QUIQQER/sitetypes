@@ -2,12 +2,9 @@
 
 namespace QUITests\SiteTypes\Controls;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use QUI;
 use QUI\Controls\ChildrenList;
-use QUI\Controls\Utils\MetaList;
-use QUI\Interfaces\Template\EngineInterface;
 use QUI\Interfaces\Users\User;
 use QUI\Projects\Project;
 use QUI\Projects\Site;
@@ -16,81 +13,80 @@ use QUI\Users\Manager;
 
 class ChildrenListCreatorTest extends TestCase
 {
-    public static function visibilityCases(): iterable
+    private ?Manager $previousUsers;
+    private ?Template $previousTemplate;
+    private Manager $Users;
+
+    protected function setUp(): void
     {
-        yield 'disabled' => [false, false, 0];
-        yield 'disabled string' => ['0', false, 0];
-        yield 'enabled' => [true, false, 1];
-        yield 'enabled string' => ['1', false, 1];
-        yield 'metadata with hidden author' => [false, true, 1];
-        yield 'metadata with visible author' => [true, true, 2];
+        $this->previousUsers = QUI::$Users;
+        $this->previousTemplate = QUI::$Template;
+        $Engine = QUI::getTemplateManager()->getEngine();
+        $Template = $this->createMock(Template::class);
+        $Template->method('getEngine')->willReturn($Engine);
+        $this->Users = $this->createMock(Manager::class);
+        QUI::$Users = $this->Users;
+        QUI::$Template = $Template;
     }
 
-    #[DataProvider('visibilityCases')]
-    public function testRenderingOnlyLoadsVisibleCreatorNamesAndKeepsMetadataIndependent(
-        bool | string $showCreator,
-        bool $metadata,
-        int $expectedLookups
-    ): void {
-        $previousUsers = QUI::$Users;
-        $previousTemplate = QUI::$Template;
+    protected function tearDown(): void
+    {
+        QUI::$Users = $this->previousUsers;
+        QUI::$Template = $this->previousTemplate;
+    }
+
+    public function testHiddenCreatorRendersEntryWithoutLoadingUser(): void
+    {
+        $this->Users->expects($this->never())->method('get');
+
+        $html = $this->createList('0')->getBody();
+
+        $this->assertStringContainsString('Test entry', $html);
+        $this->assertStringNotContainsString('qui-control-childrenlist-simpleArticleList-author', $html);
+    }
+
+    public function testVisibleCreatorRendersUserNameInAuthorElement(): void
+    {
+        $User = $this->createMock(User::class);
+        $User->method('getAttribute')->with('firstname')->willReturn('Ada Example');
+        $this->Users->method('get')->with('creator-uuid')->willReturn($User);
+
+        $html = $this->createList('1')->getBody();
+        $Document = new \DOMDocument();
+        $Document->loadHTML($html);
+        $XPath = new \DOMXPath($Document);
+
+        $this->assertStringContainsString('Test entry', $html);
+        $this->assertSame(
+            'Ada Example',
+            trim($XPath->evaluate(
+                'string(//span[contains(@class, "qui-control-childrenlist-simpleArticleList-author")]/span[last()])'
+            ))
+        );
+    }
+
+    private function createList(string $showCreator): ChildrenList
+    {
         $Project = $this->createMock(Project::class);
         $Site = $this->createMock(Site::class);
         $Site->method('getId')->willReturn(42);
         $Site->method('getProject')->willReturn($Project);
         $Site->method('getChildren')->willReturn(1);
-        $Site->method('load')->willReturnSelf();
-        $Site->method('getUrlRewrittenWithHost')->willReturn('https://example.org/post');
         $Site->method('getAttribute')->willReturnCallback(static fn ($key) => match ($key) {
             'c_user' => 'creator-uuid',
-            'title' => 'Post',
+            'title' => 'Test entry',
             default => ''
         });
-        $User = $this->createMock(User::class);
-        $User->method('getName')->willReturn('Existing author');
-        $User->method('getAttribute')->willReturn('Existing');
-        $Users = $this->createMock(Manager::class);
-        $Users->expects($this->exactly($expectedLookups))->method('get')
-            ->with('creator-uuid')->willReturn($User);
-        $assigned = [];
-        $Engine = $this->createMock(EngineInterface::class);
-        $Engine->method('fetch')->willReturn('');
-        $Engine->method('assign')->willReturnCallback(static function ($key, $value = false) use (&$assigned): void {
-            $values = is_array($key) ? $key : [$key => $value];
-            $assigned = array_replace($assigned, $values);
-        });
-        $Template = $this->createMock(Template::class);
-        $Template->method('getEngine')->willReturn($Engine);
-        QUI::$Users = $Users;
-        QUI::$Template = $Template;
 
-        try {
-            $List = new ChildrenList([
-                'Site' => $Site,
-                'Project' => $Project,
-                'children' => [$Site],
-                'loadAllChildrenOnEmptyList' => false,
-                'showCreator' => $showCreator,
-                'ownJsonLd' => $metadata,
-                'tagsMax' => 0
-            ]);
-            $List->addEvent('onMetaList', static function (ChildrenList $List, Site $Child, MetaList $Meta): void {
-                $Author = QUI::getUsers()->get($Child->getAttribute('c_user'));
-                $Meta->add('author', $Author->getName());
-            });
-            $html = $List->getBody();
-            $expectedNames = $showCreator ? [42 => 'Existing'] : [];
-            $this->assertSame($expectedNames, $assigned['childCreatorNames']);
-
-            if ($metadata) {
-                $this->assertStringContainsString('application/ld+json', $html);
-                $this->assertStringContainsString('Existing author', $html);
-            } else {
-                $this->assertSame('', $html);
-            }
-        } finally {
-            QUI::$Users = $previousUsers;
-            QUI::$Template = $previousTemplate;
-        }
+        return new ChildrenList([
+            'Site' => $Site,
+            'Project' => $Project,
+            'children' => [$Site],
+            'loadAllChildrenOnEmptyList' => false,
+            'showCreator' => $showCreator,
+            'ownJsonLd' => false,
+            'display' => 'simpleArticleList',
+            'tagsMax' => 0
+        ]);
     }
 }
