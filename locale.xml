@@ -774,6 +774,15 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <it><![CDATA[Galleria]]></it>
             <pl><![CDATA[Galeria]]></pl>
         </locale>
+        <locale name="list.template.galleryOverlay" context="administration">
+            <de><![CDATA[Galerie - Text auf Bild]]></de>
+            <en><![CDATA[Gallery - text on the image]]></en>
+            <es><![CDATA[Galería - texto sobre la imagen]]></es>
+            <pt><![CDATA[Galeria - texto sobre a imagem]]></pt>
+            <fr><![CDATA[Galerie - texte sur l’image]]></fr>
+            <it><![CDATA[Galleria - testo sull’immagine]]></it>
+            <pl><![CDATA[Galeria - tekst na obrazie]]></pl>
+        </locale>
         <locale name="list.template.CSSGridCards">
             <de><![CDATA[Cards (CSS-Grid)]]></de>
             <en><![CDATA[Cards (CSS-Grid)]]></en>
