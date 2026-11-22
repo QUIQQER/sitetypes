@@ -4,6 +4,7 @@ namespace QUITests\SiteTypes\Controls;
 
 use DOMDocument;
 use DOMXPath;
+use PHPUnit\Framework\Attributes\TestWith;
 use PHPUnit\Framework\TestCase;
 use QUI\Projects\Project;
 use QUI\Projects\Site;
@@ -80,7 +81,7 @@ class ChildrenListFilterTest extends TestCase
 
         $List = $this->createList($this->createMock(Manager::class), [
             'filterMax' => 2,
-            'display' => 'imageTop'
+            'showSheets' => false
         ]);
         $State = new ChildrenListFilter('list-brick-42-', ['list-brick-42-q' => 'needle'], true, [], false);
 
@@ -102,6 +103,38 @@ class ChildrenListFilterTest extends TestCase
         ], true, [], false);
 
         self::assertSame([[], 0, 0, 1], $List->page($Parent, 2, $State));
+    }
+
+    #[TestWith(['imageTop', 'disabled'])]
+    #[TestWith(['imageTopBorder', 'disabled'])]
+    #[TestWith(['imageTop', 'input'])]
+    #[TestWith(['imageTopBorder', 'input'])]
+    public function testImageLayoutsRenderOnePagination(string $layout, string $filter): void
+    {
+        $children = [$this->site(1, ['title' => 'First']), $this->site(2, ['title' => 'Second'])];
+        $Parent = $this->createMock(Site::class);
+        $Parent->method('getChildren')->willReturnCallback(
+            static fn (array $params) => isset($params['count']) ? count($children) : $children
+        );
+        $List = $this->createList($this->createMock(Manager::class), [
+            'Site' => $Parent,
+            'Project' => $this->createMock(Project::class),
+            'display' => $layout,
+            'filter' => $filter,
+            'limit' => 1,
+            'showSheets' => true,
+            'showImages' => false,
+            'showShort' => false,
+            'showCreator' => false,
+            'showDate' => false,
+            'ownJsonLd' => false,
+            'tagsMax' => 0
+        ]);
+
+        $Document = new DOMDocument();
+        $Document->loadHTML($List->getBody(), LIBXML_NOERROR | LIBXML_NOWARNING);
+        $XPath = new DOMXPath($Document);
+        self::assertSame(1.0, $XPath->evaluate('count(//a[contains(@class, "quiqqer-sheets-next")])'));
     }
 
     public function testCustomTemplateRetainsTheLegacyFilterAndItsItemData(): void

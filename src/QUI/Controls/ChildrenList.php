@@ -614,9 +614,7 @@ class ChildrenList extends QUI\Control
         int $limit,
         ChildrenListFilter $Filter
     ): array {
-        $paging = $this->getAttribute('showSheets')
-            && ($this->getCustomTemplate() !== null
-                || !in_array($this->getAttribute('display'), ['imageTop', 'imageTopBorder'], true));
+        $paging = (bool)$this->getAttribute('showSheets');
         $max = max(0, (int)$this->getAttribute('filterMax'));
 
         if ($this->canReadCandidateRows($Site)) {

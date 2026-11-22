@@ -118,3 +118,7 @@
     {/foreach}
     {if $showFilter}</div>{/if}
 </div>
+
+{if $this->getAttribute('showSheets') && $sheets > 1}
+{$Pagination->create()}
+{/if}
