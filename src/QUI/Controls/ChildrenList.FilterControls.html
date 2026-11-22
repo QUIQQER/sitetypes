@@ -7,6 +7,8 @@
         data-site-id="{$filterSiteId|escape:'html'}"
         data-placement="{$filterPlacement|escape:'html'}"
         data-filter-prefix="{$filterState->filterPrefix|escape:'html'}"
+     {else}
+        data-qui="package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListNavigation"
      {/if}
 >
     {if $hasTextFilter}

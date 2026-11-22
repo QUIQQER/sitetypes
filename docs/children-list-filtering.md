@@ -36,8 +36,9 @@ requested page.
 Listing bricks that supply their numeric brick ID use
 `list-brick-<id>-q`, `list-brick-<id>-tag`, and `list-brick-<id>-page`.
 Different bricks can be filtered independently. Two placements of the same
-brick share the selection. The placement UUID identifies a directly placed
-brick internally when loading it via AJAX.
+brick share the selection. AJAX identifies a direct placement by its UUID.
+For areas without stored UUIDs, the server derives an internal identifier from
+the area, position and brick ID.
 
 ## Loading results
 

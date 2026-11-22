@@ -106,10 +106,11 @@ final class ChildrenListRequest
             $Site->load();
             $Control = ChildrenListPage::create($Site);
         } elseif (preg_match('/^brick-([a-zA-Z0-9-]+)$/D', $placement, $matches)) {
-            if (!self::supportsBrickPlacement()) {
+            $resolvePlacement = self::getBrickPlacementResolver(Listing::class);
+            if ($resolvePlacement === null) {
                 return null;
             }
-            $Control = Listing::fromPlacement($Site, $matches[1]);
+            $Control = $resolvePlacement($Site, $matches[1]);
         } else {
             return null;
         }
@@ -126,7 +127,7 @@ final class ChildrenListRequest
         if (
             is_string($placement)
             && str_starts_with($placement, 'brick-')
-            && self::supportsBrickPlacement()
+            && self::getBrickPlacementResolver(Listing::class) !== null
         ) {
             return $placement;
         }
@@ -134,9 +135,15 @@ final class ChildrenListRequest
         return '';
     }
 
-    private static function supportsBrickPlacement(): bool
+    /**
+     * @param class-string $listingClass
+     * @return (callable(Site, string): ?ChildrenList)|null
+     */
+    private static function getBrickPlacementResolver(string $listingClass): ?callable
     {
-        return is_callable([Listing::class, 'fromPlacement']);
+        $resolver = [$listingClass, 'fromPlacement'];
+
+        return is_callable($resolver) ? $resolver : null;
     }
 
     /**

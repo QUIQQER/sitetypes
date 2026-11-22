@@ -6,6 +6,7 @@ use DOMDocument;
 use DOMXPath;
 use PHPUnit\Framework\Attributes\TestWith;
 use PHPUnit\Framework\TestCase;
+use QUI\Bricks\Controls\Children\Listing;
 use QUI\Projects\Project;
 use QUI\Projects\Site;
 use QUI\Projects\Site\PermissionDenied;
@@ -200,16 +201,25 @@ class ChildrenListFilterTest extends TestCase
             'tagsMax' => 0
         ]);
 
-        self::assertStringNotContainsString('ChildrenListRemoteFilter', $List->getBody());
+        $html = $List->getBody();
+        self::assertStringContainsString('ChildrenListNavigation', $html);
+        self::assertStringNotContainsString('ChildrenListRemoteFilter', $html);
         self::assertSame('list-brick-42-', $List->getAttribute('data-list-prefix'));
 
         $placement = 'brick-9eae34da-8a6a-4d52-a7c7-3c2e65a6530c';
         $List->setAttribute('filterPlacement', $placement);
 
         $html = $List->getBody();
-        self::assertStringContainsString('ChildrenListRemoteFilter', $html);
-        self::assertStringContainsString('data-placement="' . $placement . '"', $html);
         self::assertSame('list-brick-42-', $List->getAttribute('data-list-prefix'));
+        if (method_exists(Listing::class, 'fromPlacement')) {
+            self::assertStringContainsString('ChildrenListRemoteFilter', $html);
+            self::assertStringContainsString('data-placement="' . $placement . '"', $html);
+        } else {
+            self::assertStringContainsString('ChildrenListNavigation', $html);
+            self::assertStringNotContainsString('ChildrenListRemoteFilter', $html);
+            self::assertStringNotContainsString('data-placement=', $html);
+            self::assertStringContainsString('name="list-brick-42-q"', $html);
+        }
     }
 
     public function testFilteredListRendersStandardPaginationWithIndependentPageUrls(): void
