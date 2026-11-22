@@ -18,7 +18,7 @@
         {$filterHtml}
     {/if}
 
-    <div class="qui-control-childrenlist-gallery control-template">
+    <div class="qui-control-childrenlist-gallery control-template"{if $showFilter} data-name="results"{/if}>
         {assign var=counter value=1}
 
         {foreach from=$children item=Child}
@@ -40,7 +40,7 @@
             {/if}
 
             {if $this->getAttribute('showImages')}
-            <div class="qui-control-childrenlist-gallery-entry-image">
+            <div class="qui-control-childrenlist-gallery-entry-image qui-control-childrenlist__skeleton-part">
                 <a href="{url site=$Child}">
                     {image src=$Child->getAttribute('image_site') width="500" type="resize"
                     title="{$Child->getAttribute('title')}"}
@@ -52,7 +52,7 @@
             <div class="qui-control-childrenlist-gallery-entry-content {$noImage}">
                 {if $this->getAttribute('showHeader')}
                 <header>
-                    <h2>
+                    <h2 class="qui-control-childrenlist__skeleton-part">
                         <a href="{url site=$Child}"
                            title="{$Child->getAttribute('title')}"
                            class="qui-control-childrenlist-gallery-entry-content-headerLink"
@@ -64,7 +64,7 @@
                 {/if}
 
                 {if $this->getAttribute('showShort')}
-                <div class="qui-control-childrenlist-gallery-entry-content-short">
+                <div class="qui-control-childrenlist-gallery-entry-content-short qui-control-childrenlist__skeleton-part">
                     {$Child->getAttribute('short')|nl2br}
                 </div>
                 {/if}
@@ -76,7 +76,7 @@
                     {/if}>
                     {if ($this->getAttribute('showCreator') && $creatorName) || $this->getAttribute('showDate') ||
                     $this->getAttribute('showTime')}
-                    <div class="qui-control-childrenlist-gallery-entry-content-footer-wrapper">
+                    <div class="qui-control-childrenlist-gallery-entry-content-footer-wrapper qui-control-childrenlist__skeleton-part">
 
                         {if $this->getAttribute('showCreator') && $creatorName}
                         <span class="qui-control-childrenlist-gallery-entry-content-footer-author">
@@ -111,7 +111,7 @@
 
                     <a href="{url site=$Child}"
                        title="{$Child->getAttribute('title')}"
-                       class="button qui-control-childrenlist-gallery-entry-content-footer-link"
+                       class="button qui-control-childrenlist-gallery-entry-content-footer-link qui-control-childrenlist__skeleton-part"
                     >
                         {locale group="quiqqer/sitetypes" value="list.more"}
                     </a>

@@ -20,6 +20,7 @@
         {$filterHtml}
     {/if}
 
+    {if $showFilter}<div data-name="results">{/if}
     {assign var=counter value=1}
 
     {foreach from=$children item=Child}
@@ -48,7 +49,7 @@
 
             {if $this->getAttribute('showImages')}
             <div class="qui-control-childrenlist-longFooter-entry-image grid-40 grid-container">
-                <a href="{url site=$Child}">
+                <a href="{url site=$Child}" class="qui-control-childrenlist__skeleton-part">
                     {image src=$Child->getAttribute('image_site') width="500" type="resize"
                     title="{$Child->getAttribute('title')|escape:'html'}"}
                 </a>
@@ -61,7 +62,7 @@
 
                 {if $this->getAttribute('showHeader')}
                 <header>
-                    <h2>
+                    <h2 class="qui-control-childrenlist__skeleton-part">
                         <a href="{url site=$Child}"
                            class="qui-control-childrenlist-longFooter-entry-content-headerLink"
                            title="{$Child->getAttribute('title')|escape:'html'}"
@@ -73,7 +74,7 @@
                 {/if}
 
                 {if $this->getAttribute('showShort')}
-                <div class="qui-control-childrenlist-longFooter-entry-content-short{$noImageClass}">
+                <div class="qui-control-childrenlist-longFooter-entry-content-short{$noImageClass} qui-control-childrenlist__skeleton-part">
                     {$Child->getAttribute('short')|nl2br}
                 </div>
                 {/if}
@@ -89,7 +90,7 @@
             {/if}>
 
             {if $this->getAttribute('showCreator') || $this->getAttribute('showDate')}
-            <div class="qui-control-childrenlist-longFooter-entry-content-footer-wrapper">
+            <div class="qui-control-childrenlist-longFooter-entry-content-footer-wrapper qui-control-childrenlist__skeleton-part">
 
                 {if $this->getAttribute('showCreator')}
                 <span class="qui-control-childrenlist-longFooter-entry-content-footer-author">
@@ -128,7 +129,7 @@
             {/if}
 
             <a href="{url site=$Child}"
-               class="button qui-control-childrenlist-longFooter-entry-content-footer-link"
+               class="button qui-control-childrenlist-longFooter-entry-content-footer-link qui-control-childrenlist__skeleton-part"
                title="{$Child->getAttribute('title')|escape:'html'}"
             >
                 {locale group="quiqqer/sitetypes" value="list.more"}
@@ -138,6 +139,7 @@
     </article>
 
     {/foreach}
+    {if $showFilter}</div>{/if}
 </section>
 
 {if $this->getAttribute('showSheets') && $sheets > 1}

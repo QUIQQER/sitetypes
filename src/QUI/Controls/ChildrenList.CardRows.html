@@ -20,6 +20,7 @@
         {$filterHtml}
     {/if}
 
+    {if $showFilter}<div data-name="results">{/if}
     {assign var=counter value=1}
 
     {foreach from=$children item=Child}
@@ -35,7 +36,7 @@
         <!-- entry image -->
         {if $this->getAttribute('showImages')}
         <div class="qui-control-childrenlist-cardRows-entry-image grid-25 grid-container">
-            <a href="{url site=$Child}">
+            <a href="{url site=$Child}" class="qui-control-childrenlist__skeleton-part">
                 {image src=$Child->getAttribute('image_site')
                 width="500"
                 type="resize"
@@ -52,7 +53,7 @@
             <header class="qui-control-childrenlist-cardRows-entry-content-header
                            {if !$this->getAttribute('showShort')} no-padding {/if}"
             >
-                <h2>
+                <h2 class="qui-control-childrenlist__skeleton-part">
                     <a href="{url site=$Child}" title="{$Child->getAttribute('title')|escape:'html'}">
                         {$Child->getAttribute('title')}
                     </a>
@@ -61,7 +62,7 @@
                 {if $this->getAttribute('showCreator') ||
                 $this->getAttribute('showDate') ||
                 $this->getAttribute('showDate')}
-                <p class="qui-control-childrenlist-cardRows-entry-content-header-footprint">
+                <p class="qui-control-childrenlist-cardRows-entry-content-header-footprint qui-control-childrenlist__skeleton-part">
                     {if $this->getAttribute('showCreator')}
                     <span class="footprint-author">
                         {user id=$Child->getAttribute('c_user') var=User}
@@ -102,7 +103,7 @@
             {/if}
 
             {if $this->getAttribute('showShort')}
-            <div class="qui-control-childrenlist-cardRows-entry-content-short">
+            <div class="qui-control-childrenlist-cardRows-entry-content-short qui-control-childrenlist__skeleton-part">
                 {$Child->getAttribute('short')|nl2br}
                 <a href="{url site=$Child}" title="{$Child->getAttribute('title')|escape:'html'}">
                     <span>{locale group="quiqqer/sitetypes" value="list.more"}</span>
@@ -113,6 +114,7 @@
 
     </article>
     {/foreach}
+    {if $showFilter}</div>{/if}
 </section>
 
 {if $this->getAttribute('showSheets') && $sheets > 1}
