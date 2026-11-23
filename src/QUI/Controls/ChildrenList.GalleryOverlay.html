@@ -18,7 +18,7 @@
         {$filterHtml}
     {/if}
 
-        <div class="qui-control-childrenlist-galleryOverlay control-template ">
+        <div class="qui-control-childrenlist-galleryOverlay control-template "{if $showFilter} data-name="results"{/if}>
         {assign var=counter value=1}
         {foreach from=$children item=Child}
             {assign var=_Child value=$Child->load()}
@@ -26,7 +26,7 @@
             <article
                      data-id="{$Child->getId()}"
                      data-name="item"
-                     class="qui-control-childrenlist-galleryOverlay__entry"
+                     class="qui-control-childrenlist-galleryOverlay__entry qui-control-childrenlist__skeleton-part"
             >
 
                 {assign var=counter value=$counter+1}

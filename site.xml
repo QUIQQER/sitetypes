@@ -787,7 +787,7 @@
                                 <locale group="quiqqer/sitetypes" var="list.template.gallery"/>
                             </option>
                             <option value="galleryOverlay">
-                                <locale group="quiqqer/bricks" var="brick.listTemplate.galleryOverlay"/>
+                                <locale group="quiqqer/sitetypes" var="list.template.galleryOverlay"/>
                             </option>
                         </select>
 

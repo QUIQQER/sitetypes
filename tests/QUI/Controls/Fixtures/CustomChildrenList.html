@@ -1,0 +1,6 @@
+{if $showFilter}
+{$filterHtml}
+{/if}
+{foreach from=$children item=Child}
+    <article data-name="item" data-id="{$Child->getId()}">{$Child->getAttribute('title')|escape:'html'}</article>
+{/foreach}

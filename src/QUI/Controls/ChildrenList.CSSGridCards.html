@@ -24,7 +24,7 @@
         {$filterHtml}
     {/if}
 
-    <div class="childrenlist-cardsCssGrid">
+    <div class="childrenlist-cardsCssGrid"{if $showFilter} data-name="results"{/if}>
 
         {assign var=counter value=1}
 
@@ -55,7 +55,7 @@
             {if $this->getAttribute('showImages')}
             <a href="{url site=$Child}"
                title="{$Child->getAttribute('title')}"
-               class="childrenlist-cardsCssGrid-entry-cover"
+               class="childrenlist-cardsCssGrid-entry-cover qui-control-childrenlist__skeleton-part"
                style="background-image: url('{image src=$Child->getAttribute('image_site') width=550 onlysrc=true}');">
                 <div class="childrenlist-cardsCssGrid-entry-cover-overlay">
                     {if $this->getAttribute('showHeader')}
@@ -74,7 +74,7 @@
 
                 {if ($this->getAttribute('showCreator') && $creatorName) || $this->getAttribute('showDate') ||
                 $this->getAttribute('showTime')}
-                <div class="childrenlist-cardsCssGrid-entry-content-info">
+                <div class="childrenlist-cardsCssGrid-entry-content-info qui-control-childrenlist__skeleton-part">
                     {if $this->getAttribute('showCreator') && $creatorName}
                     <span class="childrenlist-cardsCssGrid-entry-content-info-author">
                         <span class="fa fa-user"></span>
@@ -110,7 +110,7 @@
 
 
                 {if $this->getAttribute('showShort')}
-                <div class="childrenlist-cardsCssGrid-entry-content-text">
+                <div class="childrenlist-cardsCssGrid-entry-content-text qui-control-childrenlist__skeleton-part">
                     <p>
                         {$Child->getAttribute('short')|nl2br}
 
@@ -123,7 +123,7 @@
             {* Entry footer - button *}
             <div class="childrenlist-cardsCssGrid-entry-content-footer">
                 <a href="{url site=$Child}"
-                   class="button childrenlist-cardsCssGrid-entry-content-footer-button"
+                   class="button childrenlist-cardsCssGrid-entry-content-footer-button qui-control-childrenlist__skeleton-part"
                 >
                     {locale group="quiqqer/sitetypes" value="list.more"}
                 </a>

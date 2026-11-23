@@ -1,0 +1,61 @@
+<div class="qui-control-childrenlist__filter"
+     data-name="filters"
+     {if $filterPlacement}
+        data-qui="package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListRemoteFilter"
+        data-project="{$Project->getName()|escape:'html'}"
+        data-lang="{$Project->getLang()|escape:'html'}"
+        data-site-id="{$filterSiteId|escape:'html'}"
+        data-placement="{$filterPlacement|escape:'html'}"
+        data-filter-prefix="{$filterState->filterPrefix|escape:'html'}"
+     {else}
+        data-qui="package/quiqqer/sitetypes/bin/Controls/frontend/ChildrenListNavigation"
+     {/if}
+>
+    {if $hasTextFilter}
+        <form method="get" class="qui-control-childrenlist__textSearch" data-name="searchForm">
+            {foreach from=$filterState->getFormFields() item=field}
+                <input type="hidden" name="{$field.name|escape:'html'}" value="{$field.value|escape:'html'}">
+            {/foreach}
+            <div class="qui-control-childrenlist__textSearch-wrapper">
+                <input type="search"
+                       name="{$filterState->filterPrefix|escape:'html'}q"
+                       value="{$filterState->query|escape:'html'}"
+                       aria-label="{locale group='quiqqer/sitetypes' value='quiqqer.sitetypes.list.frontend.filter.textSearch.label'}"
+                       placeholder="{locale group='quiqqer/sitetypes' value='quiqqer.sitetypes.list.frontend.filter.textSearch.placeholder'}"
+                       autocomplete="off"
+                       data-name="textSearch"
+                >
+                <span class="fa fa-search icon" aria-hidden="true"></span>
+            </div>
+        </form>
+    {/if}
+
+    {if $tags}
+        <nav class="qui-control-childrenlist__tags"
+             aria-label="{locale group='quiqqer/sitetypes' value='quiqqer.sitetypes.list.settings.filter.tags'}">
+            <a class="btn qui-control-childrenlist__tag{if $filterState->tag === ''} active{/if}"
+               data-name="tag"
+               data-tag=""
+               href="{$filterState->getUrl('', 1)|escape:'html'}"
+               {if $filterState->tag === ''}aria-current="true"{/if}
+            >
+                {locale group="quiqqer/sitetypes" value="quiqqer.sitetypes.list.frontend.filter.tags.btn.all"}
+            </a>
+            {foreach from=$tags item=tag}
+                <a class="btn qui-control-childrenlist__tag{if $tag.tag === $filterState->tag} active{/if}"
+                   data-name="tag"
+                   data-tag="{$tag.tag|escape:'html'}"
+                   href="{$filterState->getUrl($tag.tag, 1)|escape:'html'}"
+                   {if $tag.tag === $filterState->tag}aria-current="true"{/if}
+                >
+                    {$tag.title|escape:'html'}
+                </a>
+            {/foreach}
+        </nav>
+    {/if}
+
+    <p class="qui-control-childrenlist__status text-muted" role="status" data-name="status">{if !$children}{locale group="quiqqer/sitetypes" value="quiqqer.sitetypes.list.frontend.filter.empty"}{/if}</p>
+    <p class="qui-control-childrenlist__status" role="status" data-name="error" hidden>
+        {locale group="quiqqer/sitetypes" value="quiqqer.sitetypes.list.frontend.filter.error"}
+    </p>
+</div>

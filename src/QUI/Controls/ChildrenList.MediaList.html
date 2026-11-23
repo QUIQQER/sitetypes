@@ -19,7 +19,7 @@
         {$filterHtml}
     {/if}
 
-    <div class="qui-control-childrenlist-medialist-items">
+    <div class="qui-control-childrenlist-medialist-items"{if $showFilter} data-name="results"{/if}>
 
         {assign var=counter value=1}
 
@@ -36,7 +36,7 @@
             {* entry image (not a separate link; the whole entry is clickable
                via the stretched title link below) *}
             {if $this->getAttribute('showImages')}
-            <div class="qui-control-childrenlist-medialist-entry-image">
+            <div class="qui-control-childrenlist-medialist-entry-image qui-control-childrenlist__skeleton-part">
                 {image src=$Child->getAttribute('image_site')
                 width="800"
                 type="resize"
@@ -49,7 +49,7 @@
 
                 {* childTags: site id => tag titles, resolved and capped by 'tagsMax' *}
                 {if isset($childTags[$Child->getId()]) && $childTags[$Child->getId()]}
-                <div class="qui-control-childrenlist-medialist-entry-meta">
+                <div class="qui-control-childrenlist-medialist-entry-meta qui-control-childrenlist__skeleton-part">
                     {foreach from=$childTags[$Child->getId()] item=tagTitle}
                     <span class="badge badge-primary badge-sm
                                  qui-control-childrenlist-medialist-entry-tag">
@@ -60,7 +60,7 @@
                 {/if}
 
                 {if $this->getAttribute('showHeader')}
-                <h3 class="qui-control-childrenlist-medialist-entry-title">
+                <h3 class="qui-control-childrenlist-medialist-entry-title qui-control-childrenlist__skeleton-part">
                     {* the single, entry-spanning link (see .entry-title a::after) *}
                     <a href="{url site=$Child}"
                        title="{$Child->getAttribute('title')|escape:'html'}"
@@ -72,7 +72,7 @@
                 {/if}
 
                 {if ($this->getAttribute('showCreator') && $creatorName) || $this->getAttribute('showDate')}
-                <div class="qui-control-childrenlist-medialist-entry-byline">
+                <div class="qui-control-childrenlist-medialist-entry-byline qui-control-childrenlist__skeleton-part">
                     {if $this->getAttribute('showCreator') && $creatorName}
                     <span class="qui-control-childrenlist-medialist-entry-author">
                         {$creatorName}
@@ -102,7 +102,7 @@
                 {/if}
 
                 {if $this->getAttribute('showShort')}
-                <p class="qui-control-childrenlist-medialist-entry-short">
+                <p class="qui-control-childrenlist-medialist-entry-short qui-control-childrenlist__skeleton-part">
                     {$Child->getAttribute('short')|nl2br}
                 </p>
                 {/if}
@@ -110,7 +110,7 @@
                 {* visual affordance only — not a link, since the whole entry
                    is clickable via the stretched title link above *}
                 <span class="btn btn-link {if $this->getAttribute('buttonSize') == 'small'}btn-sm{elseif $this->getAttribute('buttonSize') == 'large'}btn-lg{/if}
-                             qui-control-childrenlist-medialist-entry-more{if $this->getAttribute('buttonWidth') == 'full'} qui-control-childrenlist-medialist-entry-more--full{/if}"
+                             qui-control-childrenlist-medialist-entry-more qui-control-childrenlist__skeleton-part{if $this->getAttribute('buttonWidth') == 'full'} qui-control-childrenlist-medialist-entry-more--full{/if}"
                       aria-hidden="true"
                 >
                     {locale group="quiqqer/sitetypes" value="list.more"}

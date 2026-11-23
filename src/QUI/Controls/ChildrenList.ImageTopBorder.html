@@ -16,6 +16,7 @@
         {$filterHtml}
     {/if}
 
+    {if $showFilter}<div data-name="results">{/if}
     {foreach from=$children item=Child}
     <article
              data-id="{$Child->getId()}"
@@ -27,7 +28,7 @@
 
         <!-- entry image -->
         {if $this->getAttribute('showImages')}
-        <div class="qui-control-childrenlist-imageTopBorder-image">
+        <div class="qui-control-childrenlist-imageTopBorder-image qui-control-childrenlist__skeleton-part">
             <a href="{url site=$Child}" class="qui-control-childrenlist-imageTopBorderentry-header-link">
                 {assign var=noImageClass value=" qui-control-childrenlist-imageTopBorder-entry-short-noImage"}
                 {assign var=noShortClass value=" qui-control-childrenlist-imageTopBorder-entry-image-noShort"}
@@ -49,7 +50,7 @@
         {/if}
 
         <header>
-            <h2>
+            <h2 class="qui-control-childrenlist__skeleton-part">
                 <a href="{url site=$Child}"
                    class="qui-control-childrenlist-imageTopBorder-entry-header-link"
                    title="{$Child->getAttribute('title')|escape:'html'}">
@@ -59,14 +60,14 @@
         </header>
 
         {if $this->getAttribute('showShort')}
-        <div class="qui-control-childrenlist-imageTopBorder-short">
+        <div class="qui-control-childrenlist-imageTopBorder-short qui-control-childrenlist__skeleton-part">
             {$Child->getAttribute('short')}
         </div>
         {/if}
 
         {if $this->getAttribute('showDate') || $this->getAttribute('showDate') ||
         $this->getAttribute('showTime')}
-        <div class="qui-control-childrenlist-imageTopBorder-footer">
+        <div class="qui-control-childrenlist-imageTopBorder-footer qui-control-childrenlist__skeleton-part">
 
             {if $this->getAttribute('showCreator')}
             <div class="qui-control-childrenlist-imageTopBorder-footer-wrapper">
@@ -115,4 +116,9 @@
     </article>
 
     {/foreach}
+    {if $showFilter}</div>{/if}
 </div>
+
+{if $this->getAttribute('showSheets') && $sheets > 1}
+{$Pagination->create()}
+{/if}
