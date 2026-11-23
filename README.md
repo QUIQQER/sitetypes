@@ -17,7 +17,7 @@ Features
 --------
 
 - Standard Search
-- Standard List
+- Standard List ([filtering and pagination](docs/children-list-filtering.md))
 - Standard Sitemap
 - Standard Block Sitemap
 - Imprint

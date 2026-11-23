@@ -30,6 +30,7 @@
     opacity: 0.5;
     font-size: 1.25rem;
     text-align: center;
+    pointer-events: none;
 }
 
 .qui-control-childrenlist__textSearch input {
@@ -70,4 +71,45 @@
     background-color: var(--qui-colors-primary, var(--qui-color-primary));
     color: var(--qui-colors-primary--accent, #fff);
     border-color: var(--qui-colors-primary, var(--qui-color-primary));
+}
+
+.qui-control-childrenlist__status {
+    margin-block: var(--qui-spacing-lg, 1.5rem);
+    text-align: center;
+}
+
+.qui-control-childrenlist__status:empty {
+    margin: 0;
+}
+
+.qui-control-childrenlist__filter :is(a, input):focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* Mask only opted-in parts of the main list. Its controls precede the results. */
+[data-placement="site"] + [aria-busy="true"] .qui-control-childrenlist__skeleton-part {
+    position: relative;
+    visibility: hidden;
+    transition: visibility 0s 150ms;
+}
+
+/* Theme transitions on links and images must not delay the inherited visibility. */
+[data-placement="site"] + [aria-busy="true"] .qui-control-childrenlist__skeleton-part * {
+    transition: none;
+}
+
+[data-placement="site"] + [aria-busy="true"] .qui-control-childrenlist__skeleton-part::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--qui-radius-sm, 0.25rem);
+    background: color-mix(in srgb, currentColor 14%, transparent);
+    pointer-events: none;
+    visibility: hidden;
+    animation: qui-childrenlist-show-skeleton 0s 150ms forwards;
+}
+
+@keyframes qui-childrenlist-show-skeleton {
+    to { visibility: visible; }
 }

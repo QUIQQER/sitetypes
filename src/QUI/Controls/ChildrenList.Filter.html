@@ -20,8 +20,8 @@
                 {locale group="quiqqer/sitetypes" value="quiqqer.sitetypes.list.frontend.filter.tags.btn.all"}
             </button>
             {foreach from=$tags item=tag}
-                <button class="btn qui-control-childrenlist__tag" data-name="{$tag.tag}">
-                    {$tag.title}
+                <button class="btn qui-control-childrenlist__tag" data-name="{$tag.tag|escape:'html'}">
+                    {$tag.title|escape:'html'}
                 </button>
             {/foreach}
         </div>

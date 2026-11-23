@@ -22,50 +22,24 @@ if (
 /**
  * Site list
  */
-$a = $Site->getAttribute('quiqqer.tags.tagList');
-$ChildrenList = new QUI\Controls\ChildrenList([
-    'ownJsonLd' => false,
-    'showTitle' => false,
-    'Site' => $Site,
-    'limit' => $Site->getAttribute('quiqqer.settings.sitetypes.list.max'),
-    'showCreator' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showCreator'),
-    'showDate' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showDate'),
-    'showTime' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showTime'),
-    'showSheets' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showSheets'),
-    'showImages' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showImages'),
-    'showHeader' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showHeader'),
-    'showShort' => $Site->getAttribute('quiqqer.settings.sitetypes.list.showShort'),
-    'showContent' => false,
-    'itemtype' => 'https://schema.org/ItemList',
-    'child-itemtype' => 'https://schema.org/ListItem',
-    'display' => $Site->getAttribute('quiqqer.settings.sitetypes.list.template'),
-    'filter' => $Site->getAttribute('quiqqer.settings.sitetypes.list.filter'),
-    'tags' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tags'),
-    'tagsMax' => $Site->getAttribute('quiqqer.settings.sitetypes.list.tagsMax'),
+$ChildrenList = QUI\SiteTypes\ChildrenListPage::create($Site);
 
-    // card template (display 'cards')
-    'cardLayout' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.layout'),
-    'cardColumns' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columns'),
-    'cardColumnsTablet' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columnsTablet'),
-    'cardColumnsMobile' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.columnsMobile'),
-    'cardImageFit' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.imageFit'),
-    'cardAspectRatio' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.aspectRatio'),
-    'cardGap' => $Site->getAttribute('quiqqer.settings.sitetypes.list.cards.gap'),
+if ($ChildrenList->isFilterEnabled()) {
+    $query = $_GET['list-q'] ?? '';
 
-    // media list template (display 'mediaList')
-    'mediaImagePosition' => $Site->getAttribute('quiqqer.settings.sitetypes.list.media.imagePosition'),
-    'mediaImageWidth' => $Site->getAttribute('quiqqer.settings.sitetypes.list.media.imageWidth'),
-
-    // general, template independent
-    'titleSize' => $Site->getAttribute('quiqqer.settings.sitetypes.list.titleSize'),
-    'buttonSize' => $Site->getAttribute('quiqqer.settings.sitetypes.list.buttonSize'),
-    'buttonWidth' => $Site->getAttribute('quiqqer.settings.sitetypes.list.buttonWidth')
-]);
-
-try {
-    $ChildrenList->checkLimit();
-} catch (QUI\Exception $Exception) {
-    QUI\System\Log::addWarning($Exception->getMessage());
+    if (
+        (is_string($query) && trim($query) !== '')
+        || !empty($_GET['list-tag'])
+        || (int)($_GET['list-site-' . $Site->getId() . '-page'] ?? 1) > 1
+    ) {
+        $Site->setAttribute('meta.robots', 'noindex,follow');
+    }
+} else {
+    try {
+        $ChildrenList->checkLimit();
+    } catch (QUI\Exception $Exception) {
+        QUI\System\Log::addWarning($Exception->getMessage());
+    }
 }
 
 // Prepare the visible list and explicitly register its structured data before the page head.

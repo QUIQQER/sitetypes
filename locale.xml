@@ -719,6 +719,34 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <pl><![CDATA[Wszystkie]]></pl>
         </locale>
 
+        <locale name="quiqqer.sitetypes.list.frontend.filter.textSearch.label">
+            <de><![CDATA[Liste durchsuchen]]></de>
+            <en><![CDATA[Search the list]]></en>
+            <es><![CDATA[Buscar en la lista]]></es>
+            <pt><![CDATA[Pesquisar na lista]]></pt>
+            <fr><![CDATA[Rechercher dans la liste]]></fr>
+            <it><![CDATA[Cerca nell’elenco]]></it>
+            <pl><![CDATA[Przeszukaj listę]]></pl>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.frontend.filter.empty">
+            <de><![CDATA[Keine passenden Einträge gefunden.]]></de>
+            <en><![CDATA[No matching entries found.]]></en>
+            <es><![CDATA[No se encontraron entradas coincidentes.]]></es>
+            <pt><![CDATA[Não foram encontradas entradas correspondentes.]]></pt>
+            <fr><![CDATA[Aucun résultat ne correspond aux filtres.]]></fr>
+            <it><![CDATA[Nessuna voce corrispondente.]]></it>
+            <pl><![CDATA[Nie znaleziono pasujących pozycji.]]></pl>
+        </locale>
+        <locale name="quiqqer.sitetypes.list.frontend.filter.error">
+            <de><![CDATA[Die neuen Ergebnisse konnten nicht geladen werden. Du siehst weiterhin die vorherigen Ergebnisse. Bitte versuche es erneut.]]></de>
+            <en><![CDATA[The new results could not be loaded. The previous results are still displayed. Please try again.]]></en>
+            <es><![CDATA[No se pudieron cargar los nuevos resultados. Se siguen mostrando los resultados anteriores. Inténtalo de nuevo.]]></es>
+            <pt><![CDATA[Não foi possível carregar os novos resultados. Os resultados anteriores continuam visíveis. Tente novamente.]]></pt>
+            <fr><![CDATA[Impossible de charger les nouveaux résultats. Les résultats précédents restent affichés. Veuillez réessayer.]]></fr>
+            <it><![CDATA[Impossibile caricare i nuovi risultati. Sono ancora visibili i risultati precedenti. Riprova.]]></it>
+            <pl><![CDATA[Nie udało się wczytać nowych wyników. Nadal widzisz poprzednie wyniki. Spróbuj ponownie.]]></pl>
+        </locale>
+
         <!-- list template -->
         <locale name="list.template">
             <de><![CDATA[Layout]]></de>
@@ -773,6 +801,15 @@ Haben Sie z.B. Ihre Community auf einer externen Webseite, leiten Sie den Nutzer
             <fr><![CDATA[Galerie]]></fr>
             <it><![CDATA[Galleria]]></it>
             <pl><![CDATA[Galeria]]></pl>
+        </locale>
+        <locale name="list.template.galleryOverlay" context="administration">
+            <de><![CDATA[Galerie - Text auf Bild]]></de>
+            <en><![CDATA[Gallery - text on the image]]></en>
+            <es><![CDATA[Galería - texto sobre la imagen]]></es>
+            <pt><![CDATA[Galeria - texto sobre a imagem]]></pt>
+            <fr><![CDATA[Galerie - texte sur l’image]]></fr>
+            <it><![CDATA[Galleria - testo sull’immagine]]></it>
+            <pl><![CDATA[Galeria - tekst na obrazie]]></pl>
         </locale>
         <locale name="list.template.CSSGridCards">
             <de><![CDATA[Cards (CSS-Grid)]]></de>
