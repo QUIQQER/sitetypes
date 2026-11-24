@@ -145,6 +145,8 @@ class ChildrenList extends QUI\Control
             // Stable placement key and optional overall result cap for embedded lists.
             'filterKey' => '',
             'filterMax' => 0,
+            'isMainList' => false,
+            // The Bricks package supplies the placement of an individual list block.
             'filterPlacement' => '',
             // max tag badges per entry (cards / mediaList); 0 hides them
             'tagsMax' => 3,
@@ -190,6 +192,7 @@ class ChildrenList extends QUI\Control
         $itemsData = [];
         $filterHtml = '';
         $filterState = null;
+        $filterPlacement = '';
         $hasTextFilter = false;
 
         if ($showFilter || $useLegacyFilter) {
@@ -204,7 +207,9 @@ class ChildrenList extends QUI\Control
         }
 
         if ($showFilter) {
-            $filterState = $this->getFilterState($Site, $hasTextFilter, array_column($tags, 'tag'));
+            $placement = $this->getAttribute('isMainList') ? 'site' : $this->getAttribute('filterPlacement');
+            $filterPlacement = ChildrenListRequest::getPlacement($placement, $Site);
+            $filterState = $this->getFilterState($Site, $hasTextFilter, array_column($tags, 'tag'), $filterPlacement);
             $this->setAttribute('data-name', 'filterableList');
             $this->setAttribute('data-list-prefix', $filterState->prefix);
 
@@ -257,9 +262,7 @@ class ChildrenList extends QUI\Control
             'showFilter' => $showFilter || $useLegacyFilter,
             'tags' => $tags,
             'itemsData' => json_encode($itemsData, JSON_UNESCAPED_UNICODE),
-            'filterPlacement' => $showFilter ? ChildrenListRequest::getPlacement(
-                $this->getAttribute('filterPlacement')
-            ) : '',
+            'filterPlacement' => $filterPlacement,
             'filterSiteId' => $Site->getId(),
             'filterState' => $filterState,
             'hasTextFilter' => $hasTextFilter,
@@ -479,12 +482,13 @@ class ChildrenList extends QUI\Control
     private function getFilterState(
         QUI\Interfaces\Projects\Site $Site,
         bool $hasTextFilter,
-        array $tags
+        array $tags,
+        string $placement
     ): ChildrenListFilter {
         $key = (string)$this->getAttribute('filterKey');
         $key = $key === '' ? 'site-' . $Site->getId() : $key;
         $prefix = 'list-' . $key . '-';
-        $isMainList = $this->getAttribute('filterPlacement') === 'site';
+        $isMainList = $placement === 'site';
         $params = $_GET;
         unset($params['_url']);
 

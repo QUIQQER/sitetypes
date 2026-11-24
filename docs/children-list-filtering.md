@@ -60,3 +60,35 @@ stylesheet applies the mask while the main results area is busy. Templates
 can omit this class and keep their existing entries visible while loading.
 A custom list supplied through `displayTemplate` uses the existing client-side
 filter on the entries rendered by that template.
+
+## Integrating a page type
+
+Place the main list definition next to its page controller in the package.
+For example, for `types/articles.php`, create `types/articles.children.php`.
+It receives the loaded `$Site` and returns the configured control:
+
+```php
+<?php
+
+use QUI\Controls\ChildrenList;
+
+return new ChildrenList([
+    'Site' => $Site,
+    'Project' => $Site->getProject(),
+    'isMainList' => true,
+    'filter' => $Site->getAttribute('articles.filter'),
+    'tags' => $Site->getAttribute('articles.tags')
+]);
+```
+
+Load the definition from the page controller:
+
+```php
+$ChildrenList = require __DIR__ . '/articles.children.php';
+```
+
+Keep list settings, data sources and list callbacks in the definition. Keep
+page rendering, template assignments and page-level structured data in the
+controller. AJAX loads only the package definition for the saved page type
+declared in the package's `site.xml`. Pages without a definition keep regular
+links and the GET form. Brick placements resolve independently.

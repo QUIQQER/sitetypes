@@ -222,6 +222,32 @@ class ChildrenListFilterTest extends TestCase
         }
     }
 
+    public function testUnregisteredSitePlacementUsesRegularLinksAndGetForm(): void
+    {
+        $Site = $this->createMock(Site::class);
+        $Site->method('getId')->willReturn(42);
+        $Site->method('getAttribute')->willReturnMap([['type', 'example/unregistered:types/list']]);
+        $Site->method('getChildren')->willReturn([
+            $this->site(1, ['title' => 'First']),
+            $this->site(2, ['title' => 'Second'])
+        ]);
+        $List = $this->createList($this->createMock(Manager::class), [
+            'Site' => $Site,
+            'Project' => $this->createMock(Project::class),
+            'display' => 'mediaList',
+            'filter' => 'input',
+            'isMainList' => true,
+            'limit' => 1,
+            'tagsMax' => 0
+        ]);
+
+        $html = $List->getBody();
+        self::assertStringContainsString('ChildrenListNavigation', $html);
+        self::assertStringNotContainsString('ChildrenListRemoteFilter', $html);
+        self::assertStringContainsString('name="list-site-42-q"', $html);
+        self::assertStringContainsString('href="?list-site-42-page=2"', $html);
+    }
+
     public function testFilteredListRendersStandardPaginationWithIndependentPageUrls(): void
     {
         $children = [];
