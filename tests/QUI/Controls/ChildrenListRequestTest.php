@@ -29,6 +29,7 @@ class ChildrenListRequestTest extends TestCase
         $List = ChildrenListRequest::resolve($Site, 'site');
 
         self::assertNotNull($List);
+        self::assertTrue($List->getAttribute('isMainList'));
         self::assertSame($Project, $List->getAttribute('Project'));
         self::assertSame($Site, $List->getAttribute('Site'));
         self::assertSame('site-42', $List->getAttribute('filterKey'));
@@ -45,12 +46,39 @@ class ChildrenListRequestTest extends TestCase
         $Other = $this->createMock(Site::class);
         $Other->method('getAttribute')->willReturnMap([
             ['active', 1],
-            ['type', 'quiqqer/news:types/news-list']
+            ['type', 'example/unregistered:types/list']
         ]);
         $Other->expects($this->never())->method('load');
 
         self::assertNull(ChildrenListRequest::resolve($Other, 'site'));
         self::assertNull(ChildrenListRequest::resolve($Other, 'brick-invalid/placement'));
+    }
+
+    public function testDefinitionWithDisabledFiltersIsNotResolved(): void
+    {
+        $Site = $this->createMock(Site::class);
+        $Site->method('getProject')->willReturn($this->createMock(Project::class));
+        $Site->method('getAttribute')->willReturnMap([
+            ['active', 1],
+            ['type', ChildrenListPage::TYPE],
+            ['quiqqer.settings.sitetypes.list.filter', 'disabled']
+        ]);
+
+        self::assertSame('site', ChildrenListRequest::getPlacement('site', $Site));
+        self::assertNull(ChildrenListRequest::resolve($Site, 'site'));
+    }
+
+    public function testPageTypeWithoutDefinitionKeepsRegularNavigation(): void
+    {
+        $Site = $this->createMock(Site::class);
+        $Site->method('getAttribute')->willReturnMap([
+            ['active', 1],
+            ['type', 'quiqqer/sitetypes:types/search']
+        ]);
+        $Site->expects($this->never())->method('load');
+
+        self::assertSame('', ChildrenListRequest::getPlacement('site', $Site));
+        self::assertNull(ChildrenListRequest::resolve($Site, 'site'));
     }
 
     public function testMultipleHostsAndHttpsAliasesUseTheirConfiguredLanguage(): void
