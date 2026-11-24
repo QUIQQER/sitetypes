@@ -100,11 +100,12 @@ final class ChildrenListRequest
         }
 
         if ($placement === 'site') {
-            if ($Site->getAttribute('type') !== ChildrenListPage::TYPE) {
+            $definition = ChildrenListPage::getDefinitionFile($Site);
+            if ($definition === null) {
                 return null;
             }
             $Site->load();
-            $Control = ChildrenListPage::create($Site);
+            $Control = require $definition;
         } elseif (preg_match('/^brick-([a-zA-Z0-9-]+)$/D', $placement, $matches)) {
             $resolvePlacement = self::getBrickPlacementResolver(Listing::class);
             if ($resolvePlacement === null) {
@@ -118,10 +119,11 @@ final class ChildrenListRequest
         return $Control instanceof ChildrenList && $Control->isFilterEnabled() ? $Control : null;
     }
 
-    public static function getPlacement(mixed $placement): string
+    public static function getPlacement(mixed $placement, ?Site $Site = null): string
     {
         if ($placement === 'site') {
-            return 'site';
+            $Site ??= QUI::getRewrite()->getSite();
+            return $Site !== null && ChildrenListPage::getDefinitionFile($Site) !== null ? 'site' : '';
         }
 
         if (

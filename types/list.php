@@ -22,7 +22,7 @@ if (
 /**
  * Site list
  */
-$ChildrenList = QUI\SiteTypes\ChildrenListPage::create($Site);
+$ChildrenList = require __DIR__ . '/list.children.php';
 
 if ($ChildrenList->isFilterEnabled()) {
     $query = $_GET['list-q'] ?? '';
