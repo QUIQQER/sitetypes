@@ -322,33 +322,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <it><![CDATA[Contenuto esterno]]></it>
                 <pl><![CDATA[Treść zewnętrzna]]></pl>
             </locale>
-            <locale name="admin.types.externalContent.description">
-                <de><![CDATA[Der Seitentyp ermöglicht es, eine externe Webseite oder ein anderes HTML-Dokument innerhalb einer eigenen Webseite zu laden und anzuzeigen.]]></de>
-                <en><![CDATA[This site type allows you to load and display an external website or another HTML document within your own website.]]></en>
-                <es><![CDATA[Este tipo de página permite cargar y mostrar un sitio web externo u otro documento HTML dentro de tu propio sitio web.]]></es>
-                <pt><![CDATA[Este tipo de página permite carregar e apresentar um site externo ou outro documento HTML dentro do seu próprio site.]]></pt>
-                <fr><![CDATA[Ce type de page permet de charger et d’afficher un site web externe ou un autre document HTML au sein de votre propre site.]]></fr>
-                <it><![CDATA[Questo tipo di pagina permette di caricare e visualizzare un sito web esterno o un altro documento HTML all’interno del tuo sito.]]></it>
-                <pl><![CDATA[Ten typ strony umożliwia wczytanie i wyświetlenie zewnętrznej witryny lub innego dokumentu HTML we własnej witrynie.]]></pl>
-            </locale>
-            <locale name="quiqqer/sitetypes:types/list-content.title">
-                <de><![CDATA[Standard-Inhaltsliste]]></de>
-                <en><![CDATA[Standard content list]]></en>
-                <es><![CDATA[Lista de contenidos estándar]]></es>
-                <pt><![CDATA[Lista de conteúdos padrão]]></pt>
-                <fr><![CDATA[Liste de contenus standard]]></fr>
-                <it><![CDATA[Elenco dei contenuti standard]]></it>
-                <pl><![CDATA[Standardowa lista treści]]></pl>
-            </locale>
-            <locale name="quiqqer/sitetypes:types/list-content.description">
-                <de><![CDATA[Die Standard-Inhaltsliste zeigt alle darunter angelegten Seiten zusammen mit ihrem Inhalt an.]]></de>
-                <en><![CDATA[The standard content list displays all child pages together with their content.]]></en>
-                <es><![CDATA[La lista de contenidos estándar muestra todas las subpáginas junto con su contenido.]]></es>
-                <pt><![CDATA[A lista de conteúdos padrão apresenta todas as subpáginas juntamente com o respetivo conteúdo.]]></pt>
-                <fr><![CDATA[La liste de contenus standard affiche toutes les sous-pages avec leur contenu.]]></fr>
-                <it><![CDATA[L’elenco dei contenuti standard mostra tutte le sottopagine insieme al loro contenuto.]]></it>
-                <pl><![CDATA[Standardowa lista treści wyświetla wszystkie podstrony wraz z ich zawartością.]]></pl>
-            </locale>
             <locale name="sitetypes.externalContent.settings.title">
                 <de><![CDATA[Externer Inhalt]]></de>
                 <en><![CDATA[External content]]></en>
@@ -413,15 +386,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <it><![CDATA[Ricerca standard]]></it>
                 <pl><![CDATA[Standardowe wyszukiwanie]]></pl>
             </locale>
-            <locale name="admin.types.search.desc">
-                <de><![CDATA[Einfache Suche]]></de>
-                <en><![CDATA[Simple search]]></en>
-                <es><![CDATA[Búsqueda sencilla]]></es>
-                <pt><![CDATA[Pesquisa simples]]></pt>
-                <fr><![CDATA[Recherche simple]]></fr>
-                <it><![CDATA[Ricerca semplice]]></it>
-                <pl><![CDATA[Proste wyszukiwanie]]></pl>
-            </locale>
             <locale name="admin.types.list">
                 <de><![CDATA[Standardliste]]></de>
                 <en><![CDATA[Standard list]]></en>
@@ -431,33 +395,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <it><![CDATA[Elenco standard]]></it>
                 <pl><![CDATA[Standardowa lista]]></pl>
             </locale>
-            <locale name="admin.types.list.desc">
-                <de><![CDATA[Liste]]></de>
-                <en><![CDATA[List]]></en>
-                <es><![CDATA[Lista]]></es>
-                <pt><![CDATA[Lista]]></pt>
-                <fr><![CDATA[Liste]]></fr>
-                <it><![CDATA[Elenco]]></it>
-                <pl><![CDATA[Lista]]></pl>
-            </locale>
-            <locale name="admin.types.content.list">
-                <de><![CDATA[Standard-Inhaltsliste]]></de>
-                <en><![CDATA[Standard content list]]></en>
-                <es><![CDATA[Lista de contenidos estándar]]></es>
-                <pt><![CDATA[Lista de conteúdos padrão]]></pt>
-                <fr><![CDATA[Liste de contenus standard]]></fr>
-                <it><![CDATA[Elenco dei contenuti standard]]></it>
-                <pl><![CDATA[Standardowa lista treści]]></pl>
-            </locale>
-            <locale name="admin.types.content.list.desc">
-                <de><![CDATA[Inhaltsliste]]></de>
-                <en><![CDATA[Content list]]></en>
-                <es><![CDATA[Lista de contenidos]]></es>
-                <pt><![CDATA[Lista de conteúdos]]></pt>
-                <fr><![CDATA[Liste de contenus]]></fr>
-                <it><![CDATA[Elenco dei contenuti]]></it>
-                <pl><![CDATA[Lista treści]]></pl>
-            </locale>
             <locale name="admin.types.sitemap">
                 <de><![CDATA[Standard-Sitemap]]></de>
                 <en><![CDATA[Standard sitemap]]></en>
@@ -466,15 +403,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <fr><![CDATA[Plan du site standard]]></fr>
                 <it><![CDATA[Mappa del sito standard]]></it>
                 <pl><![CDATA[Standardowa mapa witryny]]></pl>
-            </locale>
-            <locale name="admin.types.sitemap.desc">
-                <de><![CDATA[Sitemap]]></de>
-                <en><![CDATA[Sitemap]]></en>
-                <es><![CDATA[Mapa del sitio]]></es>
-                <pt><![CDATA[Mapa do site]]></pt>
-                <fr><![CDATA[Plan du site]]></fr>
-                <it><![CDATA[Mappa del sito]]></it>
-                <pl><![CDATA[Mapa witryny]]></pl>
             </locale>
             <locale name="admin.types.sitemap.settings">
                 <de><![CDATA[Sitemap-Einstellungen]]></de>
@@ -511,22 +439,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <fr><![CDATA[Page sans modèle (autonome)]]></fr>
                 <it><![CDATA[Pagina senza modello (autonoma)]]></it>
                 <pl><![CDATA[Strona bez szablonu (samodzielna)]]></pl>
-            </locale>
-            <locale name="admin.types.standalone.description">
-                <de><![CDATA[
-            Dieser Seitentyp wird ohne Template/Layout ausgeliefert. Die Seite enthält weder Header noch Footer noch eine globale
-            Template-Struktur. Die Seite kann vollständig mit eigenem HTML,
-            CSS und JavaScript definiert werden und eignet sich für technische Spezialseiten oder individuelle Landingpages.
-            ]]></de>
-                <en><![CDATA[
-            This page type is delivered without any template or layout. No header, footer, or global template structure will be included.
-            The page can be fully defined using custom HTML, CSS, and JavaScript and is ideal for special landing pages or technical standalone pages.
-            ]]></en>
-                <es><![CDATA[Este tipo de página se muestra sin plantilla ni diseño global. No incluye encabezado, pie de página ni estructura global de la plantilla. La página se puede definir íntegramente con HTML, CSS y JavaScript propios, por lo que resulta adecuada para páginas técnicas especiales o páginas de destino personalizadas.]]></es>
-                <pt><![CDATA[Este tipo de página é apresentado sem modelo nem estrutura global. Não inclui cabeçalho, rodapé ou a estrutura global do modelo. A página pode ser definida integralmente com HTML, CSS e JavaScript próprios, sendo adequada para páginas técnicas especiais ou páginas de destino personalizadas.]]></pt>
-                <fr><![CDATA[Ce type de page est affiché sans modèle ni mise en page globale. Aucun en-tête, pied de page ou élément de structure globale n’est inclus. La page peut être entièrement définie avec du HTML, du CSS et du JavaScript personnalisés, ce qui convient aux pages techniques particulières ou aux pages de destination sur mesure.]]></fr>
-                <it><![CDATA[Questo tipo di pagina viene visualizzato senza modello né layout globale. Non include intestazione, piè di pagina o struttura globale del modello. Puoi definire interamente la pagina con HTML, CSS e JavaScript personalizzati, per creare pagine tecniche specifiche o landing page su misura.]]></it>
-                <pl><![CDATA[Ten typ strony jest wyświetlany bez szablonu i globalnego układu. Nie zawiera nagłówka, stopki ani globalnej struktury szablonu. Stronę można w całości zdefiniować za pomocą własnego kodu HTML, CSS i JavaScript, co sprawdza się przy specjalnych stronach technicznych lub niestandardowych stronach docelowych.]]></pl>
             </locale>
             <locale name="admin.types.standalone.category">
                 <de><![CDATA[Standalone-Inhalt]]></de>
@@ -610,15 +522,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <it><![CDATA[Inserisci un termine di ricerca]]></it>
                 <pl><![CDATA[Wpisz szukane hasło]]></pl>
             </locale>
-            <locale name="tpl.search.list.more">
-                <de><![CDATA[mehr]]></de>
-                <en><![CDATA[more]]></en>
-                <es><![CDATA[más]]></es>
-                <pt><![CDATA[mais]]></pt>
-                <fr><![CDATA[en savoir plus]]></fr>
-                <it><![CDATA[scopri di più]]></it>
-                <pl><![CDATA[więcej]]></pl>
-            </locale>
             <locale name="quiqqer.sitetypes.list.settings.title">
                 <de><![CDATA[Listeneinstellungen: Allgemein]]></de>
                 <en><![CDATA[List settings: General]]></en>
@@ -654,15 +557,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <fr><![CDATA[Afficher les titres des sous-pages]]></fr>
                 <it><![CDATA[Mostra i titoli delle sottopagine]]></it>
                 <pl><![CDATA[Pokaż tytuły podstron]]></pl>
-            </locale>
-            <locale name="quiqqer.sitetypes.list.settings.showImages">
-                <de><![CDATA[Seitenbilder der Kinder anzeigen]]></de>
-                <en><![CDATA[Show the page images of the children]]></en>
-                <es><![CDATA[Mostrar imágenes de las páginas]]></es>
-                <pt><![CDATA[Mostrar imagens das páginas]]></pt>
-                <fr><![CDATA[Afficher les images des pages]]></fr>
-                <it><![CDATA[Mostra le immagini delle pagine]]></it>
-                <pl><![CDATA[Pokaż zdjęcie]]></pl>
             </locale>
             <locale name="quiqqer.sitetypes.list.settings.showSheets">
                 <de><![CDATA[Blätterfunktion anzeigen]]></de>
@@ -1523,15 +1417,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <it><![CDATA[Contatto standard]]></it>
                 <pl><![CDATA[Standardowy kontakt]]></pl>
             </locale>
-            <locale name="admin.types.contact.desc">
-                <de><![CDATA[Standard-Kontaktformular]]></de>
-                <en><![CDATA[Standard contact form]]></en>
-                <es><![CDATA[Formulario de contacto estándar]]></es>
-                <pt><![CDATA[Formulário de contacto padrão]]></pt>
-                <fr><![CDATA[Formulaire de contact standard]]></fr>
-                <it><![CDATA[Modulo di contatto standard]]></it>
-                <pl><![CDATA[Standardowy formularz kontaktowy]]></pl>
-            </locale>
             <locale name="admin.types.forwarding">
                 <de><![CDATA[Standard-Weiterleitung]]></de>
                 <en><![CDATA[Standard Forwarding]]></en>
@@ -1642,25 +1527,7 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <it><![CDATA[Note legali]]></it>
                 <pl><![CDATA[Informacje prawne]]></pl>
             </locale>
-            <locale name="admin.types.legalnotes.desc">
-                <de><![CDATA[Impressum]]></de>
-                <en><![CDATA[Legal notes]]></en>
-                <es><![CDATA[Aviso legal]]></es>
-                <pt><![CDATA[Informações legais]]></pt>
-                <fr><![CDATA[Mentions légales]]></fr>
-                <it><![CDATA[Note legali]]></it>
-                <pl><![CDATA[Informacje prawne]]></pl>
-            </locale>
             <locale name="admin.types.privacypolicy">
-                <de><![CDATA[Datenschutz-Bestimmungen]]></de>
-                <en><![CDATA[Privacy policy]]></en>
-                <es><![CDATA[Política de privacidad]]></es>
-                <pt><![CDATA[Política de privacidade]]></pt>
-                <fr><![CDATA[Politique de confidentialité]]></fr>
-                <it><![CDATA[Informativa sulla privacy]]></it>
-                <pl><![CDATA[Polityka prywatności]]></pl>
-            </locale>
-            <locale name="admin.types.privacypolicy.desc">
                 <de><![CDATA[Datenschutz-Bestimmungen]]></de>
                 <en><![CDATA[Privacy policy]]></en>
                 <es><![CDATA[Política de privacidad]]></es>
@@ -1677,35 +1544,6 @@ Haben Sie z. B. Ihre Community auf einer externen Webseite, leiten Sie den Nutze
                 <fr><![CDATA[Conditions générales]]></fr>
                 <it><![CDATA[Condizioni generali]]></it>
                 <pl><![CDATA[Ogólne warunki umowy]]></pl>
-            </locale>
-            <locale name="admin.types.generalTermsAndConditions.desc">
-                <de><![CDATA[Allgemeine Geschäftsbedingungen]]></de>
-                <en><![CDATA[General terms and conditions]]></en>
-                <es><![CDATA[Condiciones generales]]></es>
-                <pt><![CDATA[Condições gerais]]></pt>
-                <fr><![CDATA[Conditions générales]]></fr>
-                <it><![CDATA[Condizioni generali]]></it>
-                <pl><![CDATA[Ogólne warunki umowy]]></pl>
-            </locale>
-
-            <!-- brick standard list -->
-            <locale name="standard.list.title">
-                <de><![CDATA[Datenschutz-Bestimmungen]]></de>
-                <en><![CDATA[Privacy policy]]></en>
-                <es><![CDATA[Política de privacidad]]></es>
-                <pt><![CDATA[Política de privacidade]]></pt>
-                <fr><![CDATA[Politique de confidentialité]]></fr>
-                <it><![CDATA[Informativa sulla privacy]]></it>
-                <pl><![CDATA[Polityka prywatności]]></pl>
-            </locale>
-            <locale name="standard.list.description">
-                <de><![CDATA[Datenschutz-Bestimmungen]]></de>
-                <en><![CDATA[Privacy policy]]></en>
-                <es><![CDATA[Política de privacidad]]></es>
-                <pt><![CDATA[Política de privacidade]]></pt>
-                <fr><![CDATA[Politique de confidentialité]]></fr>
-                <it><![CDATA[Informativa sulla privacy]]></it>
-                <pl><![CDATA[Polityka prywatności]]></pl>
             </locale>
         </groups>
     </locales>
