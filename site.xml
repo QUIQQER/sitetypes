@@ -27,17 +27,11 @@
         <!-- Impressum -->
         <type type="types/legalnotes" icon="fa fa-legal">
             <locale group="quiqqer/sitetypes" var="admin.types.legalnotes"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.legalnotes.desc"/>
-            </desc>
         </type>
 
         <!-- Standalone -->
         <type type="types/standalone" icon="fa fa-solid fa-file-code" content="0">
             <locale group="quiqqer/sitetypes" var="admin.types.standalone"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.standalone.desc"/>
-            </desc>
 
             <attributes>
                 <attribute default="text/html">quiqqer.settings.sitetypes.standalone.outputType</attribute>
@@ -109,9 +103,6 @@
         <!-- Datenschutzerklärung -->
         <type type="types/privacypolicy" icon="fa fa-legal">
             <locale group="quiqqer/sitetypes" var="admin.types.privacypolicy"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.privacypolicy.desc"/>
-            </desc>
 
             <!-- Datenschutzerklärung attributes -->
             <attributes>
@@ -149,17 +140,11 @@
         <!-- AGB / General terms and conditions -->
         <type type="types/generalTermsAndConditions" icon="fa fa-legal">
             <locale group="quiqqer/sitetypes" var="admin.types.generalTermsAndConditions"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.generalTermsAndConditions.desc"/>
-            </desc>
         </type>
 
         <!-- Suche -->
         <type type="types/search" icon="fa fa-search">
             <locale group="quiqqer/sitetypes" var="admin.types.search"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.search.desc"/>
-            </desc>
 
             <!-- search attributes -->
             <attributes>
@@ -556,9 +541,6 @@
         <!-- Kontakt / Contact -->
         <type type="types/contact" icon="fa fa-envelope-open-o">
             <locale group="quiqqer/sitetypes" var="admin.types.contact"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.contact.desc"/>
-            </desc>
 
             <!-- contact attributes -->
             <attributes>
@@ -619,9 +601,6 @@
         <!-- Weiterleitung / Forwarding -->
         <type type="types/forwarding" icon="fa fa-share-alt">
             <locale group="quiqqer/sitetypes" var="admin.types.forwarding"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.forwarding.desc"/>
-            </desc>
 
             <attributes>
                 <attribute>quiqqer.settings.sitetypes.forwarding</attribute>
@@ -654,9 +633,6 @@
         <!-- externalContent (ifrmae) -->
         <type type="types/externalContent" icon="fa-solid fa-laptop-code">
             <locale group="quiqqer/sitetypes" var="admin.types.externalContent"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.externalContent.desc"/>
-            </desc>
 
             <attributes>
                 <attribute>quiqqer.settings.sitetypes.externalContent.settings</attribute>
@@ -685,9 +661,6 @@
         <!-- Liste -->
         <type type="types/list" icon="fa fa-list">
             <locale group="quiqqer/sitetypes" var="admin.types.list"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.list.desc"/>
-            </desc>
 
             <!-- list attributes -->
             <attributes>
@@ -1152,17 +1125,11 @@
         <!-- Sitemap -->
         <type type="types/sitemap" icon="fa fa-sitemap">
             <locale group="quiqqer/sitetypes" var="admin.types.sitemap"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.sitemap.desc"/>
-            </desc>
         </type>
 
         <!-- Sitemap Block -->
         <type type="types/sitemap-block" icon="fa fa-bars">
             <locale group="quiqqer/sitetypes" var="admin.types.sitemap-block"/>
-            <desc>
-                <locale group="quiqqer/sitetypes" var="admin.types.sitemap-block.desc"/>
-            </desc>
         </type>
 
     </types>
