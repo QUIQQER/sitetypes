@@ -4,7 +4,7 @@
     <locales>
         <groups name="quiqqer/sitetypes" datatype="php,js">
             <locale name="package.title" context="administration">
-                <de><![CDATA[QUIQQER - Allgemeine Standard-Seitentypen]]></de>
+                <de><![CDATA[QUIQQER - Allgemeine Seitentypen]]></de>
                 <en><![CDATA[QUIQQER - Standard page types]]></en>
                 <es><![CDATA[QUIQQER - Tipos de página estándar]]></es>
                 <pt><![CDATA[QUIQQER - Tipos de página padrão]]></pt>
